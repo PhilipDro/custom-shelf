@@ -19,7 +19,7 @@ ContactComponent = __decorate([
         moduleId: module.id,
         selector: 'contact',
         templateUrl: 'contact.component.html',
-        styles: ["\n    address {\n      text-decoration: underline;\n      font-size: 30px;\n    }\n    img {\n      max-height: 400px;\n    }\n    .placeholder {\n      height: 400px;\n      width: 400px;\n      background: grey;\n    }\n  "]
+        styles: ["\n    address {\n      text-decoration: underline;\n      font-size: 30px;\n    }\n    img {\n      max-height: 400px;\n    }\n    .placeholder {\n      height: 400px;\n      width: 401px;\n      background: grey;\n    }\n  "]
     }),
     __metadata("design:paramtypes", [])
 ], ContactComponent);
