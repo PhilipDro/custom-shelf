@@ -14,7 +14,7 @@ import { Component } from '@angular/core';
     }
     .placeholder {
       height: 400px;
-      width: 401px;
+      width: 550px;
       background: grey;
     }
   `]
