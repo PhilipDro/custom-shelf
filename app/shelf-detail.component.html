@@ -1,0 +1,159 @@
+<div *ngIf="shelf">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 image-container">
+      <img class="front-image" [src]="currentImagePath || shelf.imagePath " alt="Regal" />
+      <div class="subnav subnav-images">
+        <ul>
+          <li [class.active]="activeImage === 1" (click)="changeImage(1)"></li>
+          <li *ngIf="shelf.imagePath2" [class.active]="activeImage === 2" (click)="changeImage(2)"></li>
+          <li *ngIf="shelf.imagePath3" [class.active]="activeImage === 3" (click)="changeImage(3)"></li>
+          <li *ngIf="shelf.imagePath4" [class.active]="activeImage === 4" (click)="changeImage(4)"></li>
+          <li *ngIf="shelf.imagePath5" [class.active]="activeImage === 5" (click)="changeImage(5)"></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 config-section">
+      <h3>{{shelf.name}}</h3><span class="price">{{shelf.price}} €</span>
+      <p>{{shelf.description}}</p>
+
+      <div class="subnav">
+        <ul>
+          <li [class.active]="shelf.state === 1" (click)="changeState(1)"></li>
+          <li [class.active]="shelf.state === 2" (click)="changeState(2)"></li>
+          <li [class.active]="shelf.state === 3" (click)="changeState(3)"></li>
+        </ul>
+      </div>
+
+      <div (click)="calcPrice()">
+        <!-- Part 1 -->
+        <div *ngIf="shelf.state === 1">
+          <h2>Eigenschaften</h2>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="configurator">
+                <strong><p>Segmente:</p></strong>
+                <ul class="parts">
+                  <li [class.selected]="shelf.parts === 1" (click)="pickParts(1)"></li>
+                  <li [class.selected]="shelf.parts === 2" (click)="pickParts(2)"></li>
+                  <li [class.selected]="shelf.parts === 3" (click)="pickParts(3)"></li>
+                  <li [class.selected]="shelf.parts === 4" (click)="pickParts(4)"></li>
+                  <li (click)="showAddParts()" class="add"></li>
+                  <input [ngClass]="toggleInputParts" #customParts (keyup)="addParts(customParts.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
+                </ul>
+              </div>
+
+              <div class="configurator">
+                <strong><p>Holz:</p></strong>
+                <ul>
+                  <li [class.selected]="shelf.wood === 'eiche'" (click)="pickWood('eiche')"></li>
+                  <li [class.selected]="shelf.wood === 'kiefer'" (click)="pickWood('kiefer')"></li>
+                  <li [class.selected]="shelf.wood === 'erle'" (click)="pickWood('erle')"></li>
+                  <li [class.selected]="shelf.wood === 'kirsche'" (click)="pickWood('kirsche')"></li>
+                  <li (click)="showAddWood()" class="add"></li>
+                  <input [ngClass]="toggleInputWood" #customWood (keyup)="addWood(customWood.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
+              <div class="configurator">
+                <strong><p>Farbe:</p></strong>
+                <ul>
+                  <li [class.selected]="shelf.color === 'brown'" (click)="pickColor('brown')"></li>
+                  <li [class.selected]="shelf.color === 'white'" (click)="pickColor('white')"></li>
+                  <li [class.selected]="shelf.color === 'dark-brown'" (click)="pickColor('dark-brown')"></li>
+                  <li [class.selected]="shelf.color === 'nature'" (click)="pickColor('nature')"></li>
+                  <li (click)="showAddColor()" class="add"></li>
+                  <input [ngClass]="toggleInputColor" #customColor (keyup)="addColor(customColor.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
+                </ul>
+              </div>
+
+              <div class="configurator">
+                <strong><p>Kapitäle:</p></strong>
+                <ul>
+                  <li [class.selected]="shelf.deco === 'deco a'" (click)="pickDeco('deco a')"></li>
+                  <li [class.selected]="shelf.deco === 'deco b'" (click)="pickDeco('deco b')"></li>
+                  <li (click)="showAddDeco()" class="add"></li>
+                  <input [ngClass]="toggleInputDeco" #customDeco (keyup)="addDeco(customDeco.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-default" (click)="changeState(2)">Weiter</button>
+
+        </div>
+
+        <!-- Part 2 -->
+        <div *ngIf="shelf.state === 2">
+          <size-form [shelf]="shelf"></size-form>
+          <button type="button" class="btn btn-back" (click)="changeState(1)">Zurück</button>
+          <div class="btn-group-right"><button type="button" class="btn btn-default" (click)="changeState(3)">Weiter</button></div>
+        </div>
+      </div>
+
+      <!-- Part 3 -->
+      <div *ngIf="shelf.state === 3">
+        <h2>Fast fertig!</h2>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <p>Hinterlassen Sie Ihre Kontaktinformationen und wir werden in Kürze mit Ihnen in Kontakt treten.</p>
+            <!--form method="post" action="mail.php" (ngSubmit)="onSubmit()"-->
+            <div class="input-group">
+              <span class="input-group-addon" id="mail-input">@</span>
+              <input ngModel type="email" class="form-control" placeholder="E-Mail*" aria-describedby="mail-input" #spy #inputMail="ngModel" required>
+              <span [hidden]="inputMail.valid || inputMail.pristine" class="alert-simple alert-contact">X</span>
+              <span [hidden]="inputMail.invalid" class="tick tick-contact"><i class="fa fa-check" aria-hidden="true"></i></span>
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="phone-input"><i class="fa fa-phone" aria-hidden="true"></i></span>
+              <input type="tel" class="form-control" placeholder="Telefon" aria-describedby="phone-input">
+            </div>
+            <!--/form-->
+          </div>
+
+          <div class="col-xs-12 col-sm-6">
+            <p><strong>{{shelf.name}}</strong></p>
+            <table class="table">
+              <tr>
+                <td>Aufbau:</td>
+                <td>{{shelf.parts}}-teilig</td>
+              </tr>
+              <tr>
+                <td>Holz:</td>
+                <td>{{shelf.wood}}</td>
+              </tr>
+              <tr>
+                <td>Farbe:</td>
+                <td>{{shelf.color}}</td>
+              </tr>
+              <tr>
+                <td>Kapitäle:</td>
+                <td>{{shelf.deco}}</td>
+              </tr>
+              <tr>
+                <td>Breite:</td>
+                <td>{{shelf.width}} cm</td>
+              </tr>
+              <tr>
+                <td>Tiefe:</td>
+                <td>{{shelf.depth}} cm</td>
+              </tr>
+              <tr>
+                <td>Höhe:</td>
+                <td>{{shelf.height}} cm</td>
+              </tr>
+            </table>
+          </div>
+
+
+        </div>
+        <button type="button" class="btn btn-back" (click)="changeState(2)">Zurück</button>
+        <div class="btn-group-right">
+          <button type="button" class="btn btn-secondary">Speichern</button>
+          <button type="button" class="btn btn-default">Senden</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

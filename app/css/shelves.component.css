@@ -1,0 +1,40 @@
+.info-box {
+  padding: 45px 25px;
+  margin: 0 15px 25px 15px;
+}
+.row-division {
+  margin-top: 25px;
+}
+.shelf {
+  position: relative;
+}
+@media(max-width: 768px) {
+  .shelf {margin-bottom: 25px;}
+}
+.shelf:hover {
+  -moz-box-shadow: 10px 10px 5px #888888;
+  -webkit-box-shadow: 10px 10px 5px #888888;
+  box-shadow: 5px 5px 20px #888888;
+}
+h3 {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+}
+
+.shelf-big img{
+  width: 100%;
+  max-height: none;
+}
+
+.jetzt-ansehen {
+  visibility: hidden;
+
+  font-size: 20px;
+  position: absolute;
+  left: 50%;
+  bottom: 15px;
+  transform: translate(-50%, 0);
+  text-align: center;
+}

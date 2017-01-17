@@ -1,0 +1,135 @@
+/** shelf-detail.component.css **/
+.image-container {
+  position: relative;
+  text-align: center;
+}
+.front-image {
+  width: 100%;
+  position: relative;
+  top: 20px;
+}
+.config-section {
+  position: relative;
+}
+h1 {
+  display: inline-block;
+  position: relative;
+  right: 0px;
+}
+.price {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  font-size: 26px;
+  line-height: 26px;
+}
+.configurator {
+  display: inline;
+  list-style-type: none;
+  width: 110px;
+}
+.configurator ul {
+  padding-left: 0;
+}
+.configurator ul li {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  background: brown;
+  padding: 5px;
+  position: relative;
+}
+.configurator ul li.selected {
+  opacity: 0.8;
+  border: 2px solid red;
+}
+.configurator ul li.add {
+  background: grey;
+}
+.configurator ul li.add::after {
+  content: '+';
+  position: absolute;
+  left: 13px;
+  top: -1px;
+  font-size: 40px;
+  color: white;
+}
+.subnav-images {
+  position: absolute;
+  bottom: 20px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.subnav {
+  text-align: center;
+}
+.subnav ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: auto;
+  border-bottom: 1px solid #E6E6E6;
+}
+.subnav ul li {
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  border-radius: 15px;
+  background: grey;
+  margin: 10px;
+}
+.subnav ul li.active {
+  background: brown;
+}
+
+.show-class {
+  visibility: visible;
+}
+.hide-class {
+  visibility: hidden;
+}
+
+.btn-group-right {
+  position: absolute;
+  right: 15px;
+  bottom: 0;
+}
+
+.configurator ul.parts li {
+  background: transparent;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+.configurator ul.parts li.selected {
+  border: none;
+}
+.configurator ul.parts li:first-child {
+  background-image: url('app/images/parts/segment1.png');
+  width: 25px;
+}
+.configurator ul.parts li:nth-child(2) {
+  background-image: url('app/images/parts/segment2.png');
+  width: 33px;
+}
+.configurator ul.parts li:nth-child(3) {
+  background-image: url('app/images/parts/segment3.png');
+  width: 48px;
+}
+.configurator ul.parts li:nth-child(4) {
+  background-image: url('app/images/parts/segment4.png');
+  width: 63px;
+}
+.configurator ul.parts li.selected:nth-child(1) {
+  background-image: url('app/images/parts/segment1-selected.png');
+}
+.configurator ul.parts li.selected:nth-child(2) {
+  background-image: url('app/images/parts/segment2-selected.png');
+}
+.configurator ul.parts li.selected:nth-child(3) {
+  background-image: url('app/images/parts/segment3-selected.png');
+}
+.configurator ul.parts li.selected:nth-child(4) {
+  background-image: url('app/images/parts/segment4-selected.png');
+}
+.configurator ul.parts li.add {
+  background: grey;
+}

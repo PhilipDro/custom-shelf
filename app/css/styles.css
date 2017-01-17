@@ -1,0 +1,66 @@
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  /*font-family: 'Poiret One', cursive;
+  font-family: 'Playfair Display SC', serif;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Josefin Slab', serif;
+  font-family: 'Carrois Gothic SC', serif;
+  font-family: 'Scope One', serif;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Alegreya Sans', sans-serif;*/
+  font-size: 60px;
+  /*border-bottom: 1px solid #e74c3c;*/
+  display: inline-block;
+  margin-top: 60px;
+}
+h3 {
+  font-size: 20px;
+  font-family: 'Nunito', sans-serif;
+  text-transform: uppercase;
+  color: #E0A100;
+}
+h4 {
+  text-transform: uppercase;
+}
+.highlighted, .highlighted > li > a {
+  font-family: 'Nunito', sans-serif;
+  text-transform: uppercase;
+}
+.highlighted-box {
+  background-color: #D6C8A6;
+  color: white;
+}
+body, p, a, li {
+  font-family: 'Nunito', sans-serif;
+}
+.lead {
+  font-size: 18px;
+}
+.btn.btn-default {
+  border-radius: 0;
+  background: #e74c3c;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+}
+.btn.btn-default:hover {
+  opacity: 0.9;
+  background: #e74c3c;
+  color: #fff;
+}
+.btn-back {
+  border-radius: 0;
+  border: none;
+  text-transform: uppercase;
+}
+.btn-secondary {
+  border-radius: 0;
+  border: none;
+  text-transform: uppercase;
+}
+.input-group {
+  margin: 10px 0;
+}
