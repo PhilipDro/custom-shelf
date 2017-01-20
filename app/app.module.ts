@@ -25,7 +25,7 @@ import { routing } from './app.routing';
     FormsModule,
     routing,
     HttpModule,
-    //InMemoryWebApiModule.forRoot(InMemoryDataService)
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   declarations: [
     AppComponent,

@@ -12,6 +12,8 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
+var angular_in_memory_web_api_1 = require("angular-in-memory-web-api");
+var in_memory_data_service_1 = require("./in-memory-data.service");
 var shelf_service_1 = require("./shelf.service");
 var app_component_1 = require("./app.component");
 var shelf_detail_component_1 = require("./shelf-detail.component");
@@ -36,6 +38,7 @@ AppModule = __decorate([
             forms_1.FormsModule,
             app_routing_1.routing,
             http_1.HttpModule,
+            angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService)
         ],
         declarations: [
             app_component_1.AppComponent,
