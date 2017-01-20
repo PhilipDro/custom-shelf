@@ -45,6 +45,7 @@ export class TitleComponent implements OnChanges {
   activated = false
   @Input() isActive: false;
 
+
   ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
     // changes.prop contains the old and the new value...
     //if (changes['isActive']) {alert("penner");}

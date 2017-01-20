@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, ActivatedRoute } from '@angular/router';
+
+import 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+
+import {Observable} from 'rxjs/Observable';
 
 
 @Component({
@@ -40,7 +46,7 @@ import { Component } from '@angular/core';
         </div>
       </div>
 
-      <heading [isActive] = false></heading>
+      <heading></heading>
 
       <router-outlet></router-outlet>
 
@@ -109,5 +115,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  isActive: false;
+  // constructor(route: ActivatedRoute) {
+  //   const url: Observable<string> = route.url.map(segments => segments.join(''));
+  // }
 }
