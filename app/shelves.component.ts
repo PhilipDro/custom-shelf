@@ -44,7 +44,10 @@ import { ShelfService } from './shelf.service';
                 <div class="row row-division">
                   <div class="col-xs-12 col-sm-6">
                     <div class="row">
-                      <div class="info-box highlighted-box"><p class="lead">Bei der Form der Objekte können wir auf alle spezifischen Merkmale der Möbelgeschichte zurückgreifen und sie nach Wunsch auch miteinader vermischen.</p></div>
+                      <div class="info-box">
+                        <p class="lead">Bei der Form der Objekte können wir auf alle spezifischen Merkmale der Möbelgeschichte zurückgreifen und sie nach Wunsch auch miteinader vermischen.</p>
+                        <div class="info-box-image"><div class="color-overlay"></div></div>
+                      </div>
                       <div class="col-xs-12 col-md-6 col-lg-6">
                         <div class="shelf">
                           <img class="img img-responsive" src="app/images/1.jpg"/>

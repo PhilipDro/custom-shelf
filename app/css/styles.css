@@ -15,7 +15,24 @@ h1 {
   /*border-bottom: 1px solid #e74c3c;*/
   display: inline-block;
   margin-top: 60px;
+
+  position: relative;
 }
+
+.strikeout {
+  position: relative;
+}
+.strikeout:after {
+  border-bottom: 10px solid red;
+  content: "";
+  left: 0;
+  margin-top: calc(-15px / 2 * -1);
+  position: absolute;
+  opacity: 0.5;
+  right: 0;
+  top: 50%;
+}
+
 h3 {
   font-size: 20px;
   font-family: 'Nunito', sans-serif;
@@ -63,4 +80,12 @@ body, p, a, li {
 }
 .input-group {
   margin: 10px 0;
+}
+
+.coldor-overlay {
+  -webkit-filter: opacity(50%);
+  filter: opacity(50%);
+  background: #e88e86;
+  position: absolute;
+  top: 0;right: 0; bottom: 0;left: 0;
 }

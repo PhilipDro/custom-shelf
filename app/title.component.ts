@@ -6,14 +6,18 @@ import { ShelvesComponent } from './shelves.component';
   selector: 'heading',
   template: `
     <div [ngClass]="{'test-class': isActive}" class="title">
-      <div class="text highlighted-box">
-        <h1>Regale nach Mass</h1>
+      <article class="text">
+        <h1> <span class="strikeout">Regale</span> nach Mass</h1>
         <p class="lead">
           Stellen Sie sich mit wenigen Klicks Ihr persönliches Regal zusammen.
           Unter Verwendung feinster Materialien fertigen wir für Sie Stücke aus allen Stilen,
           angepasst an Ihren Wohnraum.
         </p>
-      </div>
+        <div class="title-image">
+          <div class="color-overlay"></div>
+        </div>
+      </article>
+
     </div>
 
   `,
@@ -21,7 +25,6 @@ import { ShelvesComponent } from './shelves.component';
     .title {
       padding: 0 0 25px 15px;
       width: 50%;
-      background-size: cover;
       float: right;
       @media(max-width: 800px) {
         width: 100%;
@@ -34,7 +37,21 @@ import { ShelvesComponent } from './shelves.component';
     }
     .text {
       padding: 20px;
+      position: relative;
+      border: 1px solid #C7C7C7;
     }
+    .title-image {
+      position: absolute;
+      top:0;right:0;bottom:0;left:0;
+      background-image: url("app/images/background/header.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: -10;
+      filter: opacity(20%);
+      -webkit-filter: opacity(20%);
+
+    }
+
     .test-class {
       border: 10px solid red;
     }

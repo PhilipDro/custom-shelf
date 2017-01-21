@@ -26,6 +26,9 @@ import { Component } from '@angular/core';
           </ul>
         </div>
       </div>
+      <div class="footer-background-image">
+        <div class="color-overlay"></div>
+      </div>
       <p>© Copyright {{currentDate | date: 'yyyy'}}</p>
     </footer>
   `,
@@ -37,7 +40,7 @@ import { Component } from '@angular/core';
       clear: both;
       position: relative;
       top: 20px;
-      background: #D8D8D8;
+      border: 1px solid #C7C7C7;
     }
     footer ul {
       list-style-type: none;
@@ -45,6 +48,16 @@ import { Component } from '@angular/core';
     }
     footer ul li a {
       color: black;
+    }
+    .footer-background-image {
+      position: absolute;
+      top:0;right:0;bottom:0;left:0;
+      background-image: url("app/images/background/footer.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -10;
+      filter: opacity(60%);
     }
   `]
 })
