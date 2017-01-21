@@ -5,10 +5,10 @@ import { ShelvesComponent } from './shelves.component';
 @Component({
   selector: 'heading',
   template: `
-    <div [ngClass]="{'test-class': isActive}" class="title">
+    <div class="title">
       <article class="text">
-        <h1> <span class="strikeout">Regale</span> nach Mass</h1>
-        <p class="lead">
+        <h1 [ngClass]="{'title-on-home': title == 'Home'}">  <span class="strikeout">Regale</span> nach Mass</h1>
+        <p *ngIf="title == 'Home'" class="lead">
           Stellen Sie sich mit wenigen Klicks Ihr persönliches Regal zusammen.
           Unter Verwendung feinster Materialien fertigen wir für Sie Stücke aus allen Stilen,
           angepasst an Ihren Wohnraum.
@@ -52,15 +52,20 @@ import { ShelvesComponent } from './shelves.component';
 
     }
 
-    .test-class {
-      border: 10px solid red;
+    .title-on-home {
+      margin-top: 60px;
     }
   `],
 })
 
 export class TitleComponent implements OnChanges {
-  activated = false
-  @Input() isActive: false;
+  @Input() title: string;
+
+  constructor() {
+    //alert(this.title);
+
+  }
+
 
 
   ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {

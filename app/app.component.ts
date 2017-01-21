@@ -1,35 +1,17 @@
-import { Component } from '@angular/core';
-import { RouterModule, Routes, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterModule, Routes, Router, ActivatedRouteSnapshot, NavigationEnd, ActivatedRoute, Params, UrlSegment } from '@angular/router';
 
-import 'rxjs/Rx';
-import 'rxjs/add/operator/map';
+
+import 'rxjs/add/operator/switchMap';
 
 import {Observable} from 'rxjs/Observable';
+
+import { ShelfService } from './shelf.service';
 
 
 @Component({
   selector: 'app',
   template: `
-    <!--nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
-            <span class="sr-only">Navigation ausklappen</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">{{title}}</a>
-        </div>
-        <div class="collapse navbar-collapse" id="main-navbar">
-          <ul class="nav navbar-nav">
-            <li><a routerLink="/regale">Regale</a></li>
-            <li><a routerLink="/versand">Versand</a></li>
-            <li><a routerLink="/kontakt">Kontakt</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav*ngIf="!router.urlTree.contains(router.createUrlTree(['/login']))"-->
     <div class="container">
       <div class="row nav-container">
         <div class="col-xs-12">
@@ -37,16 +19,15 @@ import {Observable} from 'rxjs/Observable';
             <div class="container-fluid no-padding">
               <ul class="nav navbar-nav highlighted">
                 <!--li><img class="logo" src="app/images/logo.png" alt="logo" /></li-->
-                <li><a routerLink="/regale">Home</a></li>
-                <li><a routerLink="/versand">Versand</a></li>
-                <li><a routerLink="/kontakt">Kontakt</a></li>
+                <li><a routerLink="/regale" [routerLinkActive]="'nav-active'">Home</a></li>
+                <li><a routerLink="/versand" [routerLinkActive]="'nav-active'">Versand</a></li>
+                <li><a routerLink="/kontakt" [routerLinkActive]="'nav-active'">Kontakt</a></li>
               </ul>
             </div>
           </nav>
         </div>
       </div>
-
-      <heading></heading>
+      <heading [title]="title"></heading>
 
       <router-outlet></router-outlet>
 
@@ -107,6 +88,10 @@ import {Observable} from 'rxjs/Observable';
       .navbar-nav li {
         display: inline-block;
       }
+      .navbar-nav li a.nav-active {
+        color: #E0A100;
+        text-decoration: underline;
+      }
       .logo {
         max-height: 60px;
       }
@@ -114,8 +99,28 @@ import {Observable} from 'rxjs/Observable';
   ]
 })
 
-export class AppComponent {
-  // constructor(route: ActivatedRoute) {
-  //   const url: Observable<string> = route.url.map(segments => segments.join(''));
-  // }
+export class AppComponent implements OnInit {
+
+  constructor (private router: Router) {
+  }
+  title: string;
+
+  private getDeepestTitle(routeSnapshot: ActivatedRouteSnapshot) {
+    var title = routeSnapshot.data ? routeSnapshot.data['title'] : '';
+    if (routeSnapshot.firstChild) {
+      title = this.getDeepestTitle(routeSnapshot.firstChild) || title;
+    }
+    return title;
+  }
+  ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.title = this.getDeepestTitle(this.router.routerState.snapshot.root);
+      }
+    });
+  }
+
+
+
+
 }
