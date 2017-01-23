@@ -7,7 +7,7 @@ import { ShelvesComponent } from './shelves.component';
   template: `
     <div class="title">
       <article class="text">
-        <h1 [ngClass]="{'title-on-home': title == 'Home'}">  <span class="strikeout">Regale</span> nach Mass</h1>
+        <h1 [ngClass]="{'title-on-home': title == 'Home'}">  <span class="strikeoutd">Regale</span> nach Mass</h1>
         <p *ngIf="title == 'Home'" class="lead">
           Stellen Sie sich mit wenigen Klicks Ihr persönliches Regal zusammen.
           Unter Verwendung feinster Materialien fertigen wir für Sie Stücke aus allen Stilen,
@@ -47,13 +47,13 @@ import { ShelvesComponent } from './shelves.component';
       background-size: cover;
       background-repeat: no-repeat;
       z-index: -10;
-      filter: opacity(20%);
-      -webkit-filter: opacity(20%);
+      filter: opacity(100%);
+      -webkit-filter: opacity(60%);
 
     }
 
     .title-on-home {
-      margin-top: 60px;
+      margin-top: 71px;
     }
   `],
 })

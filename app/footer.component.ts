@@ -29,8 +29,8 @@ import { Component } from '@angular/core';
       <div class="footer-background-image">
         <div class="color-overlay"></div>
       </div>
-      <p>© Copyright {{currentDate | date: 'yyyy'}}</p>
     </footer>
+    <p>© Copyright {{currentDate | date: 'yyyy'}}</p>
   `,
   styles: [`
     footer {
@@ -48,6 +48,8 @@ import { Component } from '@angular/core';
     }
     footer ul li a {
       color: black;
+      font-size: 16px;
+      cursor: pointer;
     }
     .footer-background-image {
       position: absolute;

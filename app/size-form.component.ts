@@ -7,7 +7,7 @@ import { Shelf } from './shelf';
   selector: 'size-form',
   template: `
       <form class="set-measurments">
-        <h2>Abmessungen</h2>
+        <h2>Meine Abmessungen</h2>
 
         <table class="table">
           <tr>

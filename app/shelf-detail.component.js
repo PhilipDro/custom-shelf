@@ -45,6 +45,7 @@ var ShelfDetailComponent = (function () {
     ShelfDetailComponent.prototype.pickDeco = function (deco) {
         this.shelf.deco = deco;
     };
+    //pick Kranzleiste
     //TODO pickLeisten
     //subnavigate
     ShelfDetailComponent.prototype.changeImage = function (image) {

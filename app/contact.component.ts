@@ -10,12 +10,15 @@ import { Component } from '@angular/core';
       font-size: 30px;
     }
     img {
-      max-height: 400px;
+      max-height: 600px;
     }
     .placeholder {
       height: 400px;
       width: 400px;
       background: grey;
+    }
+    .contact-image {
+      margin-top: 150px;
     }
   `]
 })

@@ -15,10 +15,16 @@ h1 {
   /*border-bottom: 1px solid #e74c3c;*/
   display: inline-block;
   margin-top: 0;
-
   position: relative;
 }
 
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: inner-spin-button !important;
+    visibility: visible;
+    opacity: 1;
+
+}
 .strikeout {
   position: relative;
 }
@@ -82,10 +88,10 @@ body, p, a, li {
   margin: 10px 0;
 }
 
-.coldor-overlay {
+.color-overlay {
   -webkit-filter: opacity(50%);
-  filter: opacity(50%);
-  background: #e88e86;
+  filter: opacity(85%);
+  background: #E0A100;
   position: absolute;
   top: 0;right: 0; bottom: 0;left: 0;
 }

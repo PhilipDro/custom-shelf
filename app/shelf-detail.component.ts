@@ -61,6 +61,7 @@ export class ShelfDetailComponent {
   pickDeco(deco: string): void {
     this.shelf.deco = deco;
   }
+  //pick Kranzleiste
   //TODO pickLeisten
 
   //subnavigate
