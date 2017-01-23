@@ -1,31 +1,3 @@
-// import { Injectable } from '@angular/core';
-// import { Headers, Http } from '@angular/http';
-//
-// import { Shelf } from './shelf';
-// import { SHELVES } from './mock-shelves';
-//
-// let shelvesPromise = Promise.resolve(SHELVES);
-//
-// @Injectable()
-// export class ShelfService {
-//
-//
-//   getShelves(): Promise<Shelf[]> {
-//     return Promise.resolve(SHELVES);
-//   }
-//
-//   getShelf(id: number | string) {
-//     return shelvesPromise
-//       .then(shelves => shelves.find(shelf => shelf.id === +id));
-//   }
-//   // getShelf(id: number): Promise<Shelf> {
-//   // const url = `${this.shelvesUrl}/${id}`;
-//   // return this.http.get(url)
-//   //   .toPromise()
-//   //   .then(response => response.json().data as Shelf)
-//   //   .catch(this.handleError);
-//   // }
-// }
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -47,7 +19,6 @@ var ShelfService = (function () {
         this.shelvesUrl = 'api/shelves';
     }
     ShelfService.prototype.getShelves = function () {
-        //return Promise.resolve(SHELVES);
         return this.http.get(this.shelvesUrl)
             .toPromise()
             .then(function (response) { return response.json().data; })
