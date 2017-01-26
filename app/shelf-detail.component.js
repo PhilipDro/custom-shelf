@@ -39,14 +39,18 @@ var ShelfDetailComponent = (function () {
     ShelfDetailComponent.prototype.pickWood = function (wood) {
         this.shelf.wood = wood;
     };
+    ShelfDetailComponent.prototype.pickStain = function (stain) {
+        this.shelf.stain = stain;
+    };
     ShelfDetailComponent.prototype.pickColor = function (color) {
         this.shelf.color = color;
     };
     ShelfDetailComponent.prototype.pickDeco = function (deco) {
         this.shelf.deco = deco;
     };
-    //pick Kranzleiste
-    //TODO pickLeisten
+    ShelfDetailComponent.prototype.pickLedge = function (ledge) {
+        this.shelf.ledge = ledge;
+    };
     //subnavigate
     ShelfDetailComponent.prototype.changeImage = function (image) {
         this.activeImage = image;
@@ -64,11 +68,19 @@ var ShelfDetailComponent = (function () {
         this.visible = !this.visible;
         this.toggleInputWood = this.visible ? 'show-class' : 'hide-class';
     };
+    ShelfDetailComponent.prototype.showAddStain = function () {
+        this.visible = !this.visible;
+        this.toggleInputWood = this.visible ? 'show-class' : 'hide-class';
+    };
     ShelfDetailComponent.prototype.showAddColor = function () {
         this.visible = !this.visible;
         this.toggleInputColor = this.visible ? 'show-class' : 'hide-class';
     };
     ShelfDetailComponent.prototype.showAddDeco = function () {
+        this.visible = !this.visible;
+        this.toggleInputDeco = this.visible ? 'show-class' : 'hide-class';
+    };
+    ShelfDetailComponent.prototype.showAddLedge = function () {
         this.visible = !this.visible;
         this.toggleInputDeco = this.visible ? 'show-class' : 'hide-class';
     };
@@ -81,12 +93,20 @@ var ShelfDetailComponent = (function () {
         this.shelf.wood = choice;
         this.calcPrice();
     };
+    ShelfDetailComponent.prototype.addStain = function (choice) {
+        this.shelf.stain = choice;
+        this.calcPrice();
+    };
     ShelfDetailComponent.prototype.addColor = function (choice) {
         this.shelf.color = choice;
         this.calcPrice();
     };
     ShelfDetailComponent.prototype.addDeco = function (choice) {
         this.shelf.deco = choice;
+        this.calcPrice();
+    };
+    ShelfDetailComponent.prototype.addLedge = function (choice) {
+        this.shelf.ledge = choice;
         this.calcPrice();
     };
     //calculate price

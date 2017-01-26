@@ -42,39 +42,69 @@
                 </ul>
               </div>
 
-              <div class="configurator">
-                <strong><p>Holz:</p></strong>
-                <ul>
-                  <li [class.selected]="shelf.wood === 'eiche'" (click)="pickWood('eiche')"></li>
-                  <li [class.selected]="shelf.wood === 'kiefer'" (click)="pickWood('kiefer')"></li>
-                  <li [class.selected]="shelf.wood === 'erle'" (click)="pickWood('erle')"></li>
-                  <li [class.selected]="shelf.wood === 'kirsche'" (click)="pickWood('kirsche')"></li>
-                  <li (click)="showAddWood()" class="add"></li>
-                  <input [ngClass]="toggleInputWood" #customWood (keyup)="addWood(customWood.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-6">
-              <div class="configurator">
+              <!-- pick color -->
+              <div *ngIf="shelf.wood !== 'erle'" class="configurator">
                 <strong><p>Farbe:</p></strong>
                 <ul>
-                  <li [class.selected]="shelf.color === 'brown'" (click)="pickColor('brown')"></li>
-                  <li [class.selected]="shelf.color === 'white'" (click)="pickColor('white')"></li>
-                  <li [class.selected]="shelf.color === 'dark-brown'" (click)="pickColor('dark-brown')"></li>
-                  <li [class.selected]="shelf.color === 'nature'" (click)="pickColor('nature')"></li>
+                  <li class="white" [class.selected]="shelf.color === 'signalweiss'" (click)="pickColor('signalweiss')"></li>
+                  <li class="kastanienbraun" [class.selected]="shelf.color === 'kastanienbraun'" (click)="pickColor('kastanienbraun')"></li>
+                  <li class="grasgruen" [class.selected]="shelf.color === 'grasgruen'" (click)="pickColor('grasgruen')"></li><br class="hidden-xs"/>
+                  <li class="mahagonybraun" [class.selected]="shelf.color === 'mahagonybraun'" (click)="pickColor('mahagonybraun')"></li>
+                  <li class="signalgelb" [class.selected]="shelf.color === 'signalgelb'" (click)="pickColor('signalgelb')"></li>
                   <li (click)="showAddColor()" class="add"></li>
                   <input [ngClass]="toggleInputColor" #customColor (keyup)="addColor(customColor.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
                 </ul>
               </div>
 
+              <!-- pick stain/beize if holz == erle -->
+              <div *ngIf="shelf.wood == 'erle'" class="configurator">
+                <strong><p>Gebeizt auf:</p></strong>
+                <ul>
+                  <li [class.selected]="shelf.stain === 'natur'" (click)="pickStain('natur')"></li>
+                  <li [class.selected]="shelf.stain === 'kiefer'" (click)="pickStain('kiefer')"></li>
+                  <li [class.selected]="shelf.stain === 'nussbaum'" (click)="pickStain('nussbaum')"></li><br class="hidden-xs"/>
+                  <li [class.selected]="shelf.stain === 'eiche'" (click)="pickStain('eiche')"></li>
+                  <li [class.selected]="shelf.stain === 'kirsche'" (click)="pickStain('kirsche')"></li>
+                  <li (click)="showAddStain()" class="add"></li>
+                  <input [ngClass]="toggleInputColor" #customStain (keyup)="addStain(customStain.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
+                </ul>
+              </div>
+
+
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
               <div class="configurator">
-                <strong><p>Kapitäle:</p></strong>
+                <strong><p>Holz:</p></strong>
+                <ul>
+                  <li [class.selected]="shelf.wood === 'erle'" (click)="pickWood('erle')"></li>
+                  <li [class.selected]="shelf.wood === 'kiefer'" (click)="pickWood('kiefer')"></li>
+                  <li [class.selected]="shelf.wood === 'nussbaum'" (click)="pickWood('nussbaum')"></li><br class="hidden-xs"/>
+                  <li [class.selected]="shelf.wood === 'eiche'" (click)="pickWood('eiche')"></li>
+                  <li [class.selected]="shelf.wood === 'kirsche'" (click)="pickWood('kirsche')"></li>
+                  <li (click)="showAddWood()" class="add"></li>
+                  <input [ngClass]="toggleInputWood" #customWood (keyup)="addWood(customWood.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
+                </ul>
+              </div>
+
+              <!-- ledge -->
+              <div class="configurator">
+                <strong><p>Vorderleisten:</p></strong>
                 <ul>
                   <li [class.selected]="shelf.deco === 'deco a'" (click)="pickDeco('deco a')"></li>
                   <li [class.selected]="shelf.deco === 'deco b'" (click)="pickDeco('deco b')"></li>
                   <li (click)="showAddDeco()" class="add"></li>
                   <input [ngClass]="toggleInputDeco" #customDeco (keyup)="addDeco(customDeco.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
+                </ul>
+              </div>
+
+              <div class="configurator">
+                <strong><p>Kranzleisten:</p></strong>
+                <ul>
+                  <li [class.selected]="shelf.ledge === 'ledge a'" (click)="pickLedge('ledge a')"></li>
+                  <li [class.selected]="shelf.ledge === 'ledge b'" (click)="pickLedge('ledge b')"></li>
+                  <li (click)="showAddLedge()" class="add"></li>
+                  <input [ngClass]="toggleInputDeco" #customLedge (keyup)="addLedge(customLedge.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
                 </ul>
               </div>
             </div>
@@ -112,6 +142,7 @@
             <!--/form-->
           </div>
 
+          <!-- Endtabelle -->
           <div class="col-xs-12 col-sm-6">
             <p><strong>{{shelf.name}}</strong></p>
             <table class="table">
@@ -123,13 +154,21 @@
                 <td>Holz:</td>
                 <td>{{shelf.wood}}</td>
               </tr>
-              <tr>
+              <tr *ngIf="shelf.wood !== 'erle'">
                 <td>Farbe:</td>
                 <td>{{shelf.color}}</td>
+              </tr>
+              <tr *ngIf="shelf.wood == 'erle'">
+                <td>Gebeizt auf:</td>
+                <td>{{shelf.stain}}</td>
               </tr>
               <tr>
                 <td>Kapitäle:</td>
                 <td>{{shelf.deco}}</td>
+              </tr>
+              <tr>
+                <td>Kranzleisten:</td>
+                <td>{{shelf.ledge}}</td>
               </tr>
               <tr>
                 <td>Breite:</td>

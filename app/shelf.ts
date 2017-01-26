@@ -13,8 +13,10 @@ export class Shelf {
   depth: number = 50;
   height: number = 200;
   wood: string;
+  stain: string = 'nature';
   color: string;
   deco: string;
+  ledge: string;
   priceBefore: number;
   price: number;
 }

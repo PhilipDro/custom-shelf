@@ -6,6 +6,7 @@ var Shelf = (function () {
         this.width = 100;
         this.depth = 50;
         this.height = 200;
+        this.stain = 'nature';
     }
     return Shelf;
 }());

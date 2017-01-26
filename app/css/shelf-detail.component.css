@@ -41,7 +41,7 @@ h1 {
 }
 .configurator ul li.selected {
   opacity: 0.8;
-  border: 2px solid red;
+  border: 2px solid black;
 }
 .configurator ul li.add {
   background: grey;
@@ -53,6 +53,26 @@ h1 {
   top: -1px;
   font-size: 40px;
   color: white;
+}
+.configurator ul li.white {
+  /*RAL 9003 Signalweiß*/
+  background-color: #f8f9fb;
+}
+.configurator ul li.kastanienbraun {
+  /*RAL 8015 Kastanienbraun*/
+  background-color: #5a2e2a;
+}
+.configurator ul li.mahagonybraun {
+  /*RAL 8016 Mahagonibraun*/
+  background-color: #4f3128;
+}
+.configurator ul li.grasgruen {
+  /*RAL 6010 Grasgrün*/
+  background-color: #426e38;
+}
+.configurator ul li.signalgelb {
+  /*RAL 1003 Signalgelb*/
+  background-color: #f7ba0b;
 }
 .subnav-images {
   position: absolute;

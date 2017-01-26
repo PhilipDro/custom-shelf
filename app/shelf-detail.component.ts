@@ -55,14 +55,18 @@ export class ShelfDetailComponent {
   pickWood(wood: string): void {
     this.shelf.wood = wood;
   }
+  pickStain(stain: string): void {
+    this.shelf.stain = stain;
+  }
   pickColor(color: string): void {
     this.shelf.color = color;
   }
   pickDeco(deco: string): void {
     this.shelf.deco = deco;
   }
-  //pick Kranzleiste
-  //TODO pickLeisten
+  pickLedge(ledge: string): void {
+    this.shelf.ledge = ledge;
+  }
 
   //subnavigate
   changeImage(image: number) {
@@ -82,11 +86,19 @@ export class ShelfDetailComponent {
     this.visible = !this.visible;
     this.toggleInputWood = this.visible ? 'show-class' : 'hide-class';
   }
+  showAddStain() {
+    this.visible = !this.visible;
+    this.toggleInputWood = this.visible ? 'show-class' : 'hide-class';
+  }
   showAddColor() {
     this.visible = !this.visible;
     this.toggleInputColor = this.visible ? 'show-class' : 'hide-class';
   }
   showAddDeco() {
+    this.visible = !this.visible;
+    this.toggleInputDeco = this.visible ? 'show-class' : 'hide-class';
+  }
+  showAddLedge() {
     this.visible = !this.visible;
     this.toggleInputDeco = this.visible ? 'show-class' : 'hide-class';
   }
@@ -100,12 +112,20 @@ export class ShelfDetailComponent {
     this.shelf.wood = choice;
     this.calcPrice();
   }
+  addStain(choice: string): void {
+    this.shelf.stain = choice;
+    this.calcPrice();
+  }
   addColor(choice: string): void {
     this.shelf.color = choice;
     this.calcPrice();
   }
   addDeco(choice: string): void {
     this.shelf.deco = choice;
+    this.calcPrice();
+  }
+  addLedge(choice: string): void {
+    this.shelf.ledge = choice;
     this.calcPrice();
   }
 
