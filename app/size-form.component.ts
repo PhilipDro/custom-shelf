@@ -44,6 +44,6 @@ export class SizeFormComponent {
   @Input()
   shelf: Shelf;
   validateSize(size: number) {
-
+    //TODO
   }
 }

@@ -18,14 +18,7 @@ h1 {
   position: relative;
 }
 
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: inner-spin-button !important;
-    visibility: visible;
-    opacity: 1;
-
-}
-.strikeout {
+/*.strikeout {
   position: relative;
 }
 .strikeout:after {
@@ -37,7 +30,7 @@ input[type=number]::-webkit-inner-spin-button {
   opacity: 0.5;
   right: 0;
   top: 50%;
-}
+}*/
 
 h3 {
   font-size: 20px;
@@ -61,6 +54,17 @@ body, p, a, li {
 }
 .lead {
   font-size: 18px;
+}
+.inactive {
+  opacity: 0.5;
+}
+input.form-control, textarea.input-lg {
+  border-radius: 0;
+}
+.btn-group-right {
+  position: absolute;
+  right: 15px;
+  bottom: 0;
 }
 .btn.btn-default {
   border-radius: 0;
@@ -87,11 +91,17 @@ body, p, a, li {
 .input-group {
   margin: 10px 0;
 }
-
 .color-overlay {
   -webkit-filter: opacity(50%);
   filter: opacity(85%);
   background: #E0A100;
   position: absolute;
   top: 0;right: 0; bottom: 0;left: 0;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: inner-spin-button !important;
+    visibility: visible;
+    opacity: 1;
 }

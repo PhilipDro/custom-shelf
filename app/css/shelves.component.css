@@ -20,6 +20,7 @@
 }
 .shelf {
   position: relative;
+  cursor: pointer;
 }
 @media(max-width: 768px) {
   .shelf {margin-bottom: 25px;}

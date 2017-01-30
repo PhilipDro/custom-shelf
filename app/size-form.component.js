@@ -14,6 +14,7 @@ var SizeFormComponent = (function () {
     function SizeFormComponent() {
     }
     SizeFormComponent.prototype.validateSize = function (size) {
+        //TODO
     };
     return SizeFormComponent;
 }());

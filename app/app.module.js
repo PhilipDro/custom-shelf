@@ -25,6 +25,7 @@ var title_component_1 = require("./title.component");
 var footer_component_1 = require("./footer.component");
 var imprint_component_1 = require("./imprint.component");
 var privacy_info_component_1 = require("./privacy-info.component");
+var mail_component_1 = require("./mail.component");
 var app_routing_1 = require("./app.routing");
 var AppModule = (function () {
     function AppModule() {
@@ -50,7 +51,8 @@ AppModule = __decorate([
             title_component_1.TitleComponent,
             footer_component_1.FooterComponent,
             imprint_component_1.ImprintComponent,
-            privacy_info_component_1.PrivacyInformationComponent
+            privacy_info_component_1.PrivacyInformationComponent,
+            mail_component_1.MailComponent
         ],
         providers: [shelf_service_1.ShelfService],
         bootstrap: [app_component_1.AppComponent]
