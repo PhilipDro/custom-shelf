@@ -107,13 +107,6 @@ h1 {
 .hide-class {
   visibility: hidden;
 }
-
-.btn-group-right {
-  position: absolute;
-  right: 15px;
-  bottom: 0;
-}
-
 .configurator ul.parts li {
   background: transparent;
   background-repeat: no-repeat;

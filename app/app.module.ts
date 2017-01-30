@@ -17,6 +17,8 @@ import { TitleComponent } from './title.component';
 import { FooterComponent } from './footer.component';
 import { ImprintComponent } from './imprint.component';
 import { PrivacyInformationComponent } from './privacy-info.component';
+import { MailComponent } from './mail.component';
+
 import { routing } from './app.routing';
 
 @NgModule({
@@ -37,7 +39,8 @@ import { routing } from './app.routing';
     TitleComponent,
     FooterComponent,
     ImprintComponent,
-    PrivacyInformationComponent
+    PrivacyInformationComponent,
+    MailComponent
   ],
   providers: [ ShelfService ],
   bootstrap:    [ AppComponent ]
