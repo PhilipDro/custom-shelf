@@ -42,7 +42,7 @@ MailComponent = __decorate([
         moduleId: module.id,
         selector: 'mail',
         templateUrl: 'mail.component.html',
-        styles: ["\n    textarea {\n      width:100%;\n      font-size: 14px;\n      border-color: rgb(204, 204, 204);\n    }\n\n  "],
+        styles: ["\n    textarea {\n      width:100%;\n      font-size: 14px;\n      border-color: rgb(204, 204, 204);\n    }\n    table tr > td::first-letter {\n      text-transform: uppercase;\n    }\n\n  "],
         providers: [http_1.HttpModule, mail_service_1.MailService]
     }),
     __metadata("design:paramtypes", [mail_service_1.MailService])

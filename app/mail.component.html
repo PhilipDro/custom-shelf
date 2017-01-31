@@ -3,22 +3,27 @@
   <div class="col-xs-12 col-sm-6">
     <p>Hinterlassen Sie Ihre Kontaktinformationen und wir werden in Kürze mit Ihnen in Kontakt treten.</p>
 
-    <form method="POST" action="mail.php" (ngSubmit)="onSubmit()" #tkdForm="ngForm">
-    <div class="input-group">
-      <span class="input-group-addon" id="mail-input">@</span>
-      <input [(ngModel)]="message.mail" name="mail" #tkdForm.mail="ngModel"
-        type="email" class="form-control" placeholder="E-Mail*"
-        aria-describedby="mail-input" #spy #inputMail="ngModel" required>
-      <span [hidden]="inputMail.valid || inputMail.pristine" class="alert-simple alert-contact">X</span>
-      <span [hidden]="inputMail.invalid" class="tick tick-contact"><i class="fa fa-check" aria-hidden="true"></i></span>
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon" id="phone-input"><i class="fa fa-phone" aria-hidden="true"></i></span>
-      <input [(ngModel)]="message.phone" name="phone" #tkdForm.phone="ngModel"  type="tel"
-        class="form-control" placeholder="Telefon" aria-describedby="phone-input">
-    </div>
-    <textarea [(ngModel)]="message.message" name="message" #tkdForm.message="ngModel"
-      name="message" id="message" class="input-lg" placeholder="Optionale Nachricht"></textarea>
+    <form method="POST" action="app/mail.php" (ngSubmit)="onSubmit()" #tkdForm="ngForm">
+      <div class="input-group">
+        <span class="input-group-addon" id="mail-input">@</span>
+        <input [(ngModel)]="message.mail" name="mail" #tkdForm.mail="ngModel"
+          type="email" class="form-control" placeholder="E-Mail*"
+          aria-describedby="mail-input" #spy #inputMail="ngModel" required>
+        <span [hidden]="inputMail.valid || inputMail.pristine" class="alert-simple alert-contact">X</span>
+        <span [hidden]="inputMail.invalid" class="tick tick-contact"><i class="fa fa-check" aria-hidden="true"></i></span>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="phone-input"><i class="fa fa-phone" aria-hidden="true"></i></span>
+        <input [(ngModel)]="message.phone" name="phone" #tkdForm.phone="ngModel"  type="tel"
+          class="form-control" placeholder="Telefon" aria-describedby="phone-input">
+      </div>
+      <textarea [(ngModel)]="message.message" name="message" #tkdForm.message="ngModel"
+        name="message" id="message" class="input-lg" placeholder="Optionale Nachricht"></textarea>
+      <div class="btn-group-right">
+        <div [class.inactive]="!tkdForm.form.valid">
+          <button type="submit" class="btn btn-default">Anfragen</button>
+        </div>
+      </div>
     </form>
 
     <p>Die Anfrage ist völlig unverbindlich.</p>
@@ -70,8 +75,3 @@
 
 </div>
 <button type="button" class="btn btn-back" (click)="changeState(2)">Zurück</button>
-<div class="btn-group-right">
-  <div [class.inactive]="!tkdForm.form.valid">
-    <button type="submit" class="btn btn-default">Anfragen</button>
-  </div>
-</div>

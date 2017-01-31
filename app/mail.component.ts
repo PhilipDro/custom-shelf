@@ -16,6 +16,9 @@ import { Shelf } from './shelf';
       font-size: 14px;
       border-color: rgb(204, 204, 204);
     }
+    table tr > td::first-letter {
+      text-transform: uppercase;
+    }
 
   `],
   providers: [HttpModule, MailService]

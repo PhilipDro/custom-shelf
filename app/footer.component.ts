@@ -5,7 +5,8 @@ import { Component } from '@angular/core';
   template: `
     <footer>
       <div class="row">
-        <div class="col-xs-12 col-sm-4">
+        <strong>Regale nach Mass</strong>
+        <div class="col-xs-12 col-sm-3 col-sm-offset-3">
           <ul>
             <!--li><img class="logo" src="app/images/logo.png" alt="logo" /></li-->
             <li><a routerLink="/regale">Home</a></li>
@@ -13,14 +14,15 @@ import { Component } from '@angular/core';
             <li><a routerLink="/kontakt">Kontakt</a></li>
           </ul>
         </div>
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-sm-3">
           <ul>
             <li><a href="http://moebel-restaurierung.com/" target="blank">moebel-restaurierung.com</a></li>
             <li><a href="http://xn--antik-mbellager-ftb.de/" target="blank">antik-möbellager.de</a></li>
           </ul>
         </div>
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-sm-3">
           <ul>
+            <li><a routerLink="/versand">Versand</a></li>
             <li><a routerLink="/impressum">Impressum</a></li>
             <li><a routerLink="/datenschutz">Datenschutz</a></li>
           </ul>
@@ -34,7 +36,7 @@ import { Component } from '@angular/core';
   `,
   styles: [`
     footer {
-      padding: 20px;
+      padding: 20px 20px 0 20px;
       margin: 25px 0;
       display: block;
       clear: both;
@@ -50,6 +52,7 @@ import { Component } from '@angular/core';
       color: black;
       font-size: 16px;
       cursor: pointer;
+      line-height: 2;
     }
     .footer-background-image {
       position: absolute;
@@ -60,6 +63,16 @@ import { Component } from '@angular/core';
       background-repeat: no-repeat;
       z-index: -10;
       filter: opacity(60%);
+    }
+    strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 200;
+
+      float: left;
+      position: absolute;
+      bottom: 10px;
+      left: 15px;
     }
   `]
 })

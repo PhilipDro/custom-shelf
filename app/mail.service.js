@@ -12,6 +12,7 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var http_2 = require("@angular/http");
 var Observable_1 = require("rxjs/Observable");
+require("rxjs/Rx");
 var MailService = (function () {
     function MailService(_http) {
         this._http = _http;
