@@ -19,7 +19,7 @@ var MailService = (function () {
         this._mailUrl = 'app/mail.php';
     }
     MailService.prototype.postEmail = function (newMail) {
-        var body = 'mail=${newMail.mail}&phone=${newMail.phone}&message=${newMail.message}';
+        var body = "mail=" + newMail.mail + "&phone=" + newMail.phone + "&message=" + newMail.message + "&parts=" + newMail.parts + "&width=" + newMail.width + "&depth=" + newMail.depth + "&height=" + newMail.height + "&wood=" + newMail.wood + "&stain=" + newMail.stain + "&color=" + newMail.color + "&deco=" + newMail.deco + "&ledge=" + newMail.ledge;
         var headers = new http_2.Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
         var options = new http_2.RequestOptions({ headers: headers });
         return this._http.post(this._mailUrl, body, options)
@@ -27,8 +27,9 @@ var MailService = (function () {
             .catch(this.handleError);
     };
     MailService.prototype.handleError = function (error) {
+        alert("still whack");
         console.error('Error in retrieving news: ' + error);
-        return Observable_1.Observable.throw(error.json().error || 'Server error');
+        return Observable_1.Observable.throw(error.json().error || 'Server error du hast verkackt');
     };
     return MailService;
 }());

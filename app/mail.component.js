@@ -15,16 +15,51 @@ var shelf_1 = require("./shelf");
 var MailComponent = (function () {
     function MailComponent(_mailService) {
         this._mailService = _mailService;
-        this.message = { mail: '', phone: '', message: '' };
+        this.message = {
+            mail: '',
+            phone: '',
+            message: '',
+            parts: 2,
+            width: 0,
+            depth: 0,
+            height: 0,
+            wood: '',
+            stain: '',
+            color: '',
+            deco: '',
+            ledge: '',
+        };
     }
     MailComponent.prototype.ngOnInit = function () { };
     MailComponent.prototype.onSubmit = function () {
         var _this = this;
+        this.message.parts = this.shelf.parts;
+        this.message.width = this.shelf.width;
+        this.message.depth = this.shelf.depth;
+        this.message.height = this.shelf.height;
+        this.message.wood = this.shelf.wood;
+        this.message.stain = this.shelf.stain;
+        this.message.color = this.shelf.color;
+        this.message.deco = this.shelf.deco;
+        this.message.ledge = this.shelf.ledge;
         this._mailService.postEmail(this.message).subscribe(function (response) { return _this.handleResponse(response); }, function (error) { return _this.handleResponse(error); });
     };
     MailComponent.prototype.handleResponse = function (response) {
         if (response.status == 'success') {
-            this.message = { mail: '', phone: '', message: '' };
+            this.message = {
+                mail: '',
+                phone: '',
+                message: '',
+                parts: 0,
+                width: 0,
+                depth: 0,
+                height: 0,
+                wood: '',
+                stain: '',
+                color: '',
+                deco: '',
+                ledge: '',
+            };
             alert('Danke für deine Nachricht');
         }
         if (response.status == 'error') {

@@ -30,9 +30,32 @@ export class MailComponent implements OnInit{
   constructor(private _mailService: MailService) { }
   ngOnInit() { }
 
-  public message: Email = {mail: '', phone: '', message: ''};
+  public message: Email = {
+    mail: '',
+    phone: '',
+    message: '',
+    parts: 2,
+    width: 0,
+    depth: 0,
+    height: 0,
+    wood: '',
+    stain: '',
+    color: '',
+    deco: '',
+    ledge: '',
+  };
 
   onSubmit() {
+    this.message.parts = this.shelf.parts;
+    this.message.width = this.shelf.width;
+    this.message.depth = this.shelf.depth;
+    this.message.height = this.shelf.height;
+    this.message.wood = this.shelf.wood;
+    this.message.stain = this.shelf.stain;
+    this.message.color = this.shelf.color;
+    this.message.deco = this.shelf.deco;
+    this.message.ledge = this.shelf.ledge;
+    
     this._mailService.postEmail(this.message).subscribe(
       response => this.handleResponse(response),
       error => this.handleResponse(error)
@@ -41,7 +64,20 @@ export class MailComponent implements OnInit{
 
   handleResponse(response) {
     if(response.status == 'success') {
-      this.message = {mail: '', phone: '', message: ''};
+      this.message = {
+        mail: '',
+        phone: '',
+        message: '',
+        parts: 0,
+        width: 0,
+        depth: 0,
+        height: 0,
+        wood: '',
+        stain: '',
+        color: '',
+        deco: '',
+        ledge: '',
+      };
       alert('Danke für deine Nachricht');
     }
     if(response.status == 'error') {
