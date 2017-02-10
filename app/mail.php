@@ -7,19 +7,20 @@ $errors = '';
 if(empty($errors)) {
 
   $properties =
-  '<span>Segmente: </span>' . $_POST['parts'] . '<span>-teilig</span><br>'.
-  '<span>Holz: </span>' . $_POST['wood'] . '<br>' .
-  '<span>Gebeizt auf: </span>' . $_POST['stain'] . '<br>' .
-  '<span>Kapitäle: </span>' . $_POST['deco'] . '<br>' .
-  '<span>Kranzleisten: </span>' . $_POST['ledge'] . '<br>' .
-  '<span>Breite: </span>' . $_POST['width'] . '<span> cm<span><br>' .
-  '<span>Tiefe: </span>' . $_POST['depth'] . '<span> cm<span><br>' .
-  '<span>Höhe: </span>' . $_POST['height'] . '<span> cm<span>';
+  '<span>Segmente: </span>' . '<strong>' . $_POST['parts'] . '<span>-teilig</span></strong><br></strong>' .
+  '<span>Holz: </span>' . '<strong>' . ucfirst($_POST['wood']) . '</strong><br>' .
+  '<span>Gebeizt auf: </span>' .  '<strong>' .ucfirst($_POST['stain']) . '</strong><br>' .
+  '<span>Kapitäle: </span>' .  '<strong>' .ucfirst($_POST['deco']) . '</strong><br>' .
+  '<span>Kranzleisten: </span>' .  '<strong>' .ucfirst($_POST['ledge']) . '</strong><br>' .
+  '<span>Breite: </span>' .  '<strong>' .$_POST['width'] . '<span> cm<span></strong><br>' .
+  '<span>Tiefe: </span>' . '<strong>' . $_POST['depth'] . '<span> cm<span></strong><br>' .
+  '<span>Höhe: </span>' .  '<strong>' .$_POST['height'] . '<span> cm<span></strong>';
 
   //message to customer
   $from_name = 'Regale nach Mass';
   $from_email = 'roch.d@freenet.de'; //TODO
-  $message ='<h1>Danke für Ihre Anfrage.</h1>' . $properties;
+  $message ='<h1>Danke für Ihre Anfrage.</h1><p>Sie interessieren sich für folgendes Regal:</p>' . $properties .
+    '<p>Wir werden uns sobald wie möglich mit Ihnen in Verbindung setzen.</p>';
 
   $to_email = $_POST['mail'];
 
@@ -28,9 +29,10 @@ if(empty($errors)) {
   //message to base
   $subject_base = 'Regale nach Mass - Neue Anfrage';
   $to_email_base = 'p.drozd@freenet.de';
-  $message_base = '<p>Nachricht des Klienten:</p><br>' .
+  $message_base = 'Telefonnummer des Klienten: ' . '<strong>' . $_POST['phone'] . '</strong>' .
+    '<p>Nachricht des Klienten:</p><br>' .
     $_POST['message'] .
-    '<br><p>Klient hat folgendes bestellt.</p>'.
+    '<br><p>Klient Interesse an folgendem Regal:</p>'.
     $properties
 
     ;

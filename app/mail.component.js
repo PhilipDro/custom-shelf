@@ -15,6 +15,7 @@ var shelf_1 = require("./shelf");
 var MailComponent = (function () {
     function MailComponent(_mailService) {
         this._mailService = _mailService;
+        this.messageSent = false;
         this.message = {
             mail: '',
             phone: '',
@@ -60,7 +61,7 @@ var MailComponent = (function () {
                 deco: '',
                 ledge: '',
             };
-            alert('Danke für deine Nachricht');
+            this.messageSent = true;
         }
         if (response.status == 'error') {
             alert('Nicht geklappt');
@@ -77,7 +78,7 @@ MailComponent = __decorate([
         moduleId: module.id,
         selector: 'mail',
         templateUrl: 'mail.component.html',
-        styles: ["\n    textarea {\n      width:100%;\n      font-size: 14px;\n      border-color: rgb(204, 204, 204);\n    }\n    table tr > td::first-letter {\n      text-transform: uppercase;\n    }\n\n  "],
+        styles: ["\n    textarea {\n      width:100%;\n      font-size: 14px;\n      border-color: rgb(204, 204, 204);\n      margin-bottom: 15px;\n    }\n    table tr > td::first-letter {\n      text-transform: uppercase;\n    }\n\n    .confirmation-message {\n      visibility: hidden;\n      color: green;\n    }\n    .tick-sent {\n      margin-right: 14px;\n      position: static;\n      visibility: hidden;\n    }\n    .sent {\n      visibility: visible !important;\n    }\n\n  "],
         providers: [http_1.HttpModule, mail_service_1.MailService]
     }),
     __metadata("design:paramtypes", [mail_service_1.MailService])

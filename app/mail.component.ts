@@ -15,9 +15,23 @@ import { Shelf } from './shelf';
       width:100%;
       font-size: 14px;
       border-color: rgb(204, 204, 204);
+      margin-bottom: 15px;
     }
     table tr > td::first-letter {
       text-transform: uppercase;
+    }
+
+    .confirmation-message {
+      visibility: hidden;
+      color: green;
+    }
+    .tick-sent {
+      margin-right: 14px;
+      position: static;
+      visibility: hidden;
+    }
+    .sent {
+      visibility: visible !important;
     }
 
   `],
@@ -27,6 +41,7 @@ import { Shelf } from './shelf';
 export class MailComponent implements OnInit{
   @Input()
   shelf: Shelf;
+  messageSent = false;
   constructor(private _mailService: MailService) { }
   ngOnInit() { }
 
@@ -55,7 +70,7 @@ export class MailComponent implements OnInit{
     this.message.color = this.shelf.color;
     this.message.deco = this.shelf.deco;
     this.message.ledge = this.shelf.ledge;
-    
+
     this._mailService.postEmail(this.message).subscribe(
       response => this.handleResponse(response),
       error => this.handleResponse(error)
@@ -78,7 +93,7 @@ export class MailComponent implements OnInit{
         deco: '',
         ledge: '',
       };
-      alert('Danke für deine Nachricht');
+      this.messageSent = true;
     }
     if(response.status == 'error') {
       alert('Nicht geklappt');
