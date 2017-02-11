@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, trigger, state, style, transition, animate } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 // to process observable route parameters
@@ -15,14 +15,31 @@ import { ShelfService } from './shelf.service';
   templateUrl: 'shelf-detail.component.html',
   styleUrls: ['css/shelf-detail.component.css'],
   providers: [ShelfService],
+  animations: [
+    trigger('visibilityChanged', [
+      state('true', style({
+        opacity: 1,
+        transform: 'scale(1.0)'
+      })),
+      state('false',   style({
+        opacity: 0,
+        transform: 'scale(0.0)'
+      })),
+      transition('1 => 0', animate('200ms')),
+      transition('0 => 1', animate('200ms'))
+    ])
+  ]
 })
 
 export class ShelfDetailComponent {
+  isVisible: boolean = false;
 
   toggleInputParts: string;
   toggleInputWood: string;
   toggleInputColor: string;
   toggleInputDeco: string;
+  toggleInputLedge: string;
+  toggleInputStain: string;
   visible: boolean;
 
   activeImage: number;
@@ -37,6 +54,8 @@ export class ShelfDetailComponent {
     this.toggleInputWood = 'hide-class';
     this.toggleInputColor = 'hide-class';
     this.toggleInputDeco = 'hide-class';
+    this.toggleInputLedge = 'hide-class';
+    this.toggleInputStain = 'hide-class';
     this.visible = false;
 
     this.activeImage = 1;
@@ -47,6 +66,7 @@ export class ShelfDetailComponent {
       .switchMap((params: Params) => this.service.getShelf(+params['id']))
       .subscribe((shelf: Shelf) => this.shelf = shelf);
   }
+
 
   //pick customization
   pickParts(part: number): void {
@@ -88,7 +108,7 @@ export class ShelfDetailComponent {
   }
   showAddStain() {
     this.visible = !this.visible;
-    this.toggleInputWood = this.visible ? 'show-class' : 'hide-class';
+    this.toggleInputStain = this.visible ? 'show-class' : 'hide-class';
   }
   showAddColor() {
     this.visible = !this.visible;
@@ -100,7 +120,7 @@ export class ShelfDetailComponent {
   }
   showAddLedge() {
     this.visible = !this.visible;
-    this.toggleInputDeco = this.visible ? 'show-class' : 'hide-class';
+    this.toggleInputLedge = this.visible ? 'show-class' : 'hide-class';
   }
 
   //add a choice

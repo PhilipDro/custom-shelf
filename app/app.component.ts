@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { RouterModule, Routes, Router, ActivatedRouteSnapshot, NavigationEnd, ActivatedRoute, Params, UrlSegment } from '@angular/router';
 
 

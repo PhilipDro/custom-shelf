@@ -38,7 +38,7 @@
                   <li [class.selected]="shelf.parts === 3" (click)="pickParts(3)"></li>
                   <li [class.selected]="shelf.parts === 4" (click)="pickParts(4)"></li>
                   <li (click)="showAddParts()" class="add"></li>
-                  <input [ngClass]="toggleInputParts" #customParts (keyup)="addParts(customParts.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
+                  <input [ngClass]="toggleInputParts" #customParts (keyup)="addParts(customParts.value)" type="number" class="form-control" placeholder="Ihr Wunsch">
                 </ul>
               </div>
 
@@ -66,7 +66,7 @@
                   <li [class.selected]="shelf.stain === 'eiche'" (click)="pickStain('eiche')"></li>
                   <li [class.selected]="shelf.stain === 'kirsche'" (click)="pickStain('kirsche')"></li>
                   <li (click)="showAddStain()" class="add"></li>
-                  <input [ngClass]="toggleInputColor" #customStain (keyup)="addStain(customStain.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
+                  <input [ngClass]="toggleInputStain" #customStain (keyup)="addStain(customStain.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
                 </ul>
               </div>
 
@@ -104,7 +104,7 @@
                   <li [class.selected]="shelf.ledge === 'ledge a'" (click)="pickLedge('ledge a')"></li>
                   <li [class.selected]="shelf.ledge === 'ledge b'" (click)="pickLedge('ledge b')"></li>
                   <li (click)="showAddLedge()" class="add"></li>
-                  <input [ngClass]="toggleInputDeco" #customLedge (keyup)="addLedge(customLedge.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
+                  <input [ngClass]="toggleInputLedge" #customLedge (keyup)="addLedge(customLedge.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
                 </ul>
               </div>
             </div>

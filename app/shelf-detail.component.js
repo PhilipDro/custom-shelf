@@ -19,10 +19,13 @@ var ShelfDetailComponent = (function () {
         this.route = route;
         this.router = router;
         this.service = service;
+        this.isVisible = false;
         this.toggleInputParts = 'hide-class';
         this.toggleInputWood = 'hide-class';
         this.toggleInputColor = 'hide-class';
         this.toggleInputDeco = 'hide-class';
+        this.toggleInputLedge = 'hide-class';
+        this.toggleInputStain = 'hide-class';
         this.visible = false;
         this.activeImage = 1;
     }
@@ -70,7 +73,7 @@ var ShelfDetailComponent = (function () {
     };
     ShelfDetailComponent.prototype.showAddStain = function () {
         this.visible = !this.visible;
-        this.toggleInputWood = this.visible ? 'show-class' : 'hide-class';
+        this.toggleInputStain = this.visible ? 'show-class' : 'hide-class';
     };
     ShelfDetailComponent.prototype.showAddColor = function () {
         this.visible = !this.visible;
@@ -82,7 +85,7 @@ var ShelfDetailComponent = (function () {
     };
     ShelfDetailComponent.prototype.showAddLedge = function () {
         this.visible = !this.visible;
-        this.toggleInputDeco = this.visible ? 'show-class' : 'hide-class';
+        this.toggleInputLedge = this.visible ? 'show-class' : 'hide-class';
     };
     //add a choice
     ShelfDetailComponent.prototype.addParts = function (choice) {
@@ -126,6 +129,20 @@ ShelfDetailComponent = __decorate([
         templateUrl: 'shelf-detail.component.html',
         styleUrls: ['css/shelf-detail.component.css'],
         providers: [shelf_service_1.ShelfService],
+        animations: [
+            core_1.trigger('visibilityChanged', [
+                core_1.state('true', core_1.style({
+                    opacity: 1,
+                    transform: 'scale(1.0)'
+                })),
+                core_1.state('false', core_1.style({
+                    opacity: 0,
+                    transform: 'scale(0.0)'
+                })),
+                core_1.transition('1 => 0', core_1.animate('200ms')),
+                core_1.transition('0 => 1', core_1.animate('200ms'))
+            ])
+        ]
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         router_1.Router,
