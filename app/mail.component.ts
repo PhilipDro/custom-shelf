@@ -14,7 +14,7 @@ import { Shelf } from './shelf';
     textarea {
       width:100%;
       font-size: 14px;
-      border-color: rgb(204, 204, 204);
+      border: 1px solid rgb(204, 204, 204);
       margin-bottom: 15px;
     }
     table tr > td::first-letter {
