@@ -4,11 +4,11 @@
       <img class="front-image" [src]="currentImagePath || shelf.imagePath " alt="Regal" />
       <div class="subnav subnav-images">
         <ul>
-          <li [class.active]="activeImage === 1" (click)="changeImage(1)"></li>
-          <li *ngIf="shelf.imagePath2" [class.active]="activeImage === 2" (click)="changeImage(2)"></li>
-          <li *ngIf="shelf.imagePath3" [class.active]="activeImage === 3" (click)="changeImage(3)"></li>
-          <li *ngIf="shelf.imagePath4" [class.active]="activeImage === 4" (click)="changeImage(4)"></li>
-          <li *ngIf="shelf.imagePath5" [class.active]="activeImage === 5" (click)="changeImage(5)"></li>
+          <li [class.active]="activeImage === '1'" (click)="changeImage('1')"></li>
+          <li *ngIf="shelf.imagePath2" [class.active]="activeImage === '2'" (click)="changeImage('2')"></li>
+          <li *ngIf="shelf.imagePath3" [class.active]="activeImage === '3'" (click)="changeImage('3')"></li>
+          <li *ngIf="shelf.imagePath4" [class.active]="activeImage === '4'" (click)="changeImage('4')"></li>
+          <li *ngIf="shelf.imagePath5" [class.active]="activeImage === '5'" (click)="changeImage('5')"></li>
         </ul>
       </div>
     </div>
@@ -80,7 +80,7 @@
                   <li [class.selected]="shelf.wood === 'erle'" (click)="pickWood('erle')"></li>
                   <li [class.selected]="shelf.wood === 'kiefer'" (click)="pickWood('kiefer')"></li>
                   <li [class.selected]="shelf.wood === 'nussbaum'" (click)="pickWood('nussbaum')"></li><br class="hidden-xs"/>
-                  <li [class.selected]="shelf.wood === 'eiche'" (click)="pickWood('eiche')"></li>
+                  <li [class.selected]="shelf.wood === 'eiche'" (click)="pickWood('eiche')" (mouseenter)="changeImage('eiche')" (mouseleave)="changeImage(this.srcBackup)"></li>
                   <li [class.selected]="shelf.wood === 'kirsche'" (click)="pickWood('kirsche')"></li>
                   <li (click)="showAddWood()" class="add"></li>
                   <input [ngClass]="toggleInputWood" #customWood (keyup)="addWood(customWood.value)" type="text" class="form-control" placeholder="Ihr Wunsch">

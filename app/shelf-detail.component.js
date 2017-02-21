@@ -27,7 +27,7 @@ var ShelfDetailComponent = (function () {
         this.toggleInputLedge = 'hide-class';
         this.toggleInputStain = 'hide-class';
         this.visible = false;
-        this.activeImage = 1;
+        this.activeImage = '1';
     }
     ShelfDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -56,8 +56,14 @@ var ShelfDetailComponent = (function () {
     };
     //subnavigate
     ShelfDetailComponent.prototype.changeImage = function (image) {
+        this.srcBackup = this.activeImage;
         this.activeImage = image;
-        this.currentImagePath = 'app/images/' + this.shelf.id + '/' + this.activeImage + '.jpg';
+        if (this.isNumeric(image)) {
+            this.currentImagePath = 'app/images/' + this.shelf.id + '/' + this.activeImage + '.jpg';
+        }
+        else {
+            this.currentImagePath = 'app/images/hovers/' + this.activeImage + '.jpg';
+        }
     };
     ShelfDetailComponent.prototype.changeState = function (state) {
         this.shelf.state = state;
@@ -115,6 +121,10 @@ var ShelfDetailComponent = (function () {
     //calculate price
     ShelfDetailComponent.prototype.calcPrice = function () {
         this.shelf.price = this.shelf.priceBefore * (this.shelf.parts / 2);
+    };
+    //custom functions
+    ShelfDetailComponent.prototype.isNumeric = function (n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
     };
     return ShelfDetailComponent;
 }());

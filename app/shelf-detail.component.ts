@@ -42,8 +42,9 @@ export class ShelfDetailComponent {
   toggleInputStain: string;
   visible: boolean;
 
-  activeImage: number;
+  activeImage: string;
   currentImagePath: string;
+  srcBackup: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -58,7 +59,7 @@ export class ShelfDetailComponent {
     this.toggleInputStain = 'hide-class';
     this.visible = false;
 
-    this.activeImage = 1;
+    this.activeImage = '1';
   }
 
   ngOnInit() {
@@ -89,9 +90,17 @@ export class ShelfDetailComponent {
   }
 
   //subnavigate
-  changeImage(image: number) {
+  changeImage(image: string) {
+    this.srcBackup = this.activeImage;
     this.activeImage = image;
-    this.currentImagePath = 'app/images/' + this.shelf.id + '/' + this.activeImage + '.jpg';
+
+    if(this.isNumeric(image)) {
+      this.currentImagePath = 'app/images/' + this.shelf.id + '/' + this.activeImage + '.jpg';
+    }
+    else {
+      this.currentImagePath = 'app/images/hovers/' + this.activeImage + '.jpg';
+    }
+
   }
   changeState(state: number): void {
     this.shelf.state = state;
@@ -149,10 +158,18 @@ export class ShelfDetailComponent {
     this.calcPrice();
   }
 
+
   //calculate price
   calcPrice(): void {
     this.shelf.price = this.shelf.priceBefore * (this.shelf.parts / 2)
   }
+
+  //custom functions
+  isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+
+
 
   @Input() shelf: Shelf;
 }
