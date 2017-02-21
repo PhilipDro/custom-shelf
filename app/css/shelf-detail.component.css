@@ -48,6 +48,9 @@ h1 {
   cursor: pointer;
   border-radius: 25px;
 }
+.configurator ul li.add:hover {
+  background: #D8D8D8 !important;
+}
 .configurator ul li.add::after {
   content: '+';
   position: absolute;
