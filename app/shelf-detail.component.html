@@ -60,11 +60,11 @@
               <div *ngIf="shelf.wood == 'erle'" class="configurator">
                 <strong><p>Gebeizt auf:</p></strong>
                 <ul>
-                  <li [class.selected]="shelf.stain === 'natur'" (click)="pickStain('natur')"></li>
-                  <li [class.selected]="shelf.stain === 'kiefer'" (click)="pickStain('kiefer')"></li>
-                  <li [class.selected]="shelf.stain === 'nussbaum'" (click)="pickStain('nussbaum')"></li><br class="hidden-xs"/>
-                  <li [class.selected]="shelf.stain === 'eiche'" (click)="pickStain('eiche')"></li>
-                  <li [class.selected]="shelf.stain === 'kirsche'" (click)="pickStain('kirsche')"></li>
+                  <li [class.selected]="shelf.stain === 'natur'" (click)="pickStain('natur')" (mouseenter)="changeImage('erle-large')" (mouseleave)="changeImage(this.srcBackup)" class="erle"></li>
+                  <li [class.selected]="shelf.stain === 'kiefer'" (click)="pickStain('kiefer')" (mouseenter)="changeImage('kiefer-large')" (mouseleave)="changeImage(this.srcBackup)" class="kiefer"></li>
+                  <li [class.selected]="shelf.stain === 'buche'" (click)="pickStain('buche')" (mouseenter)="changeImage('buche-large')" (mouseleave)="changeImage(this.srcBackup)" class="buche"></li><br class="hidden-xs"/>
+                  <li [class.selected]="shelf.stain === 'eiche'" (click)="pickStain('eiche')" (mouseenter)="changeImage('eiche-large')" (mouseleave)="changeImage(this.srcBackup)" class="eiche"></li>
+                  <li [class.selected]="shelf.stain === 'kirsche'" (click)="pickStain('kirsche')" (click)="pickWood('kirsche')" (mouseenter)="changeImage('kirsche-large')" (mouseleave)="changeImage(this.srcBackup)" class="kirsche"></li>
                   <li (click)="showAddStain()" class="add"></li>
                   <input [ngClass]="toggleInputStain" #customStain (keyup)="addStain(customStain.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
                 </ul>
@@ -77,11 +77,12 @@
               <div class="configurator">
                 <strong><p>Holz:</p></strong>
                 <ul>
-                  <li [class.selected]="shelf.wood === 'erle'" (click)="pickWood('erle')"></li>
-                  <li [class.selected]="shelf.wood === 'kiefer'" (click)="pickWood('kiefer')"></li>
-                  <li [class.selected]="shelf.wood === 'nussbaum'" (click)="pickWood('nussbaum')"></li><br class="hidden-xs"/>
-                  <li [class.selected]="shelf.wood === 'eiche'" (click)="pickWood('eiche')" (mouseenter)="changeImage('eiche')" (mouseleave)="changeImage(this.srcBackup)"></li>
-                  <li [class.selected]="shelf.wood === 'kirsche'" (click)="pickWood('kirsche')"></li>
+                  <li [class.selected]="shelf.wood === 'erle'" (click)="pickWood('erle')" (mouseenter)="changeImage('erle-large')" (mouseleave)="changeImage(this.srcBackup)" class="erle"></li>
+                  <li [class.selected]="shelf.wood === 'kiefer'" (click)="pickWood('kiefer')" (mouseenter)="changeImage('kiefer-large')" (mouseleave)="changeImage(this.srcBackup)" class="kiefer"></li>
+                  <li [class.selected]="shelf.wood === 'buche'" (click)="pickWood('buche')"(mouseenter)="changeImage('buche-large')" (mouseleave)="changeImage(this.srcBackup)" class="buche"></li>
+                  <br class="hidden-xs"/>
+                  <li [class.selected]="shelf.wood === 'eiche'" (click)="pickWood('eiche')" (mouseenter)="changeImage('eiche-large')" (mouseleave)="changeImage(this.srcBackup)" class="eiche"></li>
+                  <li [class.selected]="shelf.wood === 'kirsche'" (click)="pickWood('kirsche')" (mouseenter)="changeImage('kirsche-large')" (mouseleave)="changeImage(this.srcBackup)" class="kirsche"></li>
                   <li (click)="showAddWood()" class="add"></li>
                   <input [ngClass]="toggleInputWood" #customWood (keyup)="addWood(customWood.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
                 </ul>
@@ -91,8 +92,8 @@
               <div class="configurator">
                 <strong><p>Vorderleisten:</p></strong>
                 <ul>
-                  <li [class.selected]="shelf.deco === 'deco a'" (click)="pickDeco('deco a')"></li>
-                  <li [class.selected]="shelf.deco === 'deco b'" (click)="pickDeco('deco b')"></li>
+                  <li [class.selected]="shelf.deco === 'deco a'" (click)="pickDeco('deco a')" (mouseenter)="changeImage('front1')" (mouseleave)="changeImage(this.srcBackup)"  class="front1"></li>
+                  <li [class.selected]="shelf.deco === 'deco b'" (click)="pickDeco('deco b')" (mouseenter)="changeImage('front2')" (mouseleave)="changeImage(this.srcBackup)" class="front2"></li>
                   <li (click)="showAddDeco()" class="add"></li>
                   <input [ngClass]="toggleInputDeco" #customDeco (keyup)="addDeco(customDeco.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
                 </ul>
@@ -101,8 +102,8 @@
               <div class="configurator">
                 <strong><p>Kranzleisten:</p></strong>
                 <ul>
-                  <li [class.selected]="shelf.ledge === 'ledge a'" (click)="pickLedge('ledge a')"></li>
-                  <li [class.selected]="shelf.ledge === 'ledge b'" (click)="pickLedge('ledge b')"></li>
+                  <li [class.selected]="shelf.ledge === 'ledge a'" (click)="pickLedge('ledge a')" (mouseenter)="changeImage('top1')" (mouseleave)="changeImage(this.srcBackup)"  class="top1"></li>
+                  <li [class.selected]="shelf.ledge === 'ledge b'" (click)="pickLedge('ledge b')" (mouseenter)="changeImage('top2')" (mouseleave)="changeImage(this.srcBackup)"  class="top2"></li>
                   <li (click)="showAddLedge()" class="add"></li>
                   <input [ngClass]="toggleInputLedge" #customLedge (keyup)="addLedge(customLedge.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
                 </ul>
@@ -125,6 +126,7 @@
       <!-- Part 3 -->
       <div *ngIf="shelf.state === 3">
         <mail [shelf]="shelf"></mail>
+        <button type="button" class="btn btn-back" (click)="changeState(2)">Zurück</button>
       </div>
     </div>
   </div>

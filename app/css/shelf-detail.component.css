@@ -40,8 +40,8 @@ h1 {
   position: relative;
 }
 .configurator ul li.selected {
-  opacity: 0.8;
-  border: 2px solid black;
+  opacity: 0.5;
+  /*border: 2px solid black;*/
 }
 .configurator ul li.add {
   background: #CBCBCB;
@@ -163,4 +163,35 @@ input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none !important;
     visibility: hidden;
     opacity: 0;
+}
+.configurator > .wood-list li {
+  background: yellow;
+}
+.configurator > ul li.eiche {
+  background: url('app/images/hovers/eiche.jpg');
+}
+.configurator > ul li.erle {
+  background: url('app/images/hovers/erle.jpg');
+}
+.configurator > ul li.kiefer {
+  background: url('app/images/hovers/kiefer.jpg');
+}
+.configurator > ul li.buche {
+  background: url('app/images/hovers/buche.jpg');
+}
+.configurator > ul li.kirsche {
+  background: url('app/images/hovers/kirsche.jpg');
+}
+
+.configurator > ul li.top1 {
+  background: url('app/images/icons/top1.png');
+}
+.configurator > ul li.top2 {
+  background: url('app/images/icons/top2.png');
+}
+.configurator > ul li.front1 {
+  background: url('app/images/icons/front1.png');
+}
+.configurator > ul li.front2 {
+  background: url('app/images/icons/front2.png');
 }
