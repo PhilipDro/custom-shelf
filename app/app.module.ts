@@ -18,6 +18,7 @@ import { FooterComponent } from './footer.component';
 import { ImprintComponent } from './imprint.component';
 import { PrivacyInformationComponent } from './privacy-info.component';
 import { MailComponent } from './mail.component';
+import { GalleryComponent } from './gallery.component';
 
 import { routing } from './app.routing';
 
@@ -40,7 +41,8 @@ import { routing } from './app.routing';
     FooterComponent,
     ImprintComponent,
     PrivacyInformationComponent,
-    MailComponent
+    MailComponent,
+    GalleryComponent
   ],
   providers: [ ShelfService ],
   bootstrap:    [ AppComponent ]

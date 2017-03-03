@@ -4,7 +4,7 @@ import { RouterModule, Routes, Router, ActivatedRouteSnapshot, NavigationEnd, Ac
 
 import 'rxjs/add/operator/switchMap';
 
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 import { ShelfService } from './shelf.service';
 
@@ -20,6 +20,7 @@ import { ShelfService } from './shelf.service';
               <ul class="nav navbar-nav highlighted">
                 <!--li><img class="logo" src="app/images/logo.png" alt="logo" /></li-->
                 <li><a routerLink="/regale" [routerLinkActive]="'nav-active'">Home</a></li>
+                <li><a routerLink="/gallerie" [routerLinkActive]="'nav-active'">Gallerie</a></li>
                 <li><a routerLink="/kontakt" [routerLinkActive]="'nav-active'">Kontakt</a></li>
               </ul>
             </div>

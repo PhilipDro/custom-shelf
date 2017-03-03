@@ -1,11 +1,12 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var router_1 = require("@angular/router");
-var shipping_component_1 = require("./shipping.component");
 var shelves_component_1 = require("./shelves.component");
 var contact_component_1 = require("./contact.component");
 var shelf_detail_component_1 = require("./shelf-detail.component");
 var imprint_component_1 = require("./imprint.component");
 var privacy_info_component_1 = require("./privacy-info.component");
+var gallery_component_1 = require("./gallery.component");
 var appRoutes = [
     //initial redirect
     {
@@ -18,10 +19,10 @@ var appRoutes = [
     },
     //navigation links
     {
-        path: 'versand',
-        component: shipping_component_1.ShippingComponent,
+        path: 'gallerie',
+        component: gallery_component_1.GalleryComponent,
         data: {
-            title: 'Shipping'
+            title: 'Gallery'
         }
     },
     {

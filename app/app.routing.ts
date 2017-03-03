@@ -8,6 +8,7 @@ import { ContactComponent } from './contact.component';
 import { ShelfDetailComponent } from './shelf-detail.component';
 import { ImprintComponent } from './imprint.component';
 import { PrivacyInformationComponent } from './privacy-info.component';
+import { GalleryComponent } from './gallery.component';
 
 
 const appRoutes: Routes = [
@@ -23,10 +24,10 @@ const appRoutes: Routes = [
 
   //navigation links
   {
-    path: 'versand',
-    component: ShippingComponent,
+    path: 'gallerie',
+    component: GalleryComponent,
     data: {
-      title: 'Shipping'
+      title: 'Gallery'
     }
   },
   {

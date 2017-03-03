@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
           <ul>
             <!--li><img class="logo" src="app/images/logo.png" alt="logo" /></li-->
             <li><a routerLink="/regale">Home</a></li>
-            <li><a routerLink="/versand">Versand</a></li>
+            <li><a routerLink="/gallery">Gallerie</a></li>
             <li><a routerLink="/kontakt">Kontakt</a></li>
           </ul>
         </div>
