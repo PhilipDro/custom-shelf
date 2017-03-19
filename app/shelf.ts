@@ -9,9 +9,9 @@ export class Shelf {
   imagePath5?: string;
   state: number = 1;
   parts: number = 2;
-  width: number = 100;
-  depth: number = 50;
-  height: number = 200;
+  width: number = 80;
+  depth: number = 25;
+  height: number = 220;
   wood: string;
   stain: string = 'nature';
   color: string;

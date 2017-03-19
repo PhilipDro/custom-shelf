@@ -47,13 +47,17 @@ import { ShelfService } from './shelf.service';
                       </div>
                       <div class="col-xs-12 col-md-6 col-lg-6">
                         <div class="shelf">
-                          <img class="img img-responsive" src="app/images/1.jpg"/>
+                          <h3>{{shelves && shelves[3].name}}</h3>
+                          <img class="img img-responsive" src="{{shelves && shelves[3].imagePath}}" (click)="onSelect(shelves && shelves[3])"/>
+                          <p class="jetzt-ansehen">Jetzt ansehen!</p>
                         </div>
                       </div>
 
                       <div class="col-xs-12 col-md-6 col-lg-6">
                         <div class="shelf">
-                          <img class="img img-responsive" src="app/images/2.jpg"/>
+                          <h3>{{shelves && shelves[4].name}}</h3>
+                          <img class="img" src="{{shelves && shelves[4].imagePath}}" (click)="onSelect(shelves && shelves[4])"/>
+                          <p class="jetzt-ansehen">Jetzt ansehen!</p>
                         </div>
                       </div>
                     </div>
@@ -61,8 +65,8 @@ import { ShelfService } from './shelf.service';
 
                   <div class="col-xs-12 col-sm-6">
                     <div class="shelf shelf-big">
-                      <h3>{{shelves && shelves[0].name}}</h3>
-                      <img class="img" src="{{shelves && shelves[0].imagePath}}" (click)="onSelect(shelves && shelves[0])"/>
+                      <h3>{{shelves && shelves[5].name}}</h3>
+                      <img class="img" src="{{shelves && shelves[5].imagePath}}" (click)="onSelect(shelves && shelves[5])"/>
                       <p class="jetzt-ansehen">Jetzt ansehen!</p>
                     </div>
                   </div>
