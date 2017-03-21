@@ -49,7 +49,7 @@ export class ShelfDetailComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: ShelfService
+    private service: ShelfService,
   ) {
     this.toggleInputParts = 'hide-class';
     this.toggleInputWood = 'hide-class';
@@ -60,12 +60,15 @@ export class ShelfDetailComponent {
     this.visible = false;
 
     this.activeImage = '1';
+
+
   }
 
   ngOnInit() {
     this.route.params
       .switchMap((params: Params) => this.service.getShelf(+params['id']))
       .subscribe((shelf: Shelf) => this.shelf = shelf);
+
   }
 
 
@@ -75,6 +78,9 @@ export class ShelfDetailComponent {
   }
   pickWood(wood: string): void {
     this.shelf.wood = wood;
+    if(wood=='erle') {
+      this.pickColor(null);
+    }
   }
   pickStain(stain: string): void {
     this.shelf.stain = stain;
@@ -88,7 +94,9 @@ export class ShelfDetailComponent {
   pickLedge(ledge: string): void {
     this.shelf.ledge = ledge;
   }
-
+  pickSurface(surface: string): void {
+    this.shelf.surface = surface;
+  }
   //subnavigate
   changeImage(image: string) {
     this.srcBackup = this.activeImage;
@@ -158,18 +166,126 @@ export class ShelfDetailComponent {
     this.calcPrice();
   }
 
-
-  //calculate price
   calcPrice(): void {
-    this.shelf.price = this.shelf.priceBefore * (this.shelf.parts / 2)
+    var wood = this.shelf.wood;
+    switch (wood) {
+       case "erle": {
+          var mWood = 1;
+          break;
+       }
+       case "kiefer": {
+          var mWood = 1;
+          break;
+       }
+       case "buche": {
+          var mWood = 1.2;
+          break;
+       }
+       case "eiche": {
+          var mWood = 1.4;
+          break;
+       }
+       case "kirsche": {
+          var mWood = 1.9;
+          break;
+       }
+       case "nussbaum": {
+          var mWood = 1.9;
+          break;
+       }
+       default: {
+          var mWood = 1;
+          break;
+       }
+    }
+    var deco = this.shelf.deco;
+    switch (deco) {
+       case null: {
+          var mDeco = 1;
+          break;
+       }
+       case "deco a": {
+          var mDeco = 1.04;
+          break;
+       }
+       case "deco b": {
+          var mDeco = 1.04;
+          break;
+       }
+       default: {
+          var mDeco = 1;
+          break;
+       }
+    }
+    var ledge = this.shelf.ledge;
+    switch (ledge) {
+       case null: {
+          var mLedge = 1;
+          break;
+       }
+       case "ledge a": {
+          var mLedge = 1.04;
+          break;
+       }
+       case "ledge b": {
+          var mLedge = 1.04;
+          break;
+       }
+       default: {
+          var mLedge = 1;
+          break;
+       }
+    }
+    if(this.shelf.color != null) {
+      var mColor = 1.1;
+    }
+    else {
+      var mColor = 1;
+    }
+
+    if(this.shelf.surface == 'geölt + gewachst') {
+      var mSurface = 1;
+    }
+    else {
+      var mSurface = 1.1;
+    }
+
+    if(this.shelf.drawer != null) {
+      var aDrawer = (150 * this.shelf.drawer) * this.shelf.parts;
+    }
+    else {
+      var aDrawer = 0;
+    }
+
+    if(this.shelf.leoDrawers != null) {
+      var aLeoDrawers = 400 * this.shelf.leoDrawers;
+    }
+    else {
+      var aLeoDrawers = 0;
+    }
+
+    if(this.shelf.slidingDoor != null) {
+      var aSlidingDoor = 300 * this.shelf.slidingDoor;
+    }
+    else {
+      var aSlidingDoor = 0;
+    }
+
+    var widthPrice = ((this.shelf.width - 80) * 5)/ this.shelf.parts;
+    var heightPrice = ((this.shelf.height - 80) * 2.5)/ this.shelf.parts;
+
+
+    this.shelf.price =
+      600 * mWood * mDeco * mLedge * mColor * mSurface +
+      (this.shelf.parts * 600) + heightPrice + widthPrice +
+      aDrawer + aLeoDrawers + aSlidingDoor;
+
   }
+
 
   //custom functions
   isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
   }
-
-
-
   @Input() shelf: Shelf;
 }

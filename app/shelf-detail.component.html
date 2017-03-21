@@ -46,10 +46,10 @@
               <div *ngIf="shelf.wood !== 'erle'" class="configurator">
                 <strong><p>Farbe:</p></strong>
                 <ul>
+                  <li class="no-pick" [class.selected]="shelf.color === null" (click)="pickColor(null)"></li>
                   <li class="white" [class.selected]="shelf.color === 'signalweiss'" (click)="pickColor('signalweiss')"></li>
-                  <li class="kastanienbraun" [class.selected]="shelf.color === 'kastanienbraun'" (click)="pickColor('kastanienbraun')"></li>
-                  <li class="grasgruen" [class.selected]="shelf.color === 'grasgruen'" (click)="pickColor('grasgruen')"></li><br class="hidden-xs"/>
-                  <li class="mahagonybraun" [class.selected]="shelf.color === 'mahagonybraun'" (click)="pickColor('mahagonybraun')"></li>
+                  <li class="kastanienbraun" [class.selected]="shelf.color === 'kastanienbraun'" (click)="pickColor('kastanienbraun')"></li><br class="hidden-xs"/>
+                  <li class="grasgruen" [class.selected]="shelf.color === 'grasgruen'" (click)="pickColor('grasgruen')"></li>
                   <li class="signalgelb" [class.selected]="shelf.color === 'signalgelb'" (click)="pickColor('signalgelb')"></li>
                   <li (click)="showAddColor()" class="add"></li>
                   <input [ngClass]="toggleInputColor" #customColor (keyup)="addColor(customColor.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
@@ -64,12 +64,29 @@
                   <li [class.selected]="shelf.stain === 'kiefer'" (click)="pickStain('kiefer')" (mouseenter)="changeImage('kiefer-large')" (mouseleave)="changeImage(this.srcBackup)" class="kiefer"></li>
                   <li [class.selected]="shelf.stain === 'buche'" (click)="pickStain('buche')" (mouseenter)="changeImage('buche-large')" (mouseleave)="changeImage(this.srcBackup)" class="buche"></li><br class="hidden-xs"/>
                   <li [class.selected]="shelf.stain === 'eiche'" (click)="pickStain('eiche')" (mouseenter)="changeImage('eiche-large')" (mouseleave)="changeImage(this.srcBackup)" class="eiche"></li>
-                  <li [class.selected]="shelf.stain === 'kirsche'" (click)="pickStain('kirsche')" (click)="pickWood('kirsche')" (mouseenter)="changeImage('kirsche-large')" (mouseleave)="changeImage(this.srcBackup)" class="kirsche"></li>
+                  <li [class.selected]="shelf.stain === 'kirsche'" (click)="pickStain('kirsche')" (mouseenter)="changeImage('kirsche-large')" (mouseleave)="changeImage(this.srcBackup)" class="kirsche"></li>
                   <li (click)="showAddStain()" class="add"></li>
                   <input [ngClass]="toggleInputStain" #customStain (keyup)="addStain(customStain.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
                 </ul>
               </div>
 
+              <!-- sacleff schublade -->
+              <div *ngIf="shelf.id == 2">
+                <strong><p>Schubladen (1 - 4):</p></strong>
+                <input type="number" min="1" max="4" [(ngModel)]="shelf.drawer">
+              </div>
+
+              <!-- leonora schubladen -->
+              <div *ngIf="shelf.id == 6">
+                <strong><p>Schubladen (1 pro Segment):</p></strong>
+                <input type="number" min="1" max="4" [(ngModel)]="shelf.leoDrawers" (keyup)="calcPrice()">
+              </div>
+
+              <!-- leonora schiebetüren -->
+              <div *ngIf="shelf.id == 6">
+                <strong><p>Schiebetüren (1 pro Segment):</p></strong>
+                <input type="number" min="1" max="4" [(ngModel)]="shelf.slidingDoor" (keyup)="calcPrice()">
+              </div>
 
             </div>
 
@@ -89,23 +106,31 @@
               </div>
 
               <!-- ledge -->
-              <div class="configurator">
+              <div *ngIf="shelf.id != 5 && shelf.id != 6" class="configurator">
                 <strong><p>Vorderleisten:</p></strong>
                 <ul>
+                  <li [class.selected]="shelf.deco === null" (click)="pickDeco(null)" class="no-pick"></li>
                   <li [class.selected]="shelf.deco === 'deco a'" (click)="pickDeco('deco a')" (mouseenter)="changeImage('front1')" (mouseleave)="changeImage(this.srcBackup)"  class="front1"></li>
                   <li [class.selected]="shelf.deco === 'deco b'" (click)="pickDeco('deco b')" (mouseenter)="changeImage('front2')" (mouseleave)="changeImage(this.srcBackup)" class="front2"></li>
-                  <li (click)="showAddDeco()" class="add"></li>
-                  <input [ngClass]="toggleInputDeco" #customDeco (keyup)="addDeco(customDeco.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
                 </ul>
               </div>
 
-              <div class="configurator">
+              <div *ngIf="shelf.id != 5 && shelf.id != 6" class="configurator">
                 <strong><p>Kranzleisten:</p></strong>
                 <ul>
+                  <li [class.selected]="shelf.ledge === null" (click)="pickLedge(null)" class="no-pick"></li>
                   <li [class.selected]="shelf.ledge === 'ledge a'" (click)="pickLedge('ledge a')" (mouseenter)="changeImage('top1')" (mouseleave)="changeImage(this.srcBackup)"  class="top1"></li>
                   <li [class.selected]="shelf.ledge === 'ledge b'" (click)="pickLedge('ledge b')" (mouseenter)="changeImage('top2')" (mouseleave)="changeImage(this.srcBackup)"  class="top2"></li>
-                  <li (click)="showAddLedge()" class="add"></li>
-                  <input [ngClass]="toggleInputLedge" #customLedge (keyup)="addLedge(customLedge.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
+                </ul>
+              </div>
+
+              <!-- oberflächenbehandlung -->
+              <div *ngIf="shelf.color == null" class="configurator">
+                <strong><p>Oberflächenbehandlung:</p></strong>
+                <ul>
+                  <li [class.selected]="shelf.surface === 'geölt + gewachst'" (click)="pickSurface('geölt + gewachst')" (mouseenter)="changeImage('top1')" (mouseleave)="changeImage(this.srcBackup)"  class="top1"></li>
+                  <li [class.selected]="shelf.surface === 'gebeizt + lackiert'" (click)="pickSurface('gebeizt + lackiert')" (mouseenter)="changeImage('top2')" (mouseleave)="changeImage(this.srcBackup)"  class="top2"></li>
+                  <li [class.selected]="shelf.surface === 'transparent + lackiert'" (click)="pickSurface('transparent + lackiert')" (mouseenter)="changeImage('top2')" (mouseleave)="changeImage(this.srcBackup)"  class="top2"></li>
                 </ul>
               </div>
             </div>

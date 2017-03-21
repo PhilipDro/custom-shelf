@@ -7,6 +7,8 @@ var Shelf = (function () {
         this.depth = 25;
         this.height = 220;
         this.stain = 'nature';
+        this.color = null;
+        this.surface = "gebeizt + lackiert";
     }
     return Shelf;
 }());

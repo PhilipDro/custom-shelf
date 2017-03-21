@@ -14,9 +14,14 @@ export class Shelf {
   height: number = 220;
   wood: string;
   stain: string = 'nature';
-  color: string;
+  color: string = null;
   deco: string;
   ledge: string;
   priceBefore: number;
   price: number;
+
+  drawer: number;
+  leoDrawers: number;
+  slidingDoor: number;
+  surface: string = "gebeizt + lackiert";
 }

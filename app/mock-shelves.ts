@@ -9,15 +9,15 @@ export var SHELVES: Shelf[] = [
     imagePath2: 'app/images/1/2.jpg',
     imagePath3: 'app/images/1/3.jpg',
     state: 1,
-    parts: 2,
+    parts: 1,
     width: 80,
     depth: 25,
     height: 220,
-    wood: 'eiche',
-    color: 'brown',
+    wood: 'erle',
     deco: 'deco a',
     priceBefore: 600,
-    price: 600
+    price: 600,
+    surface: 'geölt + gewachst'
   },
   {
     id: 2,
@@ -33,11 +33,12 @@ export var SHELVES: Shelf[] = [
     width: 80,
     depth: 35,
     height: 220,
-    wood: 'eiche',
-    color: 'brown',
+    wood: 'erle',
     deco: 'deco a',
     priceBefore: 1100,
-    price: 1100
+    price: 1100,
+    drawer: 1,
+    surface: 'geölt + gewachst'
   },
   {
     id: 3,
@@ -59,11 +60,11 @@ export var SHELVES: Shelf[] = [
     width: 80,
     depth: 45,
     height: 220,
-    wood: 'eiche',
-    color: 'brown',
+    wood: 'erle',
     deco: 'deco a',
     priceBefore: 1400,
-    price: 1400
+    price: 1400,
+    surface: 'geölt + gewachst'
   },
   {
     id: 4,
@@ -87,12 +88,11 @@ export var SHELVES: Shelf[] = [
     height: 220,
     wood: 'erle',
     stain: 'natur',
-    color: 'white',
     deco: 'keine',
     ledge: 'keine',
     priceBefore: 850,
-    price: 850
-
+    price: 850,
+    surface: 'geölt + gewachst'
   },
   {
     id: 5,
@@ -114,12 +114,11 @@ export var SHELVES: Shelf[] = [
     height: 220,
     wood: 'erle',
     stain: 'natur',
-    color: 'white',
     deco: 'keine',
     ledge: 'keine',
     priceBefore: 800,
-    price: 800
-    //keine kranzleisten/ keine vorderleisten
+    price: 800,
+    surface: 'geölt + gewachst'
   },
   {
     id: 6,
@@ -142,11 +141,13 @@ export var SHELVES: Shelf[] = [
     height: 200,
     wood: 'erle',
     stain: 'natur',
-    color: 'white',
     deco: 'keine',
     ledge: 'keine',
-    priceBefore: 800,
-    price: 800
+    priceBefore: 1400,
+    price: 1400,
+    leoDrawers: 0,
+    slidingDoor: 1,
+    surface: 'geölt + gewachst'
     // TODO 1 segment = 1m breit
     // schiebetür unten = 400€
     // oberregal = 600€

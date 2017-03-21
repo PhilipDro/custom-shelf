@@ -16,11 +16,11 @@ var InMemoryDataService = (function () {
                 width: 80,
                 depth: 25,
                 height: 220,
-                wood: 'eiche',
-                color: 'brown',
+                wood: 'erle',
                 deco: 'deco a',
                 priceBefore: 600,
-                price: 600
+                price: 600,
+                surface: 'geölt + gewachst'
             },
             {
                 id: 2,
@@ -32,11 +32,12 @@ var InMemoryDataService = (function () {
                 width: 80,
                 depth: 35,
                 height: 220,
-                wood: 'eiche',
-                color: 'brown',
+                wood: 'erle',
                 deco: 'deco a',
                 priceBefore: 1100,
-                price: 1100
+                price: 1100,
+                drawer: 1,
+                surface: 'geölt + gewachst'
             },
             {
                 id: 3,
@@ -52,11 +53,11 @@ var InMemoryDataService = (function () {
                 width: 80,
                 depth: 45,
                 height: 220,
-                wood: 'eiche',
-                color: 'brown',
+                wood: 'erle',
                 deco: 'deco a',
                 priceBefore: 1400,
-                price: 1400
+                price: 1400,
+                surface: 'geölt + gewachst'
             },
             {
                 id: 4,
@@ -74,11 +75,11 @@ var InMemoryDataService = (function () {
                 height: 220,
                 wood: 'erle',
                 stain: 'natur',
-                color: 'white',
                 deco: 'keine',
                 ledge: 'keine',
                 priceBefore: 850,
-                price: 850
+                price: 850,
+                surface: 'geölt + gewachst'
             },
             {
                 id: 5,
@@ -96,11 +97,11 @@ var InMemoryDataService = (function () {
                 height: 220,
                 wood: 'erle',
                 stain: 'natur',
-                color: 'white',
                 deco: 'keine',
                 ledge: 'keine',
                 priceBefore: 800,
-                price: 800
+                price: 800,
+                surface: 'geölt + gewachst'
             },
             {
                 id: 6,
@@ -118,11 +119,13 @@ var InMemoryDataService = (function () {
                 height: 200,
                 wood: 'erle',
                 stain: 'natur',
-                color: 'white',
                 deco: 'keine',
                 ledge: 'keine',
                 priceBefore: 1400,
-                price: 1400
+                price: 1400,
+                leoDrawers: 0,
+                slidingDoor: 1,
+                surface: 'geölt + gewachst'
             }
         ];
         return { shelves: shelves };

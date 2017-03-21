@@ -59,6 +59,10 @@ h1 {
   font-size: 40px;
   color: white;
 }
+.configurator ul li.no-pick {
+  background-color: red;
+  /*TODO*/
+}
 .configurator ul li.white {
   /*RAL 9003 Signalweiß*/
   background-color: #f8f9fb;
@@ -92,7 +96,6 @@ h1 {
   list-style-type: none;
   padding-left: 0;
   margin: auto;
-  border-bottom: 1px solid #E6E6E6;
 }
 .subnav ul li {
   display: inline-block;

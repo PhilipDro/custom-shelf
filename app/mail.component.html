@@ -19,11 +19,11 @@
         class="form-control" placeholder="Telefon" aria-describedby="phone-input">
     </div>
     <textarea name="message" [(ngModel)]="message.message" #tkdForm.message="ngModel"
-      id="message" class="input-lg" placeholder="Optionale Nachricht"></textarea>
+      id="message" class="input-lg" placeholder="Weitere Anmerkungen"></textarea>
 
 
 
-    <p>Die Anfrage ist völlig unverbindlich.</p>
+    <p>Die Anfrage ist völlig unverbindlich. Der Preis kann bei individuellen Wünschen variieren.</p>
     <p class="confirmation-message" [class.sent]="messageSent">Erfolgreich verschickt!</p>
   </div>
 
@@ -39,7 +39,7 @@
         <td>Holz:</td>
         <td>{{shelf.wood}}</td>
       </tr>
-      <tr *ngIf="shelf.wood !== 'erle'">
+      <tr *ngIf="shelf.color != null">
         <td>Farbe:</td>
         <td>{{shelf.color}}</td>
       </tr>
@@ -47,11 +47,11 @@
         <td>Gebeizt auf:</td>
         <td>{{shelf.stain}}</td>
       </tr>
-      <tr>
+      <tr *ngIf="shelf.deco != null">
         <td>Kapitäle:</td>
         <td>{{shelf.deco}}</td>
       </tr>
-      <tr>
+      <tr *ngIf="shelf.ledge != null">
         <td>Kranzleisten:</td>
         <td>{{shelf.ledge}}</td>
       </tr>
@@ -66,6 +66,22 @@
       <tr>
         <td>Höhe:</td>
         <td>{{shelf.height}} cm</td>
+      </tr>
+      <tr *ngIf="shelf.color == null">
+        <td>Oberfläche:</td>
+        <td>{{shelf.surface}}</td>
+      </tr>
+      <tr *ngIf="shelf.drawer != null">
+        <td>Schubladen:</td>
+        <td>{{shelf.drawer}}</td>
+      </tr>
+      <tr *ngIf="shelf.leoDrawers != null">
+        <td>Schubladen:</td>
+        <td>{{shelf.leoDrawer}}</td>
+      </tr>
+      <tr *ngIf="shelf.slidingDoor != null">
+        <td>Schiebetüren:</td>
+        <td>{{shelf.slidingDoor}}</td>
       </tr>
     </table>
   </div>

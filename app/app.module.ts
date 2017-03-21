@@ -20,6 +20,7 @@ import { PrivacyInformationComponent } from './privacy-info.component';
 import { MailComponent } from './mail.component';
 import { GalleryComponent } from './gallery.component';
 
+
 import { routing } from './app.routing';
 
 @NgModule({
@@ -42,7 +43,7 @@ import { routing } from './app.routing';
     ImprintComponent,
     PrivacyInformationComponent,
     MailComponent,
-    GalleryComponent
+    GalleryComponent,
   ],
   providers: [ ShelfService ],
   bootstrap:    [ AppComponent ]
