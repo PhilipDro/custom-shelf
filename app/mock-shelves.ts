@@ -143,8 +143,8 @@ export var SHELVES: Shelf[] = [
     stain: 'natur',
     deco: 'keine',
     ledge: 'keine',
-    priceBefore: 1400,
-    price: 1400,
+    priceBefore: 950,
+    price: 950,
     leoDrawers: 0,
     slidingDoor: 1,
     surface: 'geölt + gewachst'

@@ -1,4 +1,4 @@
-<div *ngIf="shelf">
+<div *ngIf="shelf" onload="calcPrice();">
   <div class="row">
     <div class="col-xs-12 col-sm-6 image-container">
       <img class="front-image" [src]="currentImagePath || shelf.imagePath " alt="Regal" />

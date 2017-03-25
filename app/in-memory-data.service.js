@@ -106,7 +106,7 @@ var InMemoryDataService = (function () {
             {
                 id: 6,
                 name: 'Leonora',
-                description: "\n          F\u00FCr Menschen, die Ihre B\u00FCcher nicht einstauben lassen wollen.\n          Die klare Form des B\u00FCcherregals lenkt den Blick auf das Wesentliche.\n          Der Unterschrank ist w\u00E4hlbar mit Schiebet\u00FCren oder drei Schubladen erh\u00E4ltlich.\n          Die Glasschiebet\u00FCren im oberen Bereich \u00FCberzeugen mit ihrer Eleganz.\n        ",
+                description: "\n          F\u00FCr diejenigen, die Ihre B\u00FCcher nicht einstauben lassen wollen.\n          Die klare Form des B\u00FCcherregals lenkt den Blick auf das Wesentliche.\n          Der Unterschrank ist w\u00E4hlbar mit Schiebet\u00FCren oder drei Schubladen erh\u00E4ltlich.\n          Die Glasschiebet\u00FCren im oberen Bereich \u00FCberzeugen mit ihrer Eleganz.\n        ",
                 imagePath: 'app/images/6/1.jpg',
                 imagePath2: 'app/images/6/2.jpg',
                 imagePath3: 'app/images/6/3.jpg',
@@ -121,8 +121,8 @@ var InMemoryDataService = (function () {
                 stain: 'natur',
                 deco: 'keine',
                 ledge: 'keine',
-                priceBefore: 1400,
-                price: 1400,
+                priceBefore: 950,
+                price: 950,
                 leoDrawers: 0,
                 slidingDoor: 1,
                 surface: 'geölt + gewachst'

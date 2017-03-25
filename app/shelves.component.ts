@@ -100,4 +100,6 @@ export class ShelvesComponent implements OnInit {
     this.router.navigate(['/regal', shelf.id]);
     //this.selectedShelf = shelf;
   }
+
+
 }

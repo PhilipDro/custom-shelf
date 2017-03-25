@@ -11,3 +11,7 @@
   width: 80px;
   display: inline-block;
 }
+.per-segment {
+  font-style: italic;
+  margin-left: 15px;
+}

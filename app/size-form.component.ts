@@ -13,7 +13,8 @@ import { Shelf } from './shelf';
           <tr>
             <td>Breite:</td>
             <td>
-              <input [(ngModel)]="shelf.width" type="number" class="form-control" name="inputWidth" #inputWidth="ngModel" required > cm
+              <input [(ngModel)]="shelf.width" type="number" class="form-control" name="inputWidth" #inputWidth="ngModel" (change)="validateSize()" required > cm
+              <span class="per-segment">{{warning || shelf.width/shelf.parts + " cm pro Segment"}} </span>
               <span [hidden]="inputWidth.valid || inputWidth.pristine" class="alert-simple">X</span>
               <span [hidden]="inputWidth.invalid || inputWidth.pristine" class="tick"><i class="fa fa-check" aria-hidden="true"></i></span>
             </td>
@@ -43,7 +44,17 @@ import { Shelf } from './shelf';
 export class SizeFormComponent {
   @Input()
   shelf: Shelf;
+  tooWidth = false;
+  warning: string;
+
   validateSize(size: number) {
-    //TODO
+    var perSegmentWidth = this.shelf.width / this.shelf.parts;
+    if(perSegmentWidth > 110 || perSegmentWidth < 60) {
+      this.warning = "muss zwischen 60 und 110 cm sein!";
+    }
+    else {
+      this.warning = null;
+    }
   }
+
 }

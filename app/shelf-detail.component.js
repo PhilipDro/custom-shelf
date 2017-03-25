@@ -224,11 +224,52 @@ var ShelfDetailComponent = (function () {
         else {
             var aSlidingDoor = 0;
         }
+        var object = this.shelf.id;
+        switch (object) {
+            case 1: {
+                var mObject = 1;
+                break;
+            }
+            case 2: {
+                var mObject = 1.53;
+                break;
+            }
+            case 3: {
+                var mObject = 1.28;
+                break;
+            }
+            case 4: {
+                var mObject = 1.41;
+                var shelfPriceBefore = this.shelf.price;
+                var aParts = this.shelf.parts * shelfPriceBefore - shelfPriceBefore;
+                break;
+            }
+            case 5: {
+                var mObject = 1.34;
+                break;
+            }
+            case 6: {
+                var mObject = 1;
+                break;
+            }
+            default: {
+                var mObject = 1;
+                break;
+            }
+        }
+        var priceForPart = 600;
+        if (this.shelf.parts > 1) {
+            var aParts = this.shelf.parts * priceForPart - priceForPart;
+        }
+        else {
+            aParts = 0;
+        }
         var widthPrice = ((this.shelf.width - 80) * 5) / this.shelf.parts;
-        var heightPrice = ((this.shelf.height - 80) * 2.5) / this.shelf.parts;
+        var heightPrice = ((this.shelf.height - 220) * 2.5) / this.shelf.parts;
+        var base = 600;
         this.shelf.price =
-            600 * mWood * mDeco * mLedge * mColor * mSurface +
-                (this.shelf.parts * 600) + heightPrice + widthPrice +
+            mWood * mDeco * mLedge * mColor * mSurface * mObject * base +
+                aParts + heightPrice + widthPrice +
                 aDrawer + aLeoDrawers + aSlidingDoor;
     };
     //custom functions

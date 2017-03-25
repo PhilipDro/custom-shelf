@@ -125,7 +125,7 @@ export class InMemoryDataService implements InMemoryDbService {
         id: 6,
         name: 'Leonora',
         description: `
-          Für Menschen, die Ihre Bücher nicht einstauben lassen wollen.
+          Für diejenigen, die Ihre Bücher nicht einstauben lassen wollen.
           Die klare Form des Bücherregals lenkt den Blick auf das Wesentliche.
           Der Unterschrank ist wählbar mit Schiebetüren oder drei Schubladen erhältlich.
           Die Glasschiebetüren im oberen Bereich überzeugen mit ihrer Eleganz.
@@ -144,14 +144,14 @@ export class InMemoryDataService implements InMemoryDbService {
         stain: 'natur',
         deco: 'keine',
         ledge: 'keine',
-        priceBefore: 1400,
-        price: 1400,
+        priceBefore: 950,
+        price: 950,
         leoDrawers: 0,
         slidingDoor: 1,
         surface: 'geölt + gewachst'
         // TODO 1 segment = 1m breit
-        // schiebetür unten = 400€
         // oberregal = 600€
+        // schiebetür unten = 400€
         // unterschrank mit schubladen 600€
       }
     ];

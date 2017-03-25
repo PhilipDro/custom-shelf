@@ -31,7 +31,7 @@ import { ShelfService } from './shelf.service';
   ]
 })
 
-export class ShelfDetailComponent {
+export class ShelfDetailComponent{
   isVisible: boolean = false;
 
   toggleInputParts: string;
@@ -60,8 +60,6 @@ export class ShelfDetailComponent {
     this.visible = false;
 
     this.activeImage = '1';
-
-
   }
 
   ngOnInit() {
@@ -70,7 +68,6 @@ export class ShelfDetailComponent {
       .subscribe((shelf: Shelf) => this.shelf = shelf);
 
   }
-
 
   //pick customization
   pickParts(part: number): void {
@@ -108,7 +105,6 @@ export class ShelfDetailComponent {
     else {
       this.currentImagePath = 'app/images/hovers/' + this.activeImage + '.jpg';
     }
-
   }
   changeState(state: number): void {
     this.shelf.state = state;
@@ -236,6 +232,7 @@ export class ShelfDetailComponent {
           break;
        }
     }
+
     if(this.shelf.color != null) {
       var mColor = 1.1;
     }
@@ -271,15 +268,58 @@ export class ShelfDetailComponent {
       var aSlidingDoor = 0;
     }
 
-    var widthPrice = ((this.shelf.width - 80) * 5)/ this.shelf.parts;
-    var heightPrice = ((this.shelf.height - 80) * 2.5)/ this.shelf.parts;
+    var object = this.shelf.id;
+    switch (object) {
+       case 1: {
+          var mObject = 1;
+          break;
+       }
+       case 2: { // sacleff
+          var mObject = 1.53;
+          break;
+       }
+       case 3: { // lango m
+          var mObject = 1.28;
+          break;
+       }
+       case 4: { //setzregal
+          var mObject = 1.41;
 
+          var shelfPriceBefore = this.shelf.price;
+          var aParts = this.shelf.parts * shelfPriceBefore - shelfPriceBefore;
+          break;
+       }
+       case 5: { // herrmann
+          var mObject = 1.34;
+          break;
+       }
+       case 6: {
+          var mObject = 1;
+          break;
+       }
+       default: {
+          var mObject = 1;
+          break;
+       }
+    }
+
+    var priceForPart = 600
+    if(this.shelf.parts > 1) {
+      var aParts = this.shelf.parts * priceForPart - priceForPart;
+    }
+    else {
+      aParts = 0;
+    }
+
+    var widthPrice = ((this.shelf.width - 80) * 5)/ this.shelf.parts;
+    var heightPrice = ((this.shelf.height - 220) * 2.5)/ this.shelf.parts;
+
+    var base = 600;
 
     this.shelf.price =
-      600 * mWood * mDeco * mLedge * mColor * mSurface +
-      (this.shelf.parts * 600) + heightPrice + widthPrice +
+      mWood * mDeco * mLedge * mColor * mSurface * mObject * base +
+      aParts + heightPrice + widthPrice +
       aDrawer + aLeoDrawers + aSlidingDoor;
-
   }
 
 
