@@ -56,7 +56,7 @@ import { ShelfService } from './shelf.service';
                       <div class="col-xs-12 col-md-6 col-lg-6">
                         <div class="shelf">
                           <h3>{{shelves && shelves[4].name}}</h3>
-                          <img class="img" src="{{shelves && shelves[4].imagePath}}" (click)="onSelect(shelves && shelves[4])"/>
+                          <img class="img img-responsive" src="{{shelves && shelves[4].imagePath}}" (click)="onSelect(shelves && shelves[4])"/>
                           <p class="jetzt-ansehen">Jetzt ansehen!</p>
                         </div>
                       </div>

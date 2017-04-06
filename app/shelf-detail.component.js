@@ -268,9 +268,9 @@ var ShelfDetailComponent = (function () {
         var heightPrice = ((this.shelf.height - 220) * 2.5) / this.shelf.parts;
         var base = 600;
         this.shelf.price =
-            mWood * mDeco * mLedge * mColor * mSurface * mObject * base +
+            Math.round(mWood * mDeco * mLedge * mColor * mSurface * mObject * base +
                 aParts + heightPrice + widthPrice +
-                aDrawer + aLeoDrawers + aSlidingDoor;
+                aDrawer + aLeoDrawers + aSlidingDoor);
     };
     //custom functions
     ShelfDetailComponent.prototype.isNumeric = function (n) {
