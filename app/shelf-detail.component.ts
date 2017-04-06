@@ -317,9 +317,9 @@ export class ShelfDetailComponent{
     var base = 600;
 
     this.shelf.price =
-      Math.round(mWood * mDeco * mLedge * mColor * mSurface * mObject * base +
+      mWood * mDeco * mLedge * mColor * mSurface * mObject * base +
       aParts + heightPrice + widthPrice +
-      aDrawer + aLeoDrawers + aSlidingDoor);
+      aDrawer + aLeoDrawers + aSlidingDoor;
   }
 
 

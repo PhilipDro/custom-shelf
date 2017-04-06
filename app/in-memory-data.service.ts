@@ -15,9 +15,9 @@ export class InMemoryDataService implements InMemoryDbService {
         depth: 25,
         height: 220,
         wood: 'erle',
-        stain: 'natur',
         deco: 'deco a',
-        price: 624,
+        priceBefore: 600,
+        price: 600,
         surface: 'geölt + gewachst'
       },
       {
@@ -35,9 +35,9 @@ export class InMemoryDataService implements InMemoryDbService {
         depth: 35,
         height: 220,
         wood: 'erle',
-        stain: 'natur',
         deco: 'deco a',
-        price: 1105,
+        priceBefore: 1100,
+        price: 1100,
         drawer: 1,
         surface: 'geölt + gewachst'
       },
@@ -62,9 +62,9 @@ export class InMemoryDataService implements InMemoryDbService {
         depth: 45,
         height: 220,
         wood: 'erle',
-        stain: 'natur',
         deco: 'deco a',
-        price: 1399,
+        priceBefore: 1400,
+        price: 1400,
         surface: 'geölt + gewachst'
       },
       {
@@ -91,7 +91,8 @@ export class InMemoryDataService implements InMemoryDbService {
         stain: 'natur',
         deco: 'keine',
         ledge: 'keine',
-        price: 846,
+        priceBefore: 850,
+        price: 850,
         surface: 'geölt + gewachst'
       },
       {
@@ -116,7 +117,8 @@ export class InMemoryDataService implements InMemoryDbService {
         stain: 'natur',
         deco: 'keine',
         ledge: 'keine',
-        price: 804,
+        priceBefore: 800,
+        price: 800,
         surface: 'geölt + gewachst'
       },
       {
@@ -142,6 +144,7 @@ export class InMemoryDataService implements InMemoryDbService {
         stain: 'natur',
         deco: 'keine',
         ledge: 'keine',
+        priceBefore: 950,
         price: 950,
         leoDrawers: 0,
         slidingDoor: 1,

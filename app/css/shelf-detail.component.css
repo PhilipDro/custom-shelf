@@ -198,6 +198,3 @@ input[type=number]::-webkit-inner-spin-button {
 .configurator > ul li.front2 {
   background: url('app/images/icons/front2.png');
 }
-.configurator > ul li.no-pick {
-  background: url('app/images/icons/none.png');
-}

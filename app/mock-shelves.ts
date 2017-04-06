@@ -14,9 +14,9 @@ export var SHELVES: Shelf[] = [
     depth: 25,
     height: 220,
     wood: 'erle',
-    stain: 'natur',
     deco: 'deco a',
-    price: 624,
+    priceBefore: 600,
+    price: 600,
     surface: 'geölt + gewachst'
   },
   {
@@ -34,9 +34,9 @@ export var SHELVES: Shelf[] = [
     depth: 35,
     height: 220,
     wood: 'erle',
-    stain: 'natur',
     deco: 'deco a',
-    price: 1105,
+    priceBefore: 1100,
+    price: 1100,
     drawer: 1,
     surface: 'geölt + gewachst'
   },
@@ -61,9 +61,9 @@ export var SHELVES: Shelf[] = [
     depth: 45,
     height: 220,
     wood: 'erle',
-    stain: 'natur',
     deco: 'deco a',
-    price: 1399,
+    priceBefore: 1400,
+    price: 1400,
     surface: 'geölt + gewachst'
   },
   {
@@ -90,7 +90,8 @@ export var SHELVES: Shelf[] = [
     stain: 'natur',
     deco: 'keine',
     ledge: 'keine',
-    price: 846,
+    priceBefore: 850,
+    price: 850,
     surface: 'geölt + gewachst'
   },
   {
@@ -115,14 +116,15 @@ export var SHELVES: Shelf[] = [
     stain: 'natur',
     deco: 'keine',
     ledge: 'keine',
-    price: 804,
+    priceBefore: 800,
+    price: 800,
     surface: 'geölt + gewachst'
   },
   {
     id: 6,
     name: 'Leonora',
     description: `
-      Für diejenigen, die Ihre Bücher nicht einstauben lassen wollen.
+      Für Menschen, die Ihre Bücher nicht einstauben lassen wollen.
       Die klare Form des Bücherregals lenkt den Blick auf das Wesentliche.
       Der Unterschrank ist wählbar mit Schiebetüren oder drei Schubladen erhältlich.
       Die Glasschiebetüren im oberen Bereich überzeugen mit ihrer Eleganz.
@@ -141,13 +143,14 @@ export var SHELVES: Shelf[] = [
     stain: 'natur',
     deco: 'keine',
     ledge: 'keine',
+    priceBefore: 950,
     price: 950,
     leoDrawers: 0,
     slidingDoor: 1,
     surface: 'geölt + gewachst'
     // TODO 1 segment = 1m breit
-    // oberregal = 600€
     // schiebetür unten = 400€
+    // oberregal = 600€
     // unterschrank mit schubladen 600€
   }
 ];
