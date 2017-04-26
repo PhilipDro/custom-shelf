@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var InMemoryDataService = (function () {
     function InMemoryDataService() {
     }
@@ -17,9 +18,9 @@ var InMemoryDataService = (function () {
                 depth: 25,
                 height: 220,
                 wood: 'erle',
+                stain: 'natur',
                 deco: 'deco a',
-                priceBefore: 600,
-                price: 600,
+                price: 624,
                 surface: 'geölt + gewachst'
             },
             {
@@ -33,9 +34,9 @@ var InMemoryDataService = (function () {
                 depth: 35,
                 height: 220,
                 wood: 'erle',
+                stain: 'natur',
                 deco: 'deco a',
-                priceBefore: 1100,
-                price: 1100,
+                price: 1105,
                 drawer: 1,
                 surface: 'geölt + gewachst'
             },
@@ -54,9 +55,9 @@ var InMemoryDataService = (function () {
                 depth: 45,
                 height: 220,
                 wood: 'erle',
+                stain: 'natur',
                 deco: 'deco a',
-                priceBefore: 1400,
-                price: 1400,
+                price: 1399,
                 surface: 'geölt + gewachst'
             },
             {
@@ -77,8 +78,7 @@ var InMemoryDataService = (function () {
                 stain: 'natur',
                 deco: 'keine',
                 ledge: 'keine',
-                priceBefore: 850,
-                price: 850,
+                price: 846,
                 surface: 'geölt + gewachst'
             },
             {
@@ -99,8 +99,7 @@ var InMemoryDataService = (function () {
                 stain: 'natur',
                 deco: 'keine',
                 ledge: 'keine',
-                priceBefore: 800,
-                price: 800,
+                price: 804,
                 surface: 'geölt + gewachst'
             },
             {
@@ -121,11 +120,14 @@ var InMemoryDataService = (function () {
                 stain: 'natur',
                 deco: 'keine',
                 ledge: 'keine',
-                priceBefore: 950,
                 price: 950,
                 leoDrawers: 0,
                 slidingDoor: 1,
                 surface: 'geölt + gewachst'
+                // TODO 1 segment = 1m breit
+                // oberregal = 600€
+                // schiebetür unten = 400€
+                // unterschrank mit schubladen 600€
             }
         ];
         return { shelves: shelves };

@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 // to process observable route parameters
@@ -268,9 +269,9 @@ var ShelfDetailComponent = (function () {
         var heightPrice = ((this.shelf.height - 220) * 2.5) / this.shelf.parts;
         var base = 600;
         this.shelf.price =
-            mWood * mDeco * mLedge * mColor * mSurface * mObject * base +
+            Math.round(mWood * mDeco * mLedge * mColor * mSurface * mObject * base +
                 aParts + heightPrice + widthPrice +
-                aDrawer + aLeoDrawers + aSlidingDoor;
+                aDrawer + aLeoDrawers + aSlidingDoor);
     };
     //custom functions
     ShelfDetailComponent.prototype.isNumeric = function (n) {
@@ -288,21 +289,7 @@ ShelfDetailComponent = __decorate([
         selector: 'shelf-detail',
         templateUrl: 'shelf-detail.component.html',
         styleUrls: ['css/shelf-detail.component.css'],
-        providers: [shelf_service_1.ShelfService],
-        animations: [
-            core_1.trigger('visibilityChanged', [
-                core_1.state('true', core_1.style({
-                    opacity: 1,
-                    transform: 'scale(1.0)'
-                })),
-                core_1.state('false', core_1.style({
-                    opacity: 0,
-                    transform: 'scale(0.0)'
-                })),
-                core_1.transition('1 => 0', core_1.animate('200ms')),
-                core_1.transition('0 => 1', core_1.animate('200ms'))
-            ])
-        ]
+        providers: [shelf_service_1.ShelfService]
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         router_1.Router,

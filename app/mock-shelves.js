@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.SHELVES = [
     {
         id: 1,
@@ -13,9 +14,9 @@ exports.SHELVES = [
         depth: 25,
         height: 220,
         wood: 'erle',
+        stain: 'natur',
         deco: 'deco a',
-        priceBefore: 600,
-        price: 600,
+        price: 624,
         surface: 'geölt + gewachst'
     },
     {
@@ -29,9 +30,9 @@ exports.SHELVES = [
         depth: 35,
         height: 220,
         wood: 'erle',
+        stain: 'natur',
         deco: 'deco a',
-        priceBefore: 1100,
-        price: 1100,
+        price: 1105,
         drawer: 1,
         surface: 'geölt + gewachst'
     },
@@ -50,9 +51,9 @@ exports.SHELVES = [
         depth: 45,
         height: 220,
         wood: 'erle',
+        stain: 'natur',
         deco: 'deco a',
-        priceBefore: 1400,
-        price: 1400,
+        price: 1399,
         surface: 'geölt + gewachst'
     },
     {
@@ -73,8 +74,7 @@ exports.SHELVES = [
         stain: 'natur',
         deco: 'keine',
         ledge: 'keine',
-        priceBefore: 850,
-        price: 850,
+        price: 846,
         surface: 'geölt + gewachst'
     },
     {
@@ -95,14 +95,13 @@ exports.SHELVES = [
         stain: 'natur',
         deco: 'keine',
         ledge: 'keine',
-        priceBefore: 800,
-        price: 800,
+        price: 804,
         surface: 'geölt + gewachst'
     },
     {
         id: 6,
         name: 'Leonora',
-        description: "\n      F\u00FCr Menschen, die Ihre B\u00FCcher nicht einstauben lassen wollen.\n      Die klare Form des B\u00FCcherregals lenkt den Blick auf das Wesentliche.\n      Der Unterschrank ist w\u00E4hlbar mit Schiebet\u00FCren oder drei Schubladen erh\u00E4ltlich.\n      Die Glasschiebet\u00FCren im oberen Bereich \u00FCberzeugen mit ihrer Eleganz.\n    ",
+        description: "\n      F\u00FCr diejenigen, die Ihre B\u00FCcher nicht einstauben lassen wollen.\n      Die klare Form des B\u00FCcherregals lenkt den Blick auf das Wesentliche.\n      Der Unterschrank ist w\u00E4hlbar mit Schiebet\u00FCren oder drei Schubladen erh\u00E4ltlich.\n      Die Glasschiebet\u00FCren im oberen Bereich \u00FCberzeugen mit ihrer Eleganz.\n    ",
         imagePath: 'app/images/6/1.jpg',
         imagePath2: 'app/images/6/2.jpg',
         imagePath3: 'app/images/6/3.jpg',
@@ -117,11 +116,14 @@ exports.SHELVES = [
         stain: 'natur',
         deco: 'keine',
         ledge: 'keine',
-        priceBefore: 950,
         price: 950,
         leoDrawers: 0,
         slidingDoor: 1,
         surface: 'geölt + gewachst'
+        // TODO 1 segment = 1m breit
+        // oberregal = 600€
+        // schiebetür unten = 400€
+        // unterschrank mit schubladen 600€
     }
 ];
 //# sourceMappingURL=mock-shelves.js.map
