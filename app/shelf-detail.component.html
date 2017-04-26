@@ -45,12 +45,13 @@
               <!-- pick color -->
               <div *ngIf="shelf.wood !== 'erle'" class="configurator">
                 <strong><p>Farbe:</p></strong>
-                <ul>
-                  <li class="no-pick" [class.selected]="shelf.color === null" (click)="pickColor(null)"></li>
-                  <li class="white" [class.selected]="shelf.color === 'signalweiss'" (click)="pickColor('signalweiss')"></li>
-                  <li class="kastanienbraun" [class.selected]="shelf.color === 'kastanienbraun'" (click)="pickColor('kastanienbraun')"></li><br class="hidden-xs"/>
-                  <li class="grasgruen" [class.selected]="shelf.color === 'grasgruen'" (click)="pickColor('grasgruen')"></li>
-                  <li class="signalgelb" [class.selected]="shelf.color === 'signalgelb'" (click)="pickColor('signalgelb')"></li>
+                <ul class="round">
+                  <li [class.selected]="shelf.color === null" (click)="pickColor(null)" class="no-pick tooltip"><span class="tooltiptext">Keine</span></li>
+                  <li [class.selected]="shelf.color === 'signalweiss'" (click)="pickColor('signalweiss')" class="white tooltip"><span class="tooltiptext">Signalweiß</span></li>
+                  <li [class.selected]="shelf.color === 'kastanienbraun'" (click)="pickColor('kastanienbraun')" class="kastanienbraun tooltip"><span class="tooltiptext">Kastanienbraun</span></li>
+                  <br class="hidden-xs" />
+                  <li [class.selected]="shelf.color === 'grasgruen'" (click)="pickColor('grasgruen')" class="grasgruen tooltip"><span class="tooltiptext">Grasgrün</span></li>
+                  <li [class.selected]="shelf.color === 'signalgelb'" (click)="pickColor('signalgelb')" class="signalgelb tooltip"><span class="tooltiptext">Signalgelb</span></li>
                   <li (click)="showAddColor()" class="add"></li>
                   <input [ngClass]="toggleInputColor" #customColor (keyup)="addColor(customColor.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
                 </ul>
@@ -59,12 +60,13 @@
               <!-- pick stain/beize if holz == erle -->
               <div *ngIf="shelf.wood == 'erle'" class="configurator">
                 <strong><p>Gebeizt auf:</p></strong>
-                <ul>
-                  <li [class.selected]="shelf.stain === 'natur'" (click)="pickStain('natur')" (mouseenter)="changeImage('erle-large')" (mouseleave)="changeImage(this.srcBackup)" class="erle"></li>
-                  <li [class.selected]="shelf.stain === 'kiefer'" (click)="pickStain('kiefer')" (mouseenter)="changeImage('kiefer-large')" (mouseleave)="changeImage(this.srcBackup)" class="kiefer"></li>
-                  <li [class.selected]="shelf.stain === 'buche'" (click)="pickStain('buche')" (mouseenter)="changeImage('buche-large')" (mouseleave)="changeImage(this.srcBackup)" class="buche"></li><br class="hidden-xs"/>
-                  <li [class.selected]="shelf.stain === 'eiche'" (click)="pickStain('eiche')" (mouseenter)="changeImage('eiche-large')" (mouseleave)="changeImage(this.srcBackup)" class="eiche"></li>
-                  <li [class.selected]="shelf.stain === 'kirsche'" (click)="pickStain('kirsche')" (mouseenter)="changeImage('kirsche-large')" (mouseleave)="changeImage(this.srcBackup)" class="kirsche"></li>
+                <ul class="round">
+                  <li [class.selected]="shelf.stain === 'natur'" (click)="pickStain('natur')" (mouseenter)="changeImage('erle-large')" (mouseleave)="changeImage(this.srcBackup)" class="erle tooltip"><span class="tooltiptext">Erle</span></li>
+                  <li [class.selected]="shelf.stain === 'kiefer'" (click)="pickStain('kiefer')" (mouseenter)="changeImage('kiefer-large')" (mouseleave)="changeImage(this.srcBackup)" class="kiefer tooltip"><span class="tooltiptext">Kiefer</span></li>
+                  <li [class.selected]="shelf.stain === 'buche'" (click)="pickStain('buche')" (mouseenter)="changeImage('buche-large')" (mouseleave)="changeImage(this.srcBackup)" class="buche tooltip"><span class="tooltiptext">Buche</span></li>
+                  <br class="hidden-xs"/>
+                  <li [class.selected]="shelf.stain === 'eiche'" (click)="pickStain('eiche')" (mouseenter)="changeImage('eiche-large')" (mouseleave)="changeImage(this.srcBackup)" class="eiche tooltip"><span class="tooltiptext">Eiche</span></li>
+                  <li [class.selected]="shelf.stain === 'kirsche'" (click)="pickStain('kirsche')" (mouseenter)="changeImage('kirsche-large')" (mouseleave)="changeImage(this.srcBackup)" class="kirsche tooltip"><span class="tooltiptext">Kirsche</span></li>
                   <li (click)="showAddStain()" class="add"></li>
                   <input [ngClass]="toggleInputStain" #customStain (keyup)="addStain(customStain.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
                 </ul>
@@ -93,13 +95,13 @@
             <div class="col-xs-12 col-sm-6">
               <div class="configurator">
                 <strong><p>Holz:</p></strong>
-                <ul>
-                  <li [class.selected]="shelf.wood === 'erle'" (click)="pickWood('erle')" (mouseenter)="changeImage('erle-large')" (mouseleave)="changeImage(this.srcBackup)" class="erle"></li>
-                  <li [class.selected]="shelf.wood === 'kiefer'" (click)="pickWood('kiefer')" (mouseenter)="changeImage('kiefer-large')" (mouseleave)="changeImage(this.srcBackup)" class="kiefer"></li>
-                  <li [class.selected]="shelf.wood === 'buche'" (click)="pickWood('buche')"(mouseenter)="changeImage('buche-large')" (mouseleave)="changeImage(this.srcBackup)" class="buche"></li>
+                <ul class="round">
+                  <li [class.selected]="shelf.wood === 'erle'" (click)="pickWood('erle')" (mouseenter)="changeImage('erle-large')" (mouseleave)="changeImage(this.srcBackup)" class="erle tooltip"><span class="tooltiptext">Erle</span></li>
+                  <li [class.selected]="shelf.wood === 'kiefer'" (click)="pickWood('kiefer')" (mouseenter)="changeImage('kiefer-large')" (mouseleave)="changeImage(this.srcBackup)" class="kiefer tooltip"><span class="tooltiptext">Kiefer</span></li>
+                  <li [class.selected]="shelf.wood === 'buche'" (click)="pickWood('buche')"(mouseenter)="changeImage('buche-large')" (mouseleave)="changeImage(this.srcBackup)" class="buche tooltip"><span class="tooltiptext">Buche</span></li>
                   <br class="hidden-xs"/>
-                  <li [class.selected]="shelf.wood === 'eiche'" (click)="pickWood('eiche')" (mouseenter)="changeImage('eiche-large')" (mouseleave)="changeImage(this.srcBackup)" class="eiche"></li>
-                  <li [class.selected]="shelf.wood === 'kirsche'" (click)="pickWood('kirsche')" (mouseenter)="changeImage('kirsche-large')" (mouseleave)="changeImage(this.srcBackup)" class="kirsche"></li>
+                  <li [class.selected]="shelf.wood === 'eiche'" (click)="pickWood('eiche')" (mouseenter)="changeImage('eiche-large')" (mouseleave)="changeImage(this.srcBackup)" class="eiche tooltip"><span class="tooltiptext">Eiche</span></li>
+                  <li [class.selected]="shelf.wood === 'kirsche'" (click)="pickWood('kirsche')" (mouseenter)="changeImage('kirsche-large')" (mouseleave)="changeImage(this.srcBackup)" class="kirsche tooltip"><span class="tooltiptext">Kirsche</span></li>
                   <li (click)="showAddWood()" class="add"></li>
                   <input [ngClass]="toggleInputWood" #customWood (keyup)="addWood(customWood.value)" type="text" class="form-control" placeholder="Ihr Wunsch">
                 </ul>
@@ -109,7 +111,7 @@
               <div *ngIf="shelf.id != 5 && shelf.id != 6" class="configurator">
                 <strong><p>Vorderleisten:</p></strong>
                 <ul>
-                  <li [class.selected]="shelf.deco === null" (click)="pickDeco(null)" class="no-pick"></li>
+                  <li [class.selected]="shelf.deco === null" (click)="pickDeco(null)" class="no-pick tooltip"><span class="tooltiptext">Keine</span></li>
                   <li [class.selected]="shelf.deco === 'deco a'" (click)="pickDeco('deco a')" (mouseenter)="changeImage('front1')" (mouseleave)="changeImage(this.srcBackup)"  class="front1"></li>
                   <li [class.selected]="shelf.deco === 'deco b'" (click)="pickDeco('deco b')" (mouseenter)="changeImage('front2')" (mouseleave)="changeImage(this.srcBackup)" class="front2"></li>
                 </ul>
@@ -118,7 +120,7 @@
               <div *ngIf="shelf.id != 5 && shelf.id != 6" class="configurator">
                 <strong><p>Kranzleisten:</p></strong>
                 <ul>
-                  <li [class.selected]="shelf.ledge === null" (click)="pickLedge(null)" class="no-pick"></li>
+                  <li [class.selected]="shelf.ledge === null" (click)="pickLedge(null)" class="no-pick tooltip"><span class="tooltiptext">Keine</span></li>
                   <li [class.selected]="shelf.ledge === 'ledge a'" (click)="pickLedge('ledge a')" (mouseenter)="changeImage('top1')" (mouseleave)="changeImage(this.srcBackup)"  class="top1"></li>
                   <li [class.selected]="shelf.ledge === 'ledge b'" (click)="pickLedge('ledge b')" (mouseenter)="changeImage('top2')" (mouseleave)="changeImage(this.srcBackup)"  class="top2"></li>
                 </ul>

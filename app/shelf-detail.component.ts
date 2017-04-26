@@ -63,6 +63,9 @@ export class ShelfDetailComponent{
   }
 
   ngOnInit() {
+    var tooltipElements = document.getElementsByClassName("tooltip");
+    tooltipElements.tooltip('show');
+
     this.route.params
       .switchMap((params: Params) => this.service.getShelf(+params['id']))
       .subscribe((shelf: Shelf) => this.shelf = shelf);

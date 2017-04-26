@@ -6,6 +6,10 @@
     "website",
     "regale"
   ],
+  "repository": {
+  "type": "git",
+  "url": "git://github.com/PhilipDro/custom-shelf.git"
+  },
   "homepage": "http://not-yet.de",
   "author": {
     "name": "Philip Drozd",
@@ -17,23 +21,27 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@angular/common": "~2.2.0",
-    "@angular/compiler": "~2.2.0",
-    "@angular/core": "~2.2.0",
-    "@angular/forms": "~2.2.0",
-    "@angular/http": "~2.2.0",
-    "@angular/platform-browser": "~2.2.0",
-    "@angular/platform-browser-dynamic": "~2.2.0",
-    "@angular/router": "~3.2.0",
-    "@angular/upgrade": "~2.2.0",
-    "angular-in-memory-web-api": "~0.1.15",
+    "rxjs": "5.3.0",
+    "zone.js": "0.8.9",
+    "@angular/common": "4.0.3",
+    "@angular/compiler": "4.0.3",
+    "@angular/core": "4.0.3",
+    "@angular/forms": "4.0.3",
+    "@angular/http": "4.0.3",
+    "@angular/platform-browser": "4.0.3",
+    "@angular/platform-browser-dynamic": "4.0.3",
+    "@angular/router": "4.0.3",
+    "@angular/upgrade": "4.0.3",
+
+    "bootstrap": "3.3.7",
+    "angular-in-memory-web-api": "0.3.1",
+    "systemjs": "0.20.12",
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.8",
-    "rxjs": "5.0.0-beta.12",
-    "zone.js": "^0.6.25"
+    "ngx-tooltip": "0.0.9"
   },
   "devDependencies": {
-    "concurrently": "^3.0.0",
+    "concurrently": "3.4.0",
     "lite-server": "^2.2.2"
   }
 }
