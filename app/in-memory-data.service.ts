@@ -7,8 +7,6 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'Veganes Regal',
         description: 'Das vegane Regal ist das perfekte Einrichtungsstück für den umweltbewussten Bürger. Es passt stilbewusst zwischen Ihr Weinregal und den vintage Kinderwagen in Ihrer Altbauwohnung im Prenzlauer Berg.',
         imagePath: 'app/images/1/1.jpg',
-        imagePath2: 'app/images/1/2.jpg',
-        imagePath3: 'app/images/1/3.jpg',
         state: 1,
         parts: 1,
         width: 80,

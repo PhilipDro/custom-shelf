@@ -39,6 +39,7 @@ h1 {
   padding: 5px;
   margin: 3px;
   position: relative;
+  cursor: pointer;
 }
 .configurator ul li.selected {
   /*opacity: 0.5;*/
@@ -128,12 +129,12 @@ h1 {
   width: 30px;
 }
 .configurator ul.parts li:nth-child(2) {
-  width: 38px;
+  width: 37px;
   background-position: -30px 0;
 }
 .configurator ul.parts li:nth-child(3) {
-  width: 49px;
-  background-position: -68px 0;
+  width: 51px;
+  background-position: -67px 0;
   margin-right: 100px;
 }
 .configurator ul.parts li:nth-child(4) {
@@ -203,4 +204,5 @@ input[type=number]::-webkit-inner-spin-button {
 .configurator > ul li.no-pick {
   background: url('app/images/icons/none.png');
   background-position: center;
+  border-radius: 40px;
 }

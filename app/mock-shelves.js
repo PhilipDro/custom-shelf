@@ -1,12 +1,11 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.SHELVES = [
     {
         id: 1,
         name: 'Veganes Regal',
         description: 'Das vegane Regal ist das perfekte Einrichtungsstück für den umweltbewussten Bürger. Es passt stilbewusst zwischen Ihr Weinregal und den vintage Kinderwagen in Ihrer Altbauwohnung im Prenzlauer Berg.',
         imagePath: 'app/images/1/1.jpg',
-        imagePath2: 'app/images/1/2.jpg',
-        imagePath3: 'app/images/1/3.jpg',
         state: 1,
         parts: 1,
         width: 80,
@@ -119,6 +118,10 @@ exports.SHELVES = [
         leoDrawers: 0,
         slidingDoor: 1,
         surface: 'geölt + gewachst'
+        // TODO 1 segment = 1m breit
+        // oberregal = 600€
+        // schiebetür unten = 400€
+        // unterschrank mit schubladen 600€
     }
 ];
 //# sourceMappingURL=mock-shelves.js.map
