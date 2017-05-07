@@ -21,6 +21,8 @@ var ShelfDetailComponent = (function () {
         this.router = router;
         this.service = service;
         this.isVisible = false;
+        // animation state
+        this.state = 'true';
         this.toggleInputParts = 'hide-class';
         this.toggleInputWood = 'hide-class';
         this.toggleInputColor = 'hide-class';
@@ -38,6 +40,8 @@ var ShelfDetailComponent = (function () {
     };
     //pick customization
     ShelfDetailComponent.prototype.pickParts = function (part) {
+        // var oldWidth = this.shelf.width
+        // this.shelf.width = this.shelf.width * part - oldWidth;
         this.shelf.parts = part;
     };
     ShelfDetailComponent.prototype.pickWood = function (wood) {
@@ -63,6 +67,7 @@ var ShelfDetailComponent = (function () {
     };
     //subnavigate
     ShelfDetailComponent.prototype.changeImage = function (image) {
+        // this.toggleState();
         this.srcBackup = this.activeImage;
         this.activeImage = image;
         if (this.isNumeric(image)) {
@@ -273,9 +278,37 @@ var ShelfDetailComponent = (function () {
                 aParts + heightPrice + widthPrice +
                 aDrawer + aLeoDrawers + aSlidingDoor);
     };
-    //custom functions
+    // custom functions
     ShelfDetailComponent.prototype.isNumeric = function (n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
+    };
+    // for animation
+    // toggleState() {
+    //   this.toggleState2().then(function() {
+    //     this.toggleState3();
+    //   })
+    //   // this.state = (this.state === 'false' ? 'true' : 'false');
+    //   // this.waitSeconds(100);
+    //   // toggleState2();
+    // }
+    // toggleState2() {
+    //   return new Promise(function (fulfill, reject){
+    //       this.state = (this.state === 'false' ? 'true' : 'false');
+    //       //do stuff
+    //       fulfill('hey'); //if the action succeeded
+    //       reject(error); //if the action did not succeed
+    //   });
+    // }
+    // toggleState3() {
+    //   alert('go');
+    //   //this.state = (this.state === 'false' ? 'true' : 'false');
+    // }
+    ShelfDetailComponent.prototype.waitSeconds = function (iMilliSeconds) {
+        var counter = 0, start = new Date().getTime(), end = 0;
+        while (counter < iMilliSeconds) {
+            end = new Date().getTime();
+            counter = end - start;
+        }
     };
     return ShelfDetailComponent;
 }());
@@ -291,17 +324,24 @@ ShelfDetailComponent = __decorate([
         styleUrls: ['css/shelf-detail.component.css'],
         providers: [shelf_service_1.ShelfService],
         animations: [
-            core_1.trigger('visibilityChanged', [
+            core_1.trigger('visiChange', [
                 core_1.state('true', core_1.style({
-                    opacity: 1,
-                    transform: 'scale(1.0)'
+                    display: 'block',
                 })),
                 core_1.state('false', core_1.style({
-                    opacity: 0,
-                    transform: 'scale(0.0)'
+                    display: 'none',
                 })),
-                core_1.transition('1 => 0', core_1.animate('200ms')),
-                core_1.transition('0 => 1', core_1.animate('200ms'))
+                core_1.transition('true => false', core_1.animate('200ms')),
+                core_1.transition('false => true', core_1.animate('200ms'))
+            ]),
+            core_1.trigger('fadeInOut', [
+                core_1.transition(':enter', [
+                    core_1.style({ opacity: 0 }),
+                    core_1.animate(200, core_1.style({ opacity: 1 }))
+                ]),
+                core_1.transition(':leave', [
+                    core_1.animate(200, core_1.style({ opacity: 0 }))
+                ])
             ])
         ]
     }),

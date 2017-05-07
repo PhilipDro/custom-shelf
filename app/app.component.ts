@@ -49,6 +49,12 @@ import { ShelfService } from './shelf.service';
         display: inline-block;
         width: 100%;
       }
+      @media(max-width: 768px) {
+        .nav-container {
+          margin: 0 auto;
+          text-align: center;
+        }
+      }
       nav {
         text-align: left;
         margin: 20px 0;

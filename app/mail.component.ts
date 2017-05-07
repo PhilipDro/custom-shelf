@@ -57,7 +57,11 @@ export class MailComponent implements OnInit{
     stain: '',
     color: '',
     deco: '',
-    ledge: '',
+    ledge: ''
+    // drawer: '',
+    // leoDrawers: '',
+    // slidingDoor: '',
+    // surface: ''
   };
 
   onSubmit() {
@@ -91,7 +95,11 @@ export class MailComponent implements OnInit{
         stain: '',
         color: '',
         deco: '',
-        ledge: '',
+        ledge: ''
+        // drawer: '',
+        // leoDrawers: '',
+        // slidingDoor: '',
+        // surface: ''
       };
       this.messageSent = true;
     }

@@ -1,17 +1,53 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 header('Content-type: application/json');
 
 $errors = '';
 
 if(empty($errors)) {
+  // if($_POST['stain'] != '') {
+  //   $stain = '<span>Gebeizt auf: </span>' .  '<strong>' .ucfirst($_POST['stain']) . '</strong><br>'
+  // }
+  // else {
+  //   $stain = '';
+  // }
+  // if($_POST['drawer'] != '') {
+  //   $drawer = '<span>Schubladen: </span>' .  '<strong>' .ucfirst($_POST['drawer']) . '</strong><br>'
+  // }
+  // else {
+  //   $drawer = '';
+  // }
+  // if($_POST['leoDrawers'] != '') {
+  //   $leoDrawers = '<span>Schubladen: </span>' .  '<strong>' .ucfirst($_POST['leoDrawers']) . '</strong><br>'
+  // }
+  // else {
+  //   $leoDrawers = '';
+  // }
+  // if($_POST['slidingDoor'] != '') {
+  //   $slidingDoor = '<span>Schiebetüren: </span>' .  '<strong>' .ucfirst($_POST['slidingDoor']) . '</strong><br>'
+  // }
+  // else {
+  //   $slidingDoor = '';
+  // }
+  // if($_POST['surface'] != '') {
+  //   $surface = '<span>Oberflächenbehandlung: </span>' .  '<strong>' .ucfirst($_POST['surface']) . '</strong><br>'
+  // }
+  // else {
+  //   $surface = '';
+  // }
 
   $properties =
   '<span>Segmente: </span>' . '<strong>' . $_POST['parts'] . '<span>-teilig</span></strong><br></strong>' .
   '<span>Holz: </span>' . '<strong>' . ucfirst($_POST['wood']) . '</strong><br>' .
-  '<span>Gebeizt auf: </span>' .  '<strong>' .ucfirst($_POST['stain']) . '</strong><br>' .
+  //$stain .
   '<span>Kapitäle: </span>' .  '<strong>' .ucfirst($_POST['deco']) . '</strong><br>' .
   '<span>Kranzleisten: </span>' .  '<strong>' .ucfirst($_POST['ledge']) . '</strong><br>' .
+  // $drawer .
+  // $leoDrawers .
+  // $slidingDoor .
+  // $surface .
   '<span>Breite: </span>' .  '<strong>' .$_POST['width'] . '<span> cm<span></strong><br>' .
   '<span>Tiefe: </span>' . '<strong>' . $_POST['depth'] . '<span> cm<span></strong><br>' .
   '<span>Höhe: </span>' .  '<strong>' .$_POST['height'] . '<span> cm<span></strong>';
@@ -32,7 +68,7 @@ if(empty($errors)) {
   $message_base = 'Telefonnummer des Klienten: ' . '<strong>' . $_POST['phone'] . '</strong>' .
     '<p>Nachricht des Klienten:</p><br>' .
     $_POST['message'] .
-    '<br><p>Klient Interesse an folgendem Regal:</p>'.
+    '<br><p>Klient hat Interesse an folgendem Regal:</p>'.
     $properties
 
     ;

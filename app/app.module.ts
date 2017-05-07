@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
@@ -29,7 +31,8 @@ import { routing } from './app.routing';
     FormsModule,
     routing,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true})
+    InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,

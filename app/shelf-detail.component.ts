@@ -16,17 +16,24 @@ import { ShelfService } from './shelf.service';
   styleUrls: ['css/shelf-detail.component.css'],
   providers: [ShelfService],
   animations: [
-    trigger('visibilityChanged', [
+    trigger('visiChange', [
       state('true', style({
-        opacity: 1,
-        transform: 'scale(1.0)'
+        display: 'block',
       })),
-      state('false',   style({
-        opacity: 0,
-        transform: 'scale(0.0)'
+      state('false', style({
+        display: 'none',
       })),
-      transition('1 => 0', animate('200ms')),
-      transition('0 => 1', animate('200ms'))
+      transition('true => false', animate('200ms')),
+      transition('false => true', animate('200ms'))
+    ]),
+    trigger('fadeInOut', [
+      transition(':enter', [   // :enter is alias to 'void => *'
+        style({opacity:0}),
+        animate(200, style({opacity:1}))
+      ]),
+      transition(':leave', [   // :leave is alias to '* => void'
+        animate(200, style({opacity:0}))
+      ])
     ])
   ]
 })
@@ -45,6 +52,9 @@ export class ShelfDetailComponent{
   activeImage: string;
   currentImagePath: string;
   srcBackup: string;
+
+  // animation state
+  state: string = 'true';
 
   constructor(
     private route: ActivatedRoute,
@@ -71,6 +81,8 @@ export class ShelfDetailComponent{
 
   //pick customization
   pickParts(part: number): void {
+    // var oldWidth = this.shelf.width
+    // this.shelf.width = this.shelf.width * part - oldWidth;
     this.shelf.parts = part;
   }
   pickWood(wood: string): void {
@@ -96,9 +108,9 @@ export class ShelfDetailComponent{
   }
   //subnavigate
   changeImage(image: string) {
+    // this.toggleState();
     this.srcBackup = this.activeImage;
     this.activeImage = image;
-
     if(this.isNumeric(image)) {
       this.currentImagePath = 'app/images/' + this.shelf.id + '/' + this.activeImage + '.jpg';
     }
@@ -323,9 +335,41 @@ export class ShelfDetailComponent{
   }
 
 
-  //custom functions
+  // custom functions
   isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
   }
+
+  // for animation
+  // toggleState() {
+  //   this.toggleState2().then(function() {
+  //     this.toggleState3();
+  //   })
+  //   // this.state = (this.state === 'false' ? 'true' : 'false');
+  //   // this.waitSeconds(100);
+  //   // toggleState2();
+  // }
+  // toggleState2() {
+  //   return new Promise(function (fulfill, reject){
+  //       this.state = (this.state === 'false' ? 'true' : 'false');
+  //       //do stuff
+  //       fulfill('hey'); //if the action succeeded
+  //       reject(error); //if the action did not succeed
+  //   });
+  // }
+  // toggleState3() {
+  //   alert('go');
+  //   //this.state = (this.state === 'false' ? 'true' : 'false');
+  // }
+  waitSeconds(iMilliSeconds) {
+    var counter= 0
+        , start = new Date().getTime()
+        , end = 0;
+    while (counter < iMilliSeconds) {
+        end = new Date().getTime();
+        counter = end - start;
+  }
+}
+
   @Input() shelf: Shelf;
 }

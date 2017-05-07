@@ -1,4 +1,11 @@
 /** shelf-detail.component.css **/
+.animation-test {
+  opacity: 1;
+  color: yellow;
+  width:  100%;
+  height: 100%;
+  background-color: black;
+}
 .image-container {
   position: relative;
   text-align: center;
@@ -7,6 +14,12 @@
   width: 100%;
   position: relative;
   top: 20px;
+  opacity: 1;
+}
+@media(max-width: 768px) {
+  .front-image {
+    margin-bottom: 20px;
+  }
 }
 .config-section {
   position: relative;
@@ -102,6 +115,7 @@ h1 {
   border-radius: 15px;
   background: grey;
   margin: 10px;
+  cursor: pointer;
 }
 .subnav ul li.active {
   background: brown;
@@ -120,6 +134,7 @@ h1 {
   background-image: url('app/images/shelves-icon.png');
   height: 60px;
   float:left;
+
 }
 .configurator ul.parts li.selected {
   opacity: 0.6;
@@ -136,6 +151,11 @@ h1 {
   width: 51px;
   background-position: -67px 0;
   margin-right: 100px;
+}
+@media(max-width: 768px) {
+  .configurator ul.parts li:nth-child(3) {
+    margin-right: 0;
+  }
 }
 .configurator ul.parts li:nth-child(4) {
   width: 60px;

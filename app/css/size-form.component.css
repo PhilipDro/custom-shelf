@@ -15,3 +15,9 @@
   font-style: italic;
   margin-left: 15px;
 }
+.first-td {
+  width: 15%;
+}
+.second-td {
+  width: 85%;
+}

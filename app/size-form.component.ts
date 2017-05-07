@@ -11,10 +11,10 @@ import { Shelf } from './shelf';
 
         <table class="table">
           <tr>
-            <td>Breite:</td>
-            <td>
-              <input [(ngModel)]="shelf.width" type="number" min="0" class="form-control" name="inputWidth" #inputWidth="ngModel" (change)="validateSize()" required > cm
-              <span class="per-segment">{{warning || shelf.width/shelf.parts + " cm pro Segment"}} </span>
+            <td class="first-td">Breite:</td>
+            <td class="second-td">
+              <input [(ngModel)]="shelf.width" type="number" min="0" class="form-control" name="inputWidth" #inputWidth="ngModel" (mouseup)="validateSize()" (keyup)="validateSize()" required > cm
+              <span class="per-segment">{{warning || perSegmentWidthText || ""}} </span>
               <span [hidden]="inputWidth.valid || inputWidth.pristine" class="alert-simple">X</span>
               <span *ngIf="outOfRange" class="alert-simple">X</span>
               <span [hidden]="inputWidth.invalid || inputWidth.pristine || outOfRange" class="tick"><i class="fa fa-check" aria-hidden="true"></i></span>
@@ -48,11 +48,14 @@ export class SizeFormComponent {
   tooWidth = false;
   warning: any;
   outOfRange: boolean = false;
+  perSegmentWidth: number;
+  perSegmentWidthText: string;
 
   validateSize(size: number) {
-    var perSegmentWidth = this.shelf.width / this.shelf.parts;
+    this.perSegmentWidth = Math.round(this.shelf.width / this.shelf.parts);
+    this.perSegmentWidthText = this.perSegmentWidth + " cm pro Segment";
     // if it is out of range
-    if(perSegmentWidth > 110 || perSegmentWidth < 60) {
+    if(this.perSegmentWidth > 110 || this.perSegmentWidth < 60) {
       this.warning = "60 bis 110 cm pro Segment!";
       this.outOfRange = true;
     }

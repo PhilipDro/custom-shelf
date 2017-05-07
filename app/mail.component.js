@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var mail_service_1 = require("./mail.service");
@@ -28,7 +29,11 @@ var MailComponent = (function () {
             stain: '',
             color: '',
             deco: '',
-            ledge: '',
+            ledge: ''
+            // drawer: '',
+            // leoDrawers: '',
+            // slidingDoor: '',
+            // surface: ''
         };
     }
     MailComponent.prototype.ngOnInit = function () { };
@@ -59,7 +64,11 @@ var MailComponent = (function () {
                 stain: '',
                 color: '',
                 deco: '',
-                ledge: '',
+                ledge: ''
+                // drawer: '',
+                // leoDrawers: '',
+                // slidingDoor: '',
+                // surface: ''
             };
             this.messageSent = true;
         }
