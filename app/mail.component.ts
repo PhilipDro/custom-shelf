@@ -57,11 +57,11 @@ export class MailComponent implements OnInit{
     stain: '',
     color: '',
     deco: '',
-    ledge: ''
-    // drawer: '',
-    // leoDrawers: '',
-    // slidingDoor: '',
-    // surface: ''
+    ledge: '',
+    drawer: 0,
+    leoDrawers: 0,
+    slidingDoor: 0,
+    surface: '',
   };
 
   onSubmit() {
@@ -74,6 +74,10 @@ export class MailComponent implements OnInit{
     this.message.color = this.shelf.color;
     this.message.deco = this.shelf.deco;
     this.message.ledge = this.shelf.ledge;
+    this.message.drawer = this.shelf.drawer;
+    this.message.leoDrawers = this.shelf.leoDrawers;
+    this.message.slidingDoor = this.shelf.slidingDoor;
+    this.message.surface = this.shelf.surface;
 
     this._mailService.postEmail(this.message).subscribe(
       response => this.handleResponse(response),
@@ -95,11 +99,11 @@ export class MailComponent implements OnInit{
         stain: '',
         color: '',
         deco: '',
-        ledge: ''
-        // drawer: '',
-        // leoDrawers: '',
-        // slidingDoor: '',
-        // surface: ''
+        ledge: '',
+        drawer: 0,
+        leoDrawers: 0,
+        slidingDoor: 0,
+        surface: '',
       };
       this.messageSent = true;
     }

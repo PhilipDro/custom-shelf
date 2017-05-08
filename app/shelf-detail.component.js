@@ -282,27 +282,6 @@ var ShelfDetailComponent = (function () {
     ShelfDetailComponent.prototype.isNumeric = function (n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
     };
-    // for animation
-    // toggleState() {
-    //   this.toggleState2().then(function() {
-    //     this.toggleState3();
-    //   })
-    //   // this.state = (this.state === 'false' ? 'true' : 'false');
-    //   // this.waitSeconds(100);
-    //   // toggleState2();
-    // }
-    // toggleState2() {
-    //   return new Promise(function (fulfill, reject){
-    //       this.state = (this.state === 'false' ? 'true' : 'false');
-    //       //do stuff
-    //       fulfill('hey'); //if the action succeeded
-    //       reject(error); //if the action did not succeed
-    //   });
-    // }
-    // toggleState3() {
-    //   alert('go');
-    //   //this.state = (this.state === 'false' ? 'true' : 'false');
-    // }
     ShelfDetailComponent.prototype.waitSeconds = function (iMilliSeconds) {
         var counter = 0, start = new Date().getTime(), end = 0;
         while (counter < iMilliSeconds) {

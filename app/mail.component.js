@@ -29,11 +29,11 @@ var MailComponent = (function () {
             stain: '',
             color: '',
             deco: '',
-            ledge: ''
-            // drawer: '',
-            // leoDrawers: '',
-            // slidingDoor: '',
-            // surface: ''
+            ledge: '',
+            drawer: 0,
+            leoDrawers: 0,
+            slidingDoor: 0,
+            surface: '',
         };
     }
     MailComponent.prototype.ngOnInit = function () { };
@@ -48,6 +48,10 @@ var MailComponent = (function () {
         this.message.color = this.shelf.color;
         this.message.deco = this.shelf.deco;
         this.message.ledge = this.shelf.ledge;
+        this.message.drawer = this.shelf.drawer;
+        this.message.leoDrawers = this.shelf.leoDrawers;
+        this.message.slidingDoor = this.shelf.slidingDoor;
+        this.message.surface = this.shelf.surface;
         this._mailService.postEmail(this.message).subscribe(function (response) { return _this.handleResponse(response); }, function (error) { return _this.handleResponse(error); });
     };
     MailComponent.prototype.handleResponse = function (response) {
@@ -64,11 +68,11 @@ var MailComponent = (function () {
                 stain: '',
                 color: '',
                 deco: '',
-                ledge: ''
-                // drawer: '',
-                // leoDrawers: '',
-                // slidingDoor: '',
-                // surface: ''
+                ledge: '',
+                drawer: 0,
+                leoDrawers: 0,
+                slidingDoor: 0,
+                surface: '',
             };
             this.messageSent = true;
         }

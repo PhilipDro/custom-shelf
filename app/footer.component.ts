@@ -5,8 +5,10 @@ import { Component } from '@angular/core';
   template: `
     <footer>
       <div class="row">
-        <strong>Regale nach Mass</strong>
-        <div class="col-xs-12 col-sm-3 col-sm-offset-3">
+        <div class="col-xs-12 col-sm-3">
+          <strong>Regale nach Mass</strong>
+        </div>
+        <div class="col-xs-12 col-sm-3">
           <ul>
             <!--li><img class="logo" src="app/images/logo.png" alt="logo" /></li-->
             <li><a routerLink="/regale">Home</a></li>
@@ -22,7 +24,6 @@ import { Component } from '@angular/core';
         </div>
         <div class="col-xs-12 col-sm-3">
           <ul>
-            <li><a routerLink="/versand">Versand</a></li>
             <li><a routerLink="/impressum">Impressum</a></li>
             <li><a routerLink="/datenschutz">Datenschutz</a></li>
           </ul>
@@ -43,6 +44,11 @@ import { Component } from '@angular/core';
       position: relative;
       top: 20px;
       border: 1px solid #C7C7C7;
+    }
+    @media(max-width: 768px) {
+      footer {
+        margin: 0;
+      }
     }
     footer ul {
       list-style-type: none;
@@ -68,11 +74,6 @@ import { Component } from '@angular/core';
       font-family: 'Playfair Display', serif;
       font-size: 30px;
       font-weight: 200;
-
-      float: left;
-      position: absolute;
-      bottom: 10px;
-      left: 15px;
     }
   `]
 })

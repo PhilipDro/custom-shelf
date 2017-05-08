@@ -83,6 +83,9 @@ input.form-control, textarea.input-lg {
   border: none;
   text-transform: uppercase;
 }
+.btn-back:hover {
+  opacity: 0.8;
+}
 .btn-secondary {
   border-radius: 0;
   border: none;

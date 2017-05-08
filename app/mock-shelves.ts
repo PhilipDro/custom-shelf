@@ -14,6 +14,7 @@ export var SHELVES: Shelf[] = [
     wood: 'erle',
     stain: 'natur',
     deco: 'deco a',
+    ledge: 'ledge a',
     price: 624,
     surface: 'geölt + gewachst'
   },
@@ -34,6 +35,7 @@ export var SHELVES: Shelf[] = [
     wood: 'erle',
     stain: 'natur',
     deco: 'deco a',
+    ledge: 'ledge a',
     price: 1105,
     drawer: 1,
     surface: 'geölt + gewachst'
@@ -61,6 +63,7 @@ export var SHELVES: Shelf[] = [
     wood: 'erle',
     stain: 'natur',
     deco: 'deco a',
+    ledge: 'ledge a',
     price: 1399,
     surface: 'geölt + gewachst'
   },

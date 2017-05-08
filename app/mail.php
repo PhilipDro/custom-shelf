@@ -1,62 +1,86 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 header('Content-type: application/json');
 
 $errors = '';
 
 if(empty($errors)) {
-  // if($_POST['stain'] != '') {
-  //   $stain = '<span>Gebeizt auf: </span>' .  '<strong>' .ucfirst($_POST['stain']) . '</strong><br>'
-  // }
-  // else {
-  //   $stain = '';
-  // }
-  // if($_POST['drawer'] != '') {
-  //   $drawer = '<span>Schubladen: </span>' .  '<strong>' .ucfirst($_POST['drawer']) . '</strong><br>'
-  // }
-  // else {
-  //   $drawer = '';
-  // }
-  // if($_POST['leoDrawers'] != '') {
-  //   $leoDrawers = '<span>Schubladen: </span>' .  '<strong>' .ucfirst($_POST['leoDrawers']) . '</strong><br>'
-  // }
-  // else {
-  //   $leoDrawers = '';
-  // }
-  // if($_POST['slidingDoor'] != '') {
-  //   $slidingDoor = '<span>Schiebetüren: </span>' .  '<strong>' .ucfirst($_POST['slidingDoor']) . '</strong><br>'
-  // }
-  // else {
-  //   $slidingDoor = '';
-  // }
-  // if($_POST['surface'] != '') {
-  //   $surface = '<span>Oberflächenbehandlung: </span>' .  '<strong>' .ucfirst($_POST['surface']) . '</strong><br>'
-  // }
-  // else {
-  //   $surface = '';
-  // }
+
+  if($_POST['parts'] != NULL) {
+    $parts = '<span>Segmente: </span>' .  '<strong>' . ucfirst($_POST['parts']) . '</strong><br>';
+  }
+  else {
+    $parts = '';
+  }
+  if($_POST['stain'] != NULL) {
+    $stain = '<span>Gebeizt auf: </span>' .  '<strong>' . ucfirst($_POST['stain']) . '</strong><br>';
+  }
+  else {
+    $stain = '';
+  }
+  if($_POST['deco'] == null) {
+    $deco = '<span>Vorderleisten: </span><strong>Keine</strong><br>';
+  }
+  else {
+    $deco = '<span>Vorderleisten: </span><strong>Vorhanden</strong><br>';
+  }
+  if($_POST['ledge'] == null) {
+    $ledge = '<span>Kranzleisten: </span><strong>Keine</strong><br>';
+  }
+  else {
+    $ledge = '<span>Kranzleisten: </span><strong>Vorhanden</strong><br>';
+  }
+  if($_POST['drawer'] != NULL AND $_POST['drawer'] != 0 AND isset($_POST['drawer'])) {
+    $drawer = '<span>Schubladen: </span>' .  '<strong>' . ucfirst($_POST['drawer']) . '</strong><br>';
+  }
+  else {
+    $drawer = '';
+  }
+  if($_POST['leoDrawers'] != NULL AND $_POST['leoDrawers'] != 0 AND isset($_POST['leoDrawers'])) {
+    $leoDrawers = '<span>Schubladen: </span>' .  '<strong>' . ucfirst($_POST['leoDrawers']) . '</strong><br>';
+  }
+  else {
+    $leoDrawers = '';
+  }
+  if($_POST['slidingDoor'] != NULL AND $_POST['slidingDoor'] != 0 AND isset($_POST['slidingDoor'])) {
+    $slidingDoor = '<span>Schiebetüren: </span>' .  '<strong>' . ucfirst($_POST['slidingDoor']) . '</strong><br>';
+  }
+  else {
+    $slidingDoor = '';
+  }
+  if($_POST['surface'] != NULL) {
+    $surface = '<span>Oberflächenbehandlung: </span>' .  '<strong>' .ucfirst($_POST['surface']) . '</strong><br>';
+  }
+  else {
+    $surface = '';
+  }
+
+  // $stain = $_POST['stain'];
+  // $drawer = $_POST['drawer'];
+  // $leoDrawers = $_POST['leoDrawers'];
+  // $surface = $_POST['surface'];
 
   $properties =
-  '<span>Segmente: </span>' . '<strong>' . $_POST['parts'] . '<span>-teilig</span></strong><br></strong>' .
-  '<span>Holz: </span>' . '<strong>' . ucfirst($_POST['wood']) . '</strong><br>' .
-  //$stain .
-  '<span>Kapitäle: </span>' .  '<strong>' .ucfirst($_POST['deco']) . '</strong><br>' .
-  '<span>Kranzleisten: </span>' .  '<strong>' .ucfirst($_POST['ledge']) . '</strong><br>' .
-  // $drawer .
-  // $leoDrawers .
-  // $slidingDoor .
-  // $surface .
-  '<span>Breite: </span>' .  '<strong>' .$_POST['width'] . '<span> cm<span></strong><br>' .
-  '<span>Tiefe: </span>' . '<strong>' . $_POST['depth'] . '<span> cm<span></strong><br>' .
-  '<span>Höhe: </span>' .  '<strong>' .$_POST['height'] . '<span> cm<span></strong>';
+    $parts .
+    '<span>Holz: </span>' . '<strong>' . ucfirst($_POST['wood']) . '</strong><br>' .
+    $stain .
+    $deco .
+    $ledge .
+    $drawer .
+    $leoDrawers .
+    $slidingDoor .
+    $surface .
+    '<span>Breite: </span>' .  '<strong>' .$_POST['width'] . '<span> cm<span></strong><br>' .
+    '<span>Tiefe: </span>' . '<strong>' . $_POST['depth'] . '<span> cm<span></strong><br>' .
+    '<span>Höhe: </span>' .  '<strong>' .$_POST['height'] . '<span> cm<span></strong>';
 
   //message to customer
   $from_name = 'Regale nach Mass';
   $from_email = 'roch.d@freenet.de'; //TODO
-  $message ='<h1>Danke für Ihre Anfrage.</h1><p>Sie interessieren sich für folgendes Regal:</p>' . $properties .
-    '<p>Wir werden uns sobald wie möglich mit Ihnen in Verbindung setzen.</p>';
+  $message ='<h2>Danke für Ihre Anfrage.</h2><p>Sie interessieren sich für folgendes Regal:</p>' . $properties .
+    '<p>Wir werden uns in Kürze mit Ihnen in Verbindung setzen, um Weiteres zu besprechen.</p>' .
+    '<p>Mit freundlichen Grüßen, <br />Ihr Massregal-Team'
+    ;
 
   $to_email = $_POST['mail'];
 

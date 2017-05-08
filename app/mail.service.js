@@ -20,7 +20,7 @@ var MailService = (function () {
         this._mailUrl = 'app/mail.php';
     }
     MailService.prototype.postEmail = function (newMail) {
-        var body = "mail=" + newMail.mail + "&phone=" + newMail.phone + "&message=" + newMail.message + "&parts=" + newMail.parts + "&width=" + newMail.width + "&depth=" + newMail.depth + "&height=" + newMail.height + "&wood=" + newMail.wood + "&stain=" + newMail.stain + "&color=" + newMail.color + "&deco=" + newMail.deco + "&ledge=" + newMail.ledge;
+        var body = "mail=" + newMail.mail + "&phone=" + newMail.phone + "&message=" + newMail.message + "&parts=" + newMail.parts + "&width=" + newMail.width + "&depth=" + newMail.depth + "&height=" + newMail.height + "&wood=" + newMail.wood + "&stain=" + newMail.stain + "&color=" + newMail.color + "&deco=" + newMail.deco + "&ledge=" + newMail.ledge + "&drawer=" + newMail.drawer + "&leoDrawers=" + newMail.leoDrawers + "&slidingDoor=" + newMail.slidingDoor + "&surface=" + newMail.surface;
         var headers = new http_2.Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
         var options = new http_2.RequestOptions({ headers: headers });
         return this._http.post(this._mailUrl, body, options)

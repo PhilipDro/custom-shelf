@@ -11,9 +11,8 @@ export interface Email {
   color: string;
   deco: string;
   ledge: string;
-
-  // drawer: number;
-  // leoDrawers: number;
-  // slidingDoor: number;
-  // surface: string;
+  drawer: number;
+  leoDrawers: number;
+  slidingDoor: number;
+  surface: string;
 }

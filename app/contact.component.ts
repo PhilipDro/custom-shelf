@@ -12,6 +12,12 @@ import { Component } from '@angular/core';
     img {
       max-height: 600px;
     }
+    @media(max-width: 768px) {
+      img {
+        max-width: 100%;
+        margin-top: 15px;
+      }
+    }
     .placeholder {
       height: 400px;
       width: 400px;
@@ -19,6 +25,11 @@ import { Component } from '@angular/core';
     }
     .contact-image {
       margin-top: 150px;
+    }
+    @media(max-width: 768px) {
+      .contact-image {
+        margin-top: 0;
+      }
     }
   `]
 })

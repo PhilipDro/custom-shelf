@@ -25,6 +25,12 @@ import { Component } from '@angular/core';
       margin: 10px;
       height: 300px;
     }
+    @media(max-width: 768px) {
+      .gallery-element img {
+        height: auto;
+        width: 100%;
+      }
+    }
 
   `]
 })

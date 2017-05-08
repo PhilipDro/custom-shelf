@@ -39,6 +39,11 @@ import { ShelvesComponent } from './shelves.component';
       position: relative;
       border: 1px solid #C7C7C7;
     }
+    @media(max-width: 768px) {
+      .text {
+        margin-bottom: 20px;
+      }
+    }
     .title-image {
       position: absolute;
       top:0;right:0;bottom:0;left:0;
