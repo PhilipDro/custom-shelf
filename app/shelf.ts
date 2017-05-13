@@ -19,7 +19,6 @@ export class Shelf {
   ledge: string;
   priceBefore: number;
   price: number;
-
   drawer: number;
   leoDrawers: number;
   slidingDoor: number;

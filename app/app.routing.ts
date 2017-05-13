@@ -1,7 +1,6 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 import { ShippingComponent } from './shipping.component';
 import { ShelvesComponent } from './shelves.component';
 import { ContactComponent } from './contact.component';

@@ -19,7 +19,7 @@ var InMemoryDataService = (function () {
                 stain: 'natur',
                 deco: 'deco a',
                 ledge: 'ledge a',
-                price: 624,
+                price: 1194,
                 surface: 'geölt + gewachst'
             },
             {
@@ -36,7 +36,7 @@ var InMemoryDataService = (function () {
                 stain: 'natur',
                 deco: 'deco a',
                 ledge: 'ledge a',
-                price: 1105,
+                price: 1143,
                 drawer: 1,
                 surface: 'geölt + gewachst'
             },
@@ -51,14 +51,14 @@ var InMemoryDataService = (function () {
                 imagePath5: 'app/images/3/5.jpg',
                 state: 1,
                 parts: 2,
-                width: 80,
+                width: 160,
                 depth: 45,
                 height: 220,
                 wood: 'erle',
                 stain: 'natur',
                 deco: 'deco a',
                 ledge: 'ledge a',
-                price: 1399,
+                price: 1494,
                 surface: 'geölt + gewachst'
             },
             {

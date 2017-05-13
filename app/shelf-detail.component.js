@@ -40,9 +40,14 @@ var ShelfDetailComponent = (function () {
     };
     //pick customization
     ShelfDetailComponent.prototype.pickParts = function (part) {
-        // var oldWidth = this.shelf.width
-        // this.shelf.width = this.shelf.width * part - oldWidth;
+        // get basicWidth of one segment
+        var basicWidth = this.shelf.width / this.shelf.parts;
+        // set width to 0 to prevent endless multiplication
+        this.shelf.width = 0;
+        // set new parts
         this.shelf.parts = part;
+        // set new width by width * parts
+        this.shelf.width = this.shelf.parts * basicWidth;
     };
     ShelfDetailComponent.prototype.pickWood = function (wood) {
         this.shelf.wood = wood;
@@ -233,7 +238,7 @@ var ShelfDetailComponent = (function () {
         var object = this.shelf.id;
         switch (object) {
             case 1: {
-                var mObject = 1;
+                var mObject = 1.84;
                 break;
             }
             case 2: {
@@ -241,7 +246,7 @@ var ShelfDetailComponent = (function () {
                 break;
             }
             case 3: {
-                var mObject = 1.28;
+                var mObject = 1.07;
                 break;
             }
             case 4: {
@@ -303,6 +308,7 @@ ShelfDetailComponent = __decorate([
         styleUrls: ['css/shelf-detail.component.css'],
         providers: [shelf_service_1.ShelfService],
         animations: [
+            // animation for title
             core_1.trigger('visiChange', [
                 core_1.state('true', core_1.style({
                     display: 'block',
@@ -313,6 +319,7 @@ ShelfDetailComponent = __decorate([
                 core_1.transition('true => false', core_1.animate('200ms')),
                 core_1.transition('false => true', core_1.animate('200ms'))
             ]),
+            // animation for component fades
             core_1.trigger('fadeInOut', [
                 core_1.transition(':enter', [
                     core_1.style({ opacity: 0 }),

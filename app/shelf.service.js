@@ -8,11 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise");
-var mock_shelves_1 = require("./mock-shelves");
-var shelvesPromise = Promise.resolve(mock_shelves_1.SHELVES);
 var ShelfService = (function () {
     function ShelfService(http) {
         this.http = http;
@@ -29,8 +28,11 @@ var ShelfService = (function () {
         return Promise.reject(error.message || error);
     };
     ShelfService.prototype.getShelf = function (id) {
-        return shelvesPromise
-            .then(function (shelves) { return shelves.find(function (shelf) { return shelf.id === +id; }); });
+        var url = this.shelvesUrl + "/" + id;
+        return this.http.get(url)
+            .toPromise()
+            .then(function (response) { return response.json().data; })
+            .catch(this.handleError);
     };
     return ShelfService;
 }());

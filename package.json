@@ -23,26 +23,34 @@
   "dependencies": {
     "rxjs": "5.3.0",
     "zone.js": "0.8.9",
-    "@angular/common": "4.1.0",
-    "@angular/compiler": "4.1.0",
-    "@angular/core": "4.1.0",
-    "@angular/forms": "4.1.0",
-    "@angular/http": "4.1.0",
-    "@angular/platform-browser": "4.1.0",
-    "@angular/platform-browser-dynamic": "4.1.0",
-    "@angular/router": "4.1.0",
-    "@angular/upgrade": "4.1.0",
-    "@angular/animations":"^4.1.0",
+    "@angular/common": "4.1.2",
+    "@angular/compiler": "4.1.2",
+    "@angular/core": "4.1.2",
+    "@angular/forms": "4.1.2",
+    "@angular/http": "4.1.2",
+    "@angular/platform-browser": "4.1.2",
+    "@angular/platform-browser-dynamic": "4.1.2",
+    "@angular/router": "4.1.2",
+    "@angular/upgrade": "4.1.2",
+    "@angular/animations":"^4.1.2",
 
     "bootstrap": "3.3.7",
     "angular-in-memory-web-api": "0.3.1",
     "systemjs": "0.20.12",
     "core-js": "^2.4.1",
-    "reflect-metadata": "^0.1.8",
-    "ngx-tooltip": "0.0.9"
+    "reflect-metadata": "^0.1.8"
   },
   "devDependencies": {
     "concurrently": "3.4.0",
-    "lite-server": "^2.2.2"
+    "lite-server": "^2.2.2",
+
+    "grunt": "1.0.1",
+    "grunt-contrib-clean": "1.1.0",
+    "grunt-contrib-concat": "1.0.1",
+    "grunt-contrib-copy": "1.0.0",
+    "grunt-contrib-imagemin": "1.0.1",
+    "grunt-contrib-uglify": "3.0.0",
+    "grunt-contrib-watch": "1.0.0",
+    "load-grunt-tasks": "3.5.2"
   }
 }

@@ -48,11 +48,9 @@ h3 {
 }
 
 .jetzt-ansehen {
-  visibility: hidden;
-
   font-size: 20px;
   position: absolute;
-  left: 50%;
+  right: 0;
   bottom: 15px;
   transform: translate(-50%, 0);
   text-align: center;

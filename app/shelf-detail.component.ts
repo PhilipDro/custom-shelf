@@ -16,6 +16,7 @@ import { ShelfService } from './shelf.service';
   styleUrls: ['css/shelf-detail.component.css'],
   providers: [ShelfService],
   animations: [
+    // animation for title
     trigger('visiChange', [
       state('true', style({
         display: 'block',
@@ -26,6 +27,7 @@ import { ShelfService } from './shelf.service';
       transition('true => false', animate('200ms')),
       transition('false => true', animate('200ms'))
     ]),
+    // animation for component fades
     trigger('fadeInOut', [
       transition(':enter', [   // :enter is alias to 'void => *'
         style({opacity:0}),
@@ -81,9 +83,15 @@ export class ShelfDetailComponent{
 
   //pick customization
   pickParts(part: number): void {
-    // var oldWidth = this.shelf.width
-    // this.shelf.width = this.shelf.width * part - oldWidth;
+    // get basicWidth of one segment
+    var basicWidth = this.shelf.width / this.shelf.parts;
+    // set width to 0 to prevent endless multiplication
+    this.shelf.width = 0;
+    // set new parts
     this.shelf.parts = part;
+    // set new width by width * parts
+    this.shelf.width = this.shelf.parts * basicWidth;
+
   }
   pickWood(wood: string): void {
     this.shelf.wood = wood;
@@ -283,7 +291,7 @@ export class ShelfDetailComponent{
     var object = this.shelf.id;
     switch (object) {
        case 1: {
-          var mObject = 1;
+          var mObject = 1.84;
           break;
        }
        case 2: { // sacleff
@@ -291,7 +299,7 @@ export class ShelfDetailComponent{
           break;
        }
        case 3: { // lango m
-          var mObject = 1.28;
+          var mObject = 1.07;
           break;
        }
        case 4: { //setzregal
