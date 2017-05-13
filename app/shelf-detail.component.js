@@ -302,10 +302,10 @@ __decorate([
 ], ShelfDetailComponent.prototype, "shelf", void 0);
 ShelfDetailComponent = __decorate([
     core_1.Component({
-        moduleId: module.id,
+        //moduleId: module.id,
         selector: 'shelf-detail',
-        templateUrl: 'shelf-detail.component.html',
-        styleUrls: ['css/shelf-detail.component.css'],
+        templateUrl: 'app/shelf-detail.component.html',
+        styleUrls: ['app/css/shelf-detail.component.css'],
         providers: [shelf_service_1.ShelfService],
         animations: [
             // animation for title

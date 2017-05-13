@@ -7,9 +7,9 @@ import { MailService } from './mail.service';
 import { Shelf } from './shelf';
 
 @Component({
-  moduleId: module.id,
+  // moduleId: module.id,
   selector: 'mail',
-  templateUrl: 'mail.component.html',
+  templateUrl: 'app/mail.component.html',
   styles: [`
     textarea {
       width:100%;

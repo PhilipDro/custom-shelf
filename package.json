@@ -16,8 +16,8 @@
     "email": "me@philipdrozd.com"
   },
   "scripts": {
-    "start": "npm run lite",
-    "lite": "lite-server"
+    "build": "webpack",
+    "start": "webpack-dev-server"
   },
   "license": "MIT",
   "dependencies": {
@@ -41,8 +41,7 @@
     "reflect-metadata": "^0.1.8"
   },
   "devDependencies": {
-    "concurrently": "3.4.0",
-    "lite-server": "^2.2.2",
+    "ts-loader": "2.0.3",
 
     "grunt": "1.0.1",
     "grunt-contrib-clean": "1.1.0",

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component ({
-  moduleId: module.id,
+  //moduleId: module.id,
   selector: 'contact',
-  templateUrl: 'contact.component.html',
+  templateUrl: 'app/contact.component.html',
   styles: [`
     address {
       text-decoration: underline;

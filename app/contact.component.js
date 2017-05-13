@@ -14,9 +14,9 @@ var ContactComponent = (function () {
 }());
 ContactComponent = __decorate([
     core_1.Component({
-        moduleId: module.id,
+        //moduleId: module.id,
         selector: 'contact',
-        templateUrl: 'contact.component.html',
+        templateUrl: 'app/contact.component.html',
         styles: ["\n    address {\n      text-decoration: underline;\n      font-size: 30px;\n    }\n    img {\n      max-height: 600px;\n    }\n    @media(max-width: 768px) {\n      img {\n        max-width: 100%;\n        margin-top: 15px;\n      }\n    }\n    .placeholder {\n      height: 400px;\n      width: 400px;\n      background: grey;\n    }\n    .contact-image {\n      margin-top: 150px;\n    }\n    @media(max-width: 768px) {\n      .contact-image {\n        margin-top: 0;\n      }\n    }\n  "]
     })
 ], ContactComponent);

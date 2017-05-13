@@ -88,9 +88,9 @@ __decorate([
 ], MailComponent.prototype, "shelf", void 0);
 MailComponent = __decorate([
     core_1.Component({
-        moduleId: module.id,
+        // moduleId: module.id,
         selector: 'mail',
-        templateUrl: 'mail.component.html',
+        templateUrl: 'app/mail.component.html',
         styles: ["\n    textarea {\n      width:100%;\n      font-size: 14px;\n      border: 1px solid rgb(204, 204, 204);\n      margin-bottom: 15px;\n    }\n    table tr > td::first-letter {\n      text-transform: uppercase;\n    }\n\n    .confirmation-message {\n      visibility: hidden;\n      color: green;\n    }\n    .tick-sent {\n      margin-right: 14px;\n      position: static;\n      visibility: hidden;\n    }\n    .sent {\n      visibility: visible !important;\n    }\n\n  "],
         providers: [http_1.HttpModule, mail_service_1.MailService]
     }),

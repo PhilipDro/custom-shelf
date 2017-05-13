@@ -10,10 +10,10 @@ import { ShelfService } from './shelf.service';
 
 
 @Component({
-  moduleId: module.id,
+  //moduleId: module.id,
   selector: 'shelf-detail',
-  templateUrl: 'shelf-detail.component.html',
-  styleUrls: ['css/shelf-detail.component.css'],
+  templateUrl: 'app/shelf-detail.component.html',
+  styleUrls: ['app/css/shelf-detail.component.css'],
   providers: [ShelfService],
   animations: [
     // animation for title

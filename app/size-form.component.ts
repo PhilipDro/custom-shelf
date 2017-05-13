@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { Shelf } from './shelf';
 
 @Component({
-  moduleId: module.id,
+  // moduleId: module.id,
   selector: 'size-form',
   template: `
       <form class="set-measurments">
@@ -39,7 +39,7 @@ import { Shelf } from './shelf';
         </table>
       </form>
   `,
-  styleUrls: ['css/size-form.component.css'],
+  styleUrls: ['app/css/size-form.component.css'],
 })
 
 export class SizeFormComponent {

@@ -5,7 +5,7 @@ import { Shelf } from './shelf';
 import { ShelfService } from './shelf.service';
 
 @Component({
-  moduleId: module.id,
+  //moduleId: module.id,
   selector: 'shelves-list',
   template: `
               <div *ngIf="!selectedShelf" class="shelf-list">
@@ -75,7 +75,7 @@ import { ShelfService } from './shelf.service';
 
               <shelf-detail></shelf-detail>
             `,
-  styleUrls: ['css/shelves.component.css'],
+  styleUrls: ['app/css/shelves.component.css'],
   providers: [ShelfService],
 })
 

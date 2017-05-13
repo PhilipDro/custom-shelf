@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component ({
-  moduleId: module.id,
+  //moduleId: module.id,
   selector: 'shipping',
-  templateUrl: 'shipping.component.html',
+  templateUrl: 'app/shipping.component.html',
 })
 
 export class ShippingComponent {
