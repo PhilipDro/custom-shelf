@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, trigger, state, style, transition, animate } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Shelf } from './shelf';
@@ -8,7 +8,7 @@ import { ShelfService } from './shelf.service';
   //moduleId: module.id,
   selector: 'shelves-list',
   template: `
-              <div *ngIf="!selectedShelf" class="shelf-list">
+              <div *ngIf="!selectedShelf" class="shelf-list" [@popOut]="isPopOut">
                 <div class="row">
                   <div class="col-xs-12 col-sm-6">
 
@@ -77,11 +77,28 @@ import { ShelfService } from './shelf.service';
             `,
   styleUrls: ['app/css/shelves.component.css'],
   providers: [ShelfService],
+  host: {
+    '(document:scroll)': 'onScroll()'
+  },
+  animations: [
+    // animation for title
+    trigger('popOut', [
+      state('true', style({
+        opacity: 1,
+      })),
+      state('false', style({
+        opacity: 1,
+      })),
+      transition('true => false', animate('200ms')),
+      transition('false => true', animate('200ms'))
+    ])
+  ]
 })
 
 export class ShelvesComponent implements OnInit {
   selectedShelf: Shelf;
   shelves: Shelf[];
+  isPopOut: string = 'false';
 
   constructor(
     private router: Router,
@@ -100,5 +117,8 @@ export class ShelvesComponent implements OnInit {
   onSelect(shelf: Shelf) {
     this.router.navigate(['/regal', shelf.id]);
     //this.selectedShelf = shelf;
+  }
+  onScroll() {
+    this.isPopOut = 'true';
   }
 }

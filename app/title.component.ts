@@ -47,12 +47,12 @@ import { ShelvesComponent } from './shelves.component';
     .title-image {
       position: absolute;
       top:0;right:0;bottom:0;left:0;
-      background-image: url("app/images/background/header.jpg");
+      //background-image: url("app/images/background/header.jpg");
       background-size: cover;
       background-repeat: no-repeat;
       z-index: -10;
-      filter: opacity(100%);
-      -webkit-filter: opacity(60%);
+      // filter: opacity(100%);
+      // -webkit-filter: opacity(100%);
 
     }
 

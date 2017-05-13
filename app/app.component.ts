@@ -12,6 +12,7 @@ import { ShelfService } from './shelf.service';
 @Component({
   selector: 'app',
   template: `
+    <div class="background-layer"></div>
     <div class="container">
       <div class="row nav-container">
         <div class="col-xs-12">
@@ -125,8 +126,5 @@ export class AppComponent implements OnInit {
       }
     });
   }
-
-
-
 
 }
