@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
           <strong>Regale nach Mass</strong>
         </div>
         <div class="col-xs-12 col-sm-3">
+          <h3>Navigation</h3>
           <ul>
             <!--li><img class="logo" src="app/images/logo.png" alt="logo" /></li-->
             <li><a routerLink="/regale">Home</a></li>
@@ -17,12 +18,14 @@ import { Component } from '@angular/core';
           </ul>
         </div>
         <div class="col-xs-12 col-sm-3">
+          <h3>Weiterführende Links</h3>
           <ul>
             <li><a href="http://moebel-restaurierung.com/" target="blank">moebel-restaurierung.com</a></li>
             <li><a href="http://xn--antik-mbellager-ftb.de/" target="blank">antik-möbellager.de</a></li>
           </ul>
         </div>
         <div class="col-xs-12 col-sm-3">
+          <h3>Rechtliches</h3>
           <ul>
             <li><a routerLink="/impressum">Impressum</a></li>
             <li><a routerLink="/datenschutz">Datenschutz</a></li>
@@ -44,23 +47,30 @@ import { Component } from '@angular/core';
       position: relative;
       top: 20px;
       border: 1px solid #C7C7C7;
+      background: #ffbc42;
+      color: white;
     }
     @media(max-width: 768px) {
       footer {
         margin: 0;
       }
     }
+    footer h3 {
+      font-size: 1.3em;
+      color: white;
+    }
     footer ul {
       list-style-type: none;
       padding-left: 0;
     }
     footer ul li a {
-      color: black;
+      color: white;
       font-size: 16px;
       cursor: pointer;
       line-height: 2;
     }
     .footer-background-image {
+      /*
       position: absolute;
       top:0;right:0;bottom:0;left:0;
       background-image: url("app/images/background/footer.jpg");
@@ -69,6 +79,7 @@ import { Component } from '@angular/core';
       background-repeat: no-repeat;
       z-index: -10;
       filter: opacity(60%);
+      */
     }
     strong {
       font-family: 'Playfair Display', serif;

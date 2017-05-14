@@ -1,3 +1,7 @@
+/*
+logo gold: #ffbc42
+antik red: rgba(248, 58, 37, 0.9)
+*/
 
 h1 {
   font-family: 'Playfair Display', serif;
@@ -85,11 +89,11 @@ input.form-control, textarea.input-lg {
   margin: 10px 0;
 }
 .color-overlay {
-  -webkit-filter: opacity(50%);
+  /*-webkit-filter: opacity(50%);
   filter: opacity(85%);
-  background: #E0A100;
+  background: #AB700F;
   position: absolute;
-  top: 0;right: 0; bottom: 0;left: 0;
+  top: 0;right: 0; bottom: 0;left: 0;*/
 }
 
 input[type=number]::-webkit-outer-spin-button,
@@ -102,7 +106,7 @@ input[type=number]::-webkit-inner-spin-button {
 .loading-screen {
   height: 100%;
   width: 100%;
-  background-color: #AB700F;
+  background-color: #ffbc42 /*#AB700F*/;
 }
 .loading-screen img {
   width: 12%;
@@ -111,6 +115,7 @@ input[type=number]::-webkit-inner-spin-button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  filter: brightness(0) invert(1);
 }
 @media(max-width: 768px) {
   .loading-screen img {
@@ -119,10 +124,18 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .background-layer {
-  //background: url('../images/background/home.jpg');
+  background: url('../images/background/home.jpg');
   background-size: cover;
   position: absolute;
   height: 100vh;
   width: 100%;
-  z-index: -100
+  z-index: -99999;
+  webkit-filter: opacity(100%); /* Safari 6.0 - 9.0 */
+  filter: opacity(100%);
+}
+.home-overlay {
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background: #ffbc42;
+  opacity: 0.7
 }

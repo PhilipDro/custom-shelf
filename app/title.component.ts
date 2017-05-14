@@ -26,7 +26,7 @@ import { ShelvesComponent } from './shelves.component';
       padding: 0 0 25px 15px;
       width: 50%;
       float: right;
-
+      color: white;
     }
     @media(max-width: 800px) {
       .title {
@@ -37,7 +37,8 @@ import { ShelvesComponent } from './shelves.component';
     .text {
       padding: 20px;
       position: relative;
-      border: 1px solid #C7C7C7;
+      background: #ffbc42;
+      z-index: 1010;
     }
     @media(max-width: 768px) {
       .text {
@@ -59,6 +60,11 @@ import { ShelvesComponent } from './shelves.component';
     .title-on-home {
       margin-top: 71px;
       transition: margin-top 0.2s;
+    }
+    @media(max-width: 768px) {
+      .title-on-home {
+        margin-top: 0;
+      }
     }
     .title-no-home {
       margin-top: 0;

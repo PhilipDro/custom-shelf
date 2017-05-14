@@ -35018,12 +35018,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(4);
 var GalleryComponent = (function () {
     function GalleryComponent() {
         this.range = new Array(51);
-        //rangeReverse = this.rangeRemoved.reverse();
     }
     return GalleryComponent;
 }());
@@ -35032,7 +35034,8 @@ GalleryComponent = __decorate([
         selector: 'gallery',
         template: "\n    <h3>Gallerie</h3>\n    <ul>\n      <li *ngFor=\"let a of range; let index = index\" class=\"gallery-element\">\n        <img src=\"app/images/gallery/{{ index }}.jpg\" alt=\"Regal\" />\n      </li>\n    </ul>\n  ",
         styles: ["\n    ul {\n      padding-left: 0;\n    }\n    ul > li:first-child {\n      display: none;\n    }\n    .gallery-element {\n      list-style-type: none;\n      display: inline;\n    }\n    .gallery-element img {\n      margin: 10px;\n      height: 300px;\n    }\n    @media(max-width: 768px) {\n      .gallery-element img {\n        height: auto;\n        width: 100%;\n      }\n    }\n\n  "]
-    })
+    }),
+    __metadata("design:paramtypes", [])
 ], GalleryComponent);
 exports.GalleryComponent = GalleryComponent;
 //# sourceMappingURL=gallery.component.js.map
@@ -35319,7 +35322,7 @@ var ShelfDetailComponent = (function () {
         else {
             var mColor = 1;
         }
-        if (this.shelf.surface == 'geölt + gewachst') {
+        if (this.shelf.surface == 'geölt') {
             var mSurface = 1;
         }
         else {
@@ -35469,13 +35472,17 @@ var ShelvesComponent = (function () {
     function ShelvesComponent(router, shelfService) {
         this.router = router;
         this.shelfService = shelfService;
+        this.isReady = false;
     }
+    ShelvesComponent.prototype.ngOnInit = function () {
+        this.getShelves();
+    };
+    ShelvesComponent.prototype.ngAfterViewChecked = function () {
+        this.isReady = true;
+    };
     ShelvesComponent.prototype.getShelves = function () {
         var _this = this;
         this.shelfService.getShelves().then(function (shelves) { return _this.shelves = shelves; });
-    };
-    ShelvesComponent.prototype.ngOnInit = function () {
-        this.getShelves();
     };
     ShelvesComponent.prototype.onSelect = function (shelf) {
         this.router.navigate(['/regal', shelf.id]);
@@ -35487,7 +35494,7 @@ ShelvesComponent = __decorate([
     core_1.Component({
         //moduleId: module.id,
         selector: 'shelves-list',
-        template: "\n              <div *ngIf=\"!selectedShelf\" class=\"shelf-list\">\n                <div class=\"row\">\n                  <div class=\"col-xs-12 col-sm-6\">\n\n                    <div class=\"shelf shelf-big\">\n                      <h3>{{shelves && shelves[0].name}}</h3>\n                      <img class=\"img\" src=\"{{shelves && shelves[0].imagePath}}\" (click)=\"onSelect(shelves && shelves[0])\"/>\n                      <p class=\"jetzt-ansehen\">Ab {{shelves && shelves[0].price}} \u20AC</p>\n                    </div>\n                  </div>\n\n\n                  <div class=\"col-xs-12 col-md-6 col-lg-3\">\n                    <div class=\"shelf\">\n                      <h3>{{shelves && shelves[3].name}}</h3>\n                      <img class=\"img img-responsive\" src=\"{{shelves && shelves[3].imagePath}}\" (click)=\"onSelect(shelves && shelves[3])\"/>\n                      <p class=\"jetzt-ansehen\">Ab {{shelves && shelves[3].price}} \u20AC</p>\n                    </div>\n                  </div>\n\n                  <div class=\"col-xs-12 col-md-6 col-lg-3\">\n                    <div class=\"shelf\">\n                      <h3>{{shelves && shelves[4].name}}</h3>\n                      <img class=\"img img-responsive\" src=\"{{shelves && shelves[4].imagePath}}\" (click)=\"onSelect(shelves && shelves[4])\"/>\n                      <p class=\"jetzt-ansehen\">Ab {{shelves && shelves[4].price}} \u20AC</p>\n                    </div>\n                  </div>\n\n                </div>\n\n                <div class=\"row row-division\">\n                  <div class=\"col-xs-12 col-sm-6\">\n                    <div class=\"row\">\n                      <div class=\"info-box\">\n                        <p class=\"lead\">Bei der Form der Objekte k\u00F6nnen wir auf alle spezifischen Merkmale der M\u00F6belgeschichte zur\u00FCckgreifen und sie nach Wunsch auch miteinader vermischen.</p>\n                        <div class=\"info-box-image\"><div class=\"color-overlay\"></div></div>\n                      </div>\n                      <div class=\"col-xs-12 col-md-6 col-lg-6\">\n                        <div class=\"shelf\">\n                          <h3>{{shelves && shelves[1].name}}</h3>\n                          <img class=\"img img-responsive\" src=\"{{shelves && shelves[1].imagePath}}\" (click)=\"onSelect(shelves && shelves[1])\"/>\n                          <p class=\"jetzt-ansehen\">Ab {{shelves && shelves[1].price}} \u20AC</p>\n                        </div>\n                      </div>\n\n                      <div class=\"col-xs-12 col-md-6 col-lg-6\">\n                        <div class=\"shelf\">\n                          <h3>{{shelves && shelves[2].name}}</h3>\n                          <img class=\"img img-responsive\" src=\"{{shelves && shelves[2].imagePath}}\" (click)=\"onSelect(shelves && shelves[2])\"/>\n                          <p class=\"jetzt-ansehen\">Ab {{shelves && shelves[2].price}} \u20AC</p>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n\n                  <div class=\"col-xs-12 col-sm-6\">\n                    <div class=\"shelf shelf-big\">\n                      <h3>{{shelves && shelves[5].name}}</h3>\n                      <img class=\"img\" src=\"{{shelves && shelves[5].imagePath}}\" (click)=\"onSelect(shelves && shelves[5])\"/>\n                      <p class=\"jetzt-ansehen\">Ab {{shelves && shelves[5].price}} \u20AC</p>\n                    </div>\n                  </div>\n                </div>\n              </div>\n\n              <shelf-detail></shelf-detail>\n            ",
+        template: "\n              <div *ngIf=\"!selectedShelf\" class=\"shelf-list\">\n                <div class=\"row\">\n                  <div class=\"col-xs-12 col-sm-6\">\n                    <div class=\"shelf shelf-big top-seller\" (click)=\"onSelect(shelves && shelves[3])\">\n                      <h3>{{shelves && shelves[3].name}}</h3>\n                      <p class=\"description hidden-xs\">{{shelves && shelves[3].description}}</p>\n                      <img class=\"img resized\" src=\"{{shelves && shelves[3].imagePath}}\" />\n                      <p class=\"jetzt-ansehen\">Ab {{shelves && shelves[3].price}} \u20AC</p>\n                    </div>\n                  </div>\n\n\n                  <div class=\"col-xs-12 col-sm-6 col-md-3 col-lg-3\">\n                    <div class=\"shelf stretch vegan\" (click)=\"onSelect(shelves && shelves[0])\">\n                      <h3>{{shelves && shelves[0].name}}</h3>\n                      <img class=\"img img-responsive\" src=\"{{shelves && shelves[0].imagePath}}\" />\n                      <p *ngIf=\"isReady == true\" class=\"jetzt-ansehen\">Ab {{shelves && shelves[0].price}} \u20AC</p>\n                    </div>\n                  </div>\n\n                  <div class=\"col-xs-12 col-sm-12 col-md-3 col-lg-3\">\n                    <div class=\"shelf\" (click)=\"onSelect(shelves && shelves[4])\">\n                      <h3>{{shelves && shelves[4].name}}</h3>\n                      <img class=\"img img-responsive\" src=\"{{shelves && shelves[4].imagePath}}\" />\n                      <p class=\"jetzt-ansehen\">Ab {{shelves && shelves[4].price}} \u20AC</p>\n                    </div>\n                  </div>\n\n                </div>\n\n                <div class=\"row row-division\">\n                  <div class=\"col-xs-12 col-sm-12 col-md-6\">\n                    <div class=\"row\">\n                      <div class=\"info-box\">\n                        <p class=\"lead\">Bei der Form der Objekte k\u00F6nnen wir auf alle spezifischen Merkmale der M\u00F6belgeschichte zur\u00FCckgreifen und sie nach Wunsch auch miteinader vermischen.</p>\n                        <div class=\"info-box-image\"><div class=\"color-overlay\"></div></div>\n                      </div>\n                      <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\n                        <div class=\"shelf\" (click)=\"onSelect(shelves && shelves[1])\">\n                          <h3>{{shelves && shelves[1].name}}</h3>\n                          <img class=\"img img-responsive\" src=\"{{shelves && shelves[1].imagePath}}\" />\n                          <p class=\"jetzt-ansehen\">Ab {{shelves && shelves[1].price}} \u20AC</p>\n                        </div>\n                      </div>\n\n                      <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\n                        <div class=\"shelf stretch lango\" (click)=\"onSelect(shelves && shelves[2])\">\n                          <h3>{{shelves && shelves[2].name}}</h3>\n                          <img class=\"img img-responsive\" src=\"{{shelves && shelves[2].imagePath}}\" />\n                          <p class=\"jetzt-ansehen\">Ab {{shelves && shelves[2].price}} \u20AC</p>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n\n                  <div class=\"col-xs-12 col-sm-12 col-md-6\">\n                    <div class=\"shelf shelf-big\" (click)=\"onSelect(shelves && shelves[5])\">\n                      <h3>{{shelves && shelves[5].name}}</h3>\n                      <img class=\"img\" src=\"{{shelves && shelves[5].imagePath}}\" />\n                      <p class=\"jetzt-ansehen\">Ab {{shelves && shelves[5].price}} \u20AC</p>\n                    </div>\n                  </div>\n                </div>\n              </div>\n\n              <shelf-detail></shelf-detail>\n            ",
         styleUrls: ['app/css/shelves.component.css'],
         providers: [shelf_service_1.ShelfService],
     }),
@@ -39820,6 +39827,8 @@ __webpack_require__(40);
 var AppComponent = (function () {
     function AppComponent(router) {
         this.router = router;
+        this.isPopOut = 'false';
+        this.isPopOutImg = true;
     }
     AppComponent.prototype.getDeepestTitle = function (routeSnapshot) {
         var title = routeSnapshot.data ? routeSnapshot.data['title'] : '';
@@ -39836,14 +39845,53 @@ var AppComponent = (function () {
             }
         });
     };
+    AppComponent.prototype.onScroll = function () {
+        this.isPopOut = 'true';
+        this.isPopOutImg = false;
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'app',
-        template: "\n    <div class=\"container\">\n      <div class=\"row nav-container\">\n        <div class=\"col-xs-12\">\n          <nav>\n            <div class=\"container-fluid no-padding\">\n              <ul class=\"nav navbar-nav highlighted\">\n                <!--li><img class=\"logo\" src=\"app/images/logo.png\" alt=\"logo\" /></li-->\n                <li><a routerLink=\"/regale\" [routerLinkActive]=\"'nav-active'\">Home</a></li>\n                <li><a routerLink=\"/gallerie\" [routerLinkActive]=\"'nav-active'\">Gallerie</a></li>\n                <li><a routerLink=\"/kontakt\" [routerLinkActive]=\"'nav-active'\">Kontakt</a></li>\n              </ul>\n            </div>\n          </nav>\n        </div>\n      </div>\n      <heading [title]=\"title\"></heading>\n\n      <router-outlet></router-outlet>\n\n      <render-footer></render-footer>\n    </div>\n\n\n  ",
-        styles: ["\n      @media (min-width: 1200px) {\n        .container{\n            width: 1200px;\n        }\n      }\n      .no-padding {\n        padding: 0;\n      }\n      .nav-container {\n        display: inline-block;\n        width: 100%;\n      }\n      @media(max-width: 768px) {\n        .nav-container {\n          margin: 0 auto;\n          text-align: center;\n        }\n      }\n      nav {\n        text-align: left;\n        margin: 20px 0;\n      }\n      @media(min-width: 768px) {\n        .nav-container {\n          width: 50%;\n        }\n        .navbar-nav li {\n          margin: 8px 6px 0 6px;\n\n        }\n      }\n      .navbar-nav {\n        float:left;\n      }\n      .navbar-nav li a {\n        margin: 8px 0 0 0;\n        font-size: 18px;\n        color: grey;\n        display: inline-block;\n      }\n      .navbar-nav li a:first-child {\n        padding-left: 0;\n        margin-left: 0;\n      }\n      .navbar-nav li:first-child {\n        padding-left: 0;\n        margin-left: 0;\n      }\n      .navbar-nav li a:hover, .navbar-nav li a:active, .navbar-nav li a:focus {\n        background: transparent;\n        text-decoration: underline;\n        color: #E0A100;\n        cursor: pointer;\n      }\n      .navbar-nav li {\n        display: inline-block;\n      }\n      .navbar-nav li a.nav-active {\n        color: #E0A100;\n        text-decoration: underline;\n      }\n      .logo {\n        max-height: 60px;\n      }\n    "
-        ]
+        template: "\n    <div *ngIf=\"isPopOutImg\" [@fadeInOut] class=\"background-layer\"><div class=\"home-overlay\"></div></div>\n    <div class=\"container\">\n      <div class=\"row nav-container\">\n        <div class=\"col-xs-12\">\n          <nav>\n            <div class=\"container-fluid no-padding\">\n              <ul class=\"nav navbar-nav highlighted\">\n                <li class=\"hidden-xs\"><a class=\"logo-link\" routerLink=\"/regale\" [routerLinkActive]=\"'nav-active'\">\n                  <img class=\"logo\" src=\"app/images/artd.png\" alt=\"logo\" /></a>\n                </li>\n                <li><a routerLink=\"/regale\" [routerLinkActive]=\"'nav-active'\" [@navColor]=\"isPopOut\">Home</a></li>\n                <li><a routerLink=\"/gallerie\" [routerLinkActive]=\"'nav-active'\" [@navColor]=\"isPopOut\">Gallerie</a></li>\n                <li><a routerLink=\"/kontakt\" [routerLinkActive]=\"'nav-active'\" [@navColor]=\"isPopOut\">Kontakt</a></li>\n              </ul>\n            </div>\n          </nav>\n        </div>\n      </div>\n      <heading [title]=\"title\"></heading>\n\n      <div [@popOut]=\"isPopOut\">\n        <router-outlet></router-outlet>\n      </div>\n\n      <render-footer></render-footer>\n    </div>\n\n\n  ",
+        styles: ["\n      .logo {\n        max-height: 43px;\n        margin-right: 15px;\n      }\n      .navbar-nav li a.logo-link {\n        margin-top: 0;\n        padding-top: 0;\n      }\n      @media (min-width: 1200px) {\n        .container{\n            width: 1200px;\n        }\n      }\n      .no-padding {\n        padding: 0;\n      }\n      .nav-container {\n        display: inline-block;\n        width: 100%;\n      }\n      @media(max-width: 768px) {\n        .nav-container {\n          margin: 0 auto;\n          text-align: center;\n        }\n      }\n      nav {\n        text-align: left;\n        margin: 20px 0 40px 0;\n      }\n      @media(min-width: 768px) {\n        .nav-container {\n          width: 50%;\n        }\n        .navbar-nav li {\n          margin: 8px 6px 0 6px;\n\n        }\n      }\n      .navbar-nav {\n        float:left;\n      }\n      .navbar-nav li a {\n        margin: 8px 0 0 0;\n        font-size: 18px;\n        color: grey;\n        display: inline-block;\n        padding-bottom: 0;\n      }\n      .navbar-nav li a::-moz-focus-inner {\n        border: 0;\n      }\n      .navbar-nav li a:focus {\n        outline: none;\n      }\n      .navbar-nav li a:first-child {\n        padding-left: 0;\n        margin-left: 0;\n      }\n      .navbar-nav li:first-child {\n        padding-left: 0;\n        margin-left: 0;\n      }\n      .navbar-nav li a:hover, .navbar-nav li a:active, .navbar-nav li a:focus {\n        background: transparent;\n        text-decoration: underline;\n        color: #E0A100;\n        cursor: pointer;\n      }\n      .navbar-nav li {\n        display: inline-block;\n      }\n      .navbar-nav li a.nav-active {\n        color: #E0A100;\n        text-decoration: underline;\n      }\n    "
+        ],
+        host: {
+            '(document:scroll)': 'onScroll()'
+        },
+        animations: [
+            // animation for title
+            core_1.trigger('popOut', [
+                core_1.state('true', core_1.style({
+                    marginTop: '0px',
+                })),
+                core_1.state('false', core_1.style({
+                    marginTop: '70vh',
+                })),
+                core_1.transition('false => true', core_1.animate('300ms')),
+                core_1.transition('true => false', core_1.animate('300ms'))
+            ]),
+            // animation for component fades
+            core_1.trigger('fadeInOut', [
+                core_1.transition(':enter', [
+                    core_1.style({ opacity: 0 }),
+                    core_1.animate(600, core_1.style({ opacity: 1 }))
+                ]),
+                core_1.transition(':leave', [
+                    core_1.animate(600, core_1.style({ opacity: 0 }))
+                ])
+            ]),
+            // animate navigation text color
+            core_1.trigger('navColor', [
+                core_1.state('true', core_1.style({})),
+                core_1.state('false', core_1.style({
+                    color: 'white',
+                })),
+                core_1.transition('true => false', core_1.animate('200ms')),
+                core_1.transition('false => true', core_1.animate('200ms'))
+            ])
+        ],
     }),
     __metadata("design:paramtypes", [router_1.Router])
 ], AppComponent);
@@ -39945,8 +39993,8 @@ var FooterComponent = (function () {
 FooterComponent = __decorate([
     core_1.Component({
         selector: 'render-footer',
-        template: "\n    <footer>\n      <div class=\"row\">\n        <div class=\"col-xs-12 col-sm-3\">\n          <strong>Regale nach Mass</strong>\n        </div>\n        <div class=\"col-xs-12 col-sm-3\">\n          <ul>\n            <!--li><img class=\"logo\" src=\"app/images/logo.png\" alt=\"logo\" /></li-->\n            <li><a routerLink=\"/regale\">Home</a></li>\n            <li><a routerLink=\"/gallerie\">Gallerie</a></li>\n            <li><a routerLink=\"/kontakt\">Kontakt</a></li>\n          </ul>\n        </div>\n        <div class=\"col-xs-12 col-sm-3\">\n          <ul>\n            <li><a href=\"http://moebel-restaurierung.com/\" target=\"blank\">moebel-restaurierung.com</a></li>\n            <li><a href=\"http://xn--antik-mbellager-ftb.de/\" target=\"blank\">antik-m\u00F6bellager.de</a></li>\n          </ul>\n        </div>\n        <div class=\"col-xs-12 col-sm-3\">\n          <ul>\n            <li><a routerLink=\"/impressum\">Impressum</a></li>\n            <li><a routerLink=\"/datenschutz\">Datenschutz</a></li>\n          </ul>\n        </div>\n      </div>\n      <div class=\"footer-background-image\">\n        <div class=\"color-overlay\"></div>\n      </div>\n    </footer>\n    <p>\u00A9 Copyright {{currentDate | date: 'yyyy'}}</p>\n  ",
-        styles: ["\n    footer {\n      padding: 20px 20px 0 20px;\n      margin: 25px 0;\n      display: block;\n      clear: both;\n      position: relative;\n      top: 20px;\n      border: 1px solid #C7C7C7;\n    }\n    @media(max-width: 768px) {\n      footer {\n        margin: 0;\n      }\n    }\n    footer ul {\n      list-style-type: none;\n      padding-left: 0;\n    }\n    footer ul li a {\n      color: black;\n      font-size: 16px;\n      cursor: pointer;\n      line-height: 2;\n    }\n    .footer-background-image {\n      position: absolute;\n      top:0;right:0;bottom:0;left:0;\n      background-image: url(\"app/images/background/footer.jpg\");\n      background-size: cover;\n      background-position: center;\n      background-repeat: no-repeat;\n      z-index: -10;\n      filter: opacity(60%);\n    }\n    strong {\n      font-family: 'Playfair Display', serif;\n      font-size: 30px;\n      font-weight: 200;\n    }\n  "]
+        template: "\n    <footer>\n      <div class=\"row\">\n        <div class=\"col-xs-12 col-sm-3\">\n          <strong>Regale nach Mass</strong>\n        </div>\n        <div class=\"col-xs-12 col-sm-3\">\n          <h3>Navigation</h3>\n          <ul>\n            <!--li><img class=\"logo\" src=\"app/images/logo.png\" alt=\"logo\" /></li-->\n            <li><a routerLink=\"/regale\">Home</a></li>\n            <li><a routerLink=\"/gallerie\">Gallerie</a></li>\n            <li><a routerLink=\"/kontakt\">Kontakt</a></li>\n          </ul>\n        </div>\n        <div class=\"col-xs-12 col-sm-3\">\n          <h3>Weiterf\u00FChrende Links</h3>\n          <ul>\n            <li><a href=\"http://moebel-restaurierung.com/\" target=\"blank\">moebel-restaurierung.com</a></li>\n            <li><a href=\"http://xn--antik-mbellager-ftb.de/\" target=\"blank\">antik-m\u00F6bellager.de</a></li>\n          </ul>\n        </div>\n        <div class=\"col-xs-12 col-sm-3\">\n          <h3>Rechtliches</h3>\n          <ul>\n            <li><a routerLink=\"/impressum\">Impressum</a></li>\n            <li><a routerLink=\"/datenschutz\">Datenschutz</a></li>\n          </ul>\n        </div>\n      </div>\n      <div class=\"footer-background-image\">\n        <div class=\"color-overlay\"></div>\n      </div>\n    </footer>\n    <p>\u00A9 Copyright {{currentDate | date: 'yyyy'}}</p>\n  ",
+        styles: ["\n    footer {\n      padding: 20px 20px 0 20px;\n      margin: 25px 0;\n      display: block;\n      clear: both;\n      position: relative;\n      top: 20px;\n      border: 1px solid #C7C7C7;\n      background: #ffbc42;\n      color: white;\n    }\n    @media(max-width: 768px) {\n      footer {\n        margin: 0;\n      }\n    }\n    footer h3 {\n      font-size: 1.3em;\n      color: white;\n    }\n    footer ul {\n      list-style-type: none;\n      padding-left: 0;\n    }\n    footer ul li a {\n      color: white;\n      font-size: 16px;\n      cursor: pointer;\n      line-height: 2;\n    }\n    .footer-background-image {\n      /*\n      position: absolute;\n      top:0;right:0;bottom:0;left:0;\n      background-image: url(\"app/images/background/footer.jpg\");\n      background-size: cover;\n      background-position: center;\n      background-repeat: no-repeat;\n      z-index: -10;\n      filter: opacity(60%);\n      */\n    }\n    strong {\n      font-family: 'Playfair Display', serif;\n      font-size: 30px;\n      font-weight: 200;\n    }\n  "]
     })
 ], FooterComponent);
 exports.FooterComponent = FooterComponent;
@@ -39979,7 +40027,7 @@ var InMemoryDataService = (function () {
                 deco: 'deco a',
                 ledge: 'ledge a',
                 price: 1194,
-                surface: 'geölt + gewachst'
+                surface: 'geölt'
             },
             {
                 id: 2,
@@ -39997,7 +40045,7 @@ var InMemoryDataService = (function () {
                 ledge: 'ledge a',
                 price: 1143,
                 drawer: 1,
-                surface: 'geölt + gewachst'
+                surface: 'geölt'
             },
             {
                 id: 3,
@@ -40018,7 +40066,7 @@ var InMemoryDataService = (function () {
                 deco: 'deco a',
                 ledge: 'ledge a',
                 price: 1494,
-                surface: 'geölt + gewachst'
+                surface: 'geölt'
             },
             {
                 id: 4,
@@ -40027,8 +40075,6 @@ var InMemoryDataService = (function () {
                 imagePath: 'app/images/4/1.jpg',
                 imagePath2: 'app/images/4/2.jpg',
                 imagePath3: 'app/images/4/3.jpg',
-                imagePath4: 'app/images/4/4.jpg',
-                imagePath5: 'app/images/4/5.jpg',
                 state: 1,
                 parts: 1,
                 width: 80,
@@ -40039,7 +40085,7 @@ var InMemoryDataService = (function () {
                 deco: 'keine',
                 ledge: 'keine',
                 price: 846,
-                surface: 'geölt + gewachst'
+                surface: 'geölt'
             },
             {
                 id: 5,
@@ -40060,7 +40106,7 @@ var InMemoryDataService = (function () {
                 deco: 'keine',
                 ledge: 'keine',
                 price: 804,
-                surface: 'geölt + gewachst'
+                surface: 'geölt'
             },
             {
                 id: 6,
@@ -40083,7 +40129,7 @@ var InMemoryDataService = (function () {
                 price: 950,
                 leoDrawers: 0,
                 slidingDoor: 1,
-                surface: 'geölt + gewachst'
+                surface: 'geölt'
                 // TODO 1 segment = 1m breit
                 // oberregal = 600€
                 // schiebetür unten = 400€
@@ -40315,6 +40361,7 @@ var SizeFormComponent = (function () {
     function SizeFormComponent() {
         this.tooWidth = false;
         this.outOfRange = false;
+        this.outputStatus = 'no-warning';
     }
     SizeFormComponent.prototype.validateSize = function (size) {
         this.perSegmentWidth = Math.round(this.shelf.width / this.shelf.parts);
@@ -40322,10 +40369,12 @@ var SizeFormComponent = (function () {
         // if it is out of range
         if (this.perSegmentWidth > 110 || this.perSegmentWidth < 60) {
             this.warning = "60 bis 110 cm pro Segment!";
+            this.outputStatus = 'warning';
             this.outOfRange = true;
         }
         else {
             this.warning = false;
+            this.outputStatus = 'no-warning';
             this.outOfRange = false;
         }
     };
@@ -40339,7 +40388,7 @@ SizeFormComponent = __decorate([
     core_1.Component({
         // moduleId: module.id,
         selector: 'size-form',
-        template: "\n      <form class=\"set-measurments\">\n        <h2>Meine Abmessungen</h2>\n\n        <table class=\"table\">\n          <tr>\n            <td class=\"first-td\">Breite:</td>\n            <td class=\"second-td\">\n              <input [(ngModel)]=\"shelf.width\" type=\"number\" min=\"0\" class=\"form-control\" name=\"inputWidth\" #inputWidth=\"ngModel\" (mouseup)=\"validateSize()\" (keyup)=\"validateSize()\" required > cm\n              <span class=\"per-segment\">{{warning || perSegmentWidthText || \"\"}} </span>\n              <span [hidden]=\"inputWidth.valid || inputWidth.pristine\" class=\"alert-simple\">X</span>\n              <span *ngIf=\"outOfRange\" class=\"alert-simple\">X</span>\n              <span [hidden]=\"inputWidth.invalid || inputWidth.pristine || outOfRange\" class=\"tick\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>\n            </td>\n          </tr>\n          <tr>\n            <td>Tiefe:</td>\n            <td>\n              <input [(ngModel)]=\"shelf.depth\" type=\"number\" min=\"0\" class=\"form-control\" name=\"input-depth\" #inputDepth=\"ngModel\" required> cm\n              <span [hidden]=\"inputDepth.valid || inputDepth.pristine\" class=\"alert-simple\">X</span>\n              <span [hidden]=\"inputDepth.invalid || inputDepth.pristine\" class=\"tick\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>\n            </td>\n          </tr>\n          <tr>\n            <td>H\u00F6he:</td>\n            <td>\n              <input [(ngModel)]=\"shelf.height\" type=\"number\" min=\"0\" class=\"form-control\" name=\"input-height\" #inputHeight=\"ngModel\" required> cm\n              <span [hidden]=\"inputHeight.valid || inputHeight.pristine\" class=\"alert-simple\">X</span>\n              <span [hidden]=\"inputHeight.invalid || inputHeight.pristine\" class=\"tick\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>\n            </td>\n          </tr>\n        </table>\n      </form>\n  ",
+        template: "\n      <form class=\"set-measurments\">\n        <h2>Meine Abmessungen</h2>\n\n        <table class=\"table\">\n          <tr>\n            <td class=\"first-td\">Breite:</td>\n            <td class=\"second-td\">\n              <input [(ngModel)]=\"shelf.width\" type=\"number\" min=\"0\" class=\"form-control\" name=\"inputWidth\" #inputWidth=\"ngModel\" (mouseup)=\"validateSize()\" (keyup)=\"validateSize()\" required > cm\n              <span [ngClass]=\"outputStatus\" class=\"per-segment\">{{warning || perSegmentWidthText || \"\"}} </span>\n              <span [hidden]=\"inputWidth.valid || inputWidth.pristine\" class=\"alert-simple\">X</span>\n              <span *ngIf=\"outOfRange\" class=\"alert-simple\">X</span>\n              <span [hidden]=\"inputWidth.invalid || inputWidth.pristine || outOfRange\" class=\"tick\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>\n            </td>\n          </tr>\n          <tr>\n            <td>Tiefe:</td>\n            <td>\n              <input [(ngModel)]=\"shelf.depth\" type=\"number\" min=\"0\" class=\"form-control\" name=\"input-depth\" #inputDepth=\"ngModel\" required> cm\n              <span [hidden]=\"inputDepth.valid || inputDepth.pristine\" class=\"alert-simple\">X</span>\n              <span [hidden]=\"inputDepth.invalid || inputDepth.pristine\" class=\"tick\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>\n            </td>\n          </tr>\n          <tr>\n            <td>H\u00F6he:</td>\n            <td>\n              <input [(ngModel)]=\"shelf.height\" type=\"number\" min=\"0\" class=\"form-control\" name=\"input-height\" #inputHeight=\"ngModel\" required> cm\n              <span [hidden]=\"inputHeight.valid || inputHeight.pristine\" class=\"alert-simple\">X</span>\n              <span [hidden]=\"inputHeight.invalid || inputHeight.pristine\" class=\"tick\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>\n            </td>\n          </tr>\n        </table>\n      </form>\n  ",
         styleUrls: ['app/css/size-form.component.css'],
     })
 ], SizeFormComponent);
@@ -40381,7 +40430,7 @@ TitleComponent = __decorate([
     core_1.Component({
         selector: 'heading',
         template: "\n    <div class=\"title\">\n      <article class=\"text\">\n        <h1 [ngClass]=\"title == 'Home' ? 'title-on-home' : 'title-no-home'\">  <span class=\"strikeoutd\">Regale</span> nach Mass</h1>\n        <p *ngIf=\"title == 'Home'\" class=\"lead\">\n          Stellen Sie sich mit wenigen Klicks Ihr pers\u00F6nliches Regal zusammen.\n          Unter Verwendung feinster Materialien fertigen wir f\u00FCr Sie St\u00FCcke aus allen Stilen,\n          angepasst an Ihren Wohnraum.\n        </p>\n        <div class=\"title-image\">\n          <div class=\"color-overlay\"></div>\n        </div>\n      </article>\n\n    </div>\n\n  ",
-        styles: ["\n    .title {\n      padding: 0 0 25px 15px;\n      width: 50%;\n      float: right;\n\n    }\n    @media(max-width: 800px) {\n      .title {\n        min-width: 100%;\n        padding: 0;\n      }\n    }\n    .text {\n      padding: 20px;\n      position: relative;\n      border: 1px solid #C7C7C7;\n    }\n    @media(max-width: 768px) {\n      .text {\n        margin-bottom: 20px;\n      }\n    }\n    .title-image {\n      position: absolute;\n      top:0;right:0;bottom:0;left:0;\n      background-image: url(\"app/images/background/header.jpg\");\n      background-size: cover;\n      background-repeat: no-repeat;\n      z-index: -10;\n      filter: opacity(100%);\n      -webkit-filter: opacity(60%);\n\n    }\n\n    .title-on-home {\n      margin-top: 71px;\n      transition: margin-top 0.2s;\n    }\n    .title-no-home {\n      margin-top: 0;\n      transition: margin-top 0.2s;\n    }\n  "],
+        styles: ["\n    .title {\n      padding: 0 0 25px 15px;\n      width: 50%;\n      float: right;\n      color: white;\n    }\n    @media(max-width: 800px) {\n      .title {\n        min-width: 100%;\n        padding: 0;\n      }\n    }\n    .text {\n      padding: 20px;\n      position: relative;\n      background: #ffbc42;\n      z-index: 1010;\n    }\n    @media(max-width: 768px) {\n      .text {\n        margin-bottom: 20px;\n      }\n    }\n    .title-image {\n      position: absolute;\n      top:0;right:0;bottom:0;left:0;\n      //background-image: url(\"app/images/background/header.jpg\");\n      background-size: cover;\n      background-repeat: no-repeat;\n      z-index: -10;\n      // filter: opacity(100%);\n      // -webkit-filter: opacity(100%);\n\n    }\n\n    .title-on-home {\n      margin-top: 71px;\n      transition: margin-top 0.2s;\n    }\n    @media(max-width: 768px) {\n      .title-on-home {\n        margin-top: 0;\n      }\n    }\n    .title-no-home {\n      margin-top: 0;\n      transition: margin-top 0.2s;\n    }\n  "],
     }),
     __metadata("design:paramtypes", [])
 ], TitleComponent);

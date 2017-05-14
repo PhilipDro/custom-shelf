@@ -260,7 +260,7 @@ export class ShelfDetailComponent{
       var mColor = 1;
     }
 
-    if(this.shelf.surface == 'geölt + gewachst') {
+    if(this.shelf.surface == 'geölt') {
       var mSurface = 1;
     }
     else {

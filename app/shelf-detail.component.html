@@ -130,9 +130,9 @@
               <div *ngIf="shelf.color == null" class="configurator">
                 <strong><p>Oberflächenbehandlung:</p></strong>
                 <ul class="round">
-                  <li [class.selected]="shelf.surface === 'geölt + gewachst'" (click)="pickSurface('geölt + gewachst')" class="surface1 tooltip"><span class="tooltiptext">Geölt und gewachst</span></li>
-                  <li [class.selected]="shelf.surface === 'gebeizt + lackiert'" (click)="pickSurface('gebeizt + lackiert')" class="surface2 tooltip"><span class="tooltiptext">Gebeizt und lackiert</span></li>
-                  <li [class.selected]="shelf.surface === 'transparent + lackiert'" (click)="pickSurface('transparent + lackiert')" class="surface3 tooltip"><span class="tooltiptext">Transparent und lackiert</span></li>
+                  <li [class.selected]="shelf.surface === 'geölt'" (click)="pickSurface('geölt')" class="surface1 tooltip"><span class="tooltiptext">Geölt</span></li>
+                  <li [class.selected]="shelf.surface === 'gewachst'" (click)="pickSurface('gewachst')" class="surface2 tooltip"><span class="tooltiptext">Gewachst</span></li>
+                  <li [class.selected]="shelf.surface === 'transparent lackiert'" (click)="pickSurface('transparent lackiert')" class="surface3 tooltip"><span class="tooltiptext">Transparent lackiert</span></li>
                 </ul>
               </div>
             </div>

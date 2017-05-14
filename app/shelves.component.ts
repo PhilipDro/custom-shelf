@@ -1,4 +1,4 @@
-import { Component, OnInit, trigger, state, style, transition, animate } from '@angular/core';
+import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Shelf } from './shelf';
@@ -8,30 +8,30 @@ import { ShelfService } from './shelf.service';
   //moduleId: module.id,
   selector: 'shelves-list',
   template: `
-              <div *ngIf="!selectedShelf" class="shelf-list" [@popOut]="isPopOut">
+              <div *ngIf="!selectedShelf" class="shelf-list">
                 <div class="row">
                   <div class="col-xs-12 col-sm-6">
-
-                    <div class="shelf shelf-big">
-                      <h3>{{shelves && shelves[0].name}}</h3>
-                      <img class="img" src="{{shelves && shelves[0].imagePath}}" (click)="onSelect(shelves && shelves[0])"/>
-                      <p class="jetzt-ansehen">Ab {{shelves && shelves[0].price}} €</p>
-                    </div>
-                  </div>
-
-
-                  <div class="col-xs-12 col-md-6 col-lg-3">
-                    <div class="shelf">
+                    <div class="shelf shelf-big top-seller" (click)="onSelect(shelves && shelves[3])">
                       <h3>{{shelves && shelves[3].name}}</h3>
-                      <img class="img img-responsive" src="{{shelves && shelves[3].imagePath}}" (click)="onSelect(shelves && shelves[3])"/>
+                      <p class="description hidden-xs">{{shelves && shelves[3].description}}</p>
+                      <img class="img resized" src="{{shelves && shelves[3].imagePath}}" />
                       <p class="jetzt-ansehen">Ab {{shelves && shelves[3].price}} €</p>
                     </div>
                   </div>
 
-                  <div class="col-xs-12 col-md-6 col-lg-3">
-                    <div class="shelf">
+
+                  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <div class="shelf stretch vegan" (click)="onSelect(shelves && shelves[0])">
+                      <h3>{{shelves && shelves[0].name}}</h3>
+                      <img class="img img-responsive" src="{{shelves && shelves[0].imagePath}}" />
+                      <p *ngIf="isReady == true" class="jetzt-ansehen">Ab {{shelves && shelves[0].price}} €</p>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                    <div class="shelf" (click)="onSelect(shelves && shelves[4])">
                       <h3>{{shelves && shelves[4].name}}</h3>
-                      <img class="img img-responsive" src="{{shelves && shelves[4].imagePath}}" (click)="onSelect(shelves && shelves[4])"/>
+                      <img class="img img-responsive" src="{{shelves && shelves[4].imagePath}}" />
                       <p class="jetzt-ansehen">Ab {{shelves && shelves[4].price}} €</p>
                     </div>
                   </div>
@@ -39,34 +39,34 @@ import { ShelfService } from './shelf.service';
                 </div>
 
                 <div class="row row-division">
-                  <div class="col-xs-12 col-sm-6">
+                  <div class="col-xs-12 col-sm-12 col-md-6">
                     <div class="row">
                       <div class="info-box">
                         <p class="lead">Bei der Form der Objekte können wir auf alle spezifischen Merkmale der Möbelgeschichte zurückgreifen und sie nach Wunsch auch miteinader vermischen.</p>
                         <div class="info-box-image"><div class="color-overlay"></div></div>
                       </div>
-                      <div class="col-xs-12 col-md-6 col-lg-6">
-                        <div class="shelf">
+                      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="shelf" (click)="onSelect(shelves && shelves[1])">
                           <h3>{{shelves && shelves[1].name}}</h3>
-                          <img class="img img-responsive" src="{{shelves && shelves[1].imagePath}}" (click)="onSelect(shelves && shelves[1])"/>
+                          <img class="img img-responsive" src="{{shelves && shelves[1].imagePath}}" />
                           <p class="jetzt-ansehen">Ab {{shelves && shelves[1].price}} €</p>
                         </div>
                       </div>
 
-                      <div class="col-xs-12 col-md-6 col-lg-6">
-                        <div class="shelf">
+                      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="shelf stretch lango" (click)="onSelect(shelves && shelves[2])">
                           <h3>{{shelves && shelves[2].name}}</h3>
-                          <img class="img img-responsive" src="{{shelves && shelves[2].imagePath}}" (click)="onSelect(shelves && shelves[2])"/>
+                          <img class="img img-responsive" src="{{shelves && shelves[2].imagePath}}" />
                           <p class="jetzt-ansehen">Ab {{shelves && shelves[2].price}} €</p>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="col-xs-12 col-sm-6">
-                    <div class="shelf shelf-big">
+                  <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="shelf shelf-big" (click)="onSelect(shelves && shelves[5])">
                       <h3>{{shelves && shelves[5].name}}</h3>
-                      <img class="img" src="{{shelves && shelves[5].imagePath}}" (click)="onSelect(shelves && shelves[5])"/>
+                      <img class="img" src="{{shelves && shelves[5].imagePath}}" />
                       <p class="jetzt-ansehen">Ab {{shelves && shelves[5].price}} €</p>
                     </div>
                   </div>
@@ -77,28 +77,13 @@ import { ShelfService } from './shelf.service';
             `,
   styleUrls: ['app/css/shelves.component.css'],
   providers: [ShelfService],
-  host: {
-    '(document:scroll)': 'onScroll()'
-  },
-  animations: [
-    // animation for title
-    trigger('popOut', [
-      state('true', style({
-        opacity: 1,
-      })),
-      state('false', style({
-        opacity: 1,
-      })),
-      transition('true => false', animate('200ms')),
-      transition('false => true', animate('200ms'))
-    ])
-  ]
 })
 
-export class ShelvesComponent implements OnInit {
+export class ShelvesComponent implements OnInit, AfterViewChecked {
   selectedShelf: Shelf;
   shelves: Shelf[];
-  isPopOut: string = 'false';
+  isReady: boolean = false;
+
 
   constructor(
     private router: Router,
@@ -106,19 +91,23 @@ export class ShelvesComponent implements OnInit {
 ) {
 }
 
+  ngOnInit(): void {
+    this.getShelves();
+  }
+  ngAfterViewChecked() {
+    this.isReady = true;
+  }
+
+
+
   getShelves(): void {
     this.shelfService.getShelves().then(shelves => this.shelves = shelves);
   }
 
-  ngOnInit(): void {
-    this.getShelves();
-  }
 
   onSelect(shelf: Shelf) {
     this.router.navigate(['/regal', shelf.id]);
     //this.selectedShelf = shelf;
   }
-  onScroll() {
-    this.isPopOut = 'true';
-  }
+
 }

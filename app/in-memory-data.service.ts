@@ -17,7 +17,7 @@ export class InMemoryDataService implements InMemoryDbService {
         deco: 'deco a',
         ledge: 'ledge a',
         price: 1194,
-        surface: 'geölt + gewachst'
+        surface: 'geölt'
       },
       {
         id: 2,
@@ -39,7 +39,7 @@ export class InMemoryDataService implements InMemoryDbService {
         ledge: 'ledge a',
         price: 1143,
         drawer: 1,
-        surface: 'geölt + gewachst'
+        surface: 'geölt'
       },
       {
         id: 3,
@@ -66,7 +66,7 @@ export class InMemoryDataService implements InMemoryDbService {
         deco: 'deco a',
         ledge: 'ledge a',
         price: 1494,
-        surface: 'geölt + gewachst'
+        surface: 'geölt'
       },
       {
         id: 4,
@@ -81,8 +81,6 @@ export class InMemoryDataService implements InMemoryDbService {
         imagePath: 'app/images/4/1.jpg',
         imagePath2: 'app/images/4/2.jpg',
         imagePath3: 'app/images/4/3.jpg',
-        imagePath4: 'app/images/4/4.jpg',
-        imagePath5: 'app/images/4/5.jpg',
         state: 1,
         parts: 1,
         width: 80,
@@ -93,7 +91,7 @@ export class InMemoryDataService implements InMemoryDbService {
         deco: 'keine',
         ledge: 'keine',
         price: 846,
-        surface: 'geölt + gewachst'
+        surface: 'geölt'
       },
       {
         id: 5,
@@ -118,7 +116,7 @@ export class InMemoryDataService implements InMemoryDbService {
         deco: 'keine',
         ledge: 'keine',
         price: 804,
-        surface: 'geölt + gewachst'
+        surface: 'geölt'
       },
       {
         id: 6,
@@ -146,7 +144,7 @@ export class InMemoryDataService implements InMemoryDbService {
         price: 950,
         leoDrawers: 0,
         slidingDoor: 1,
-        surface: 'geölt + gewachst'
+        surface: 'geölt'
         // TODO 1 segment = 1m breit
         // oberregal = 600€
         // schiebetür unten = 400€

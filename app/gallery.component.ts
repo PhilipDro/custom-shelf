@@ -36,6 +36,9 @@ import { Component } from '@angular/core';
 })
 
 export class GalleryComponent {
-  range = new Array(51)
+  range = new Array(51);
+
+  constructor() {
+  }
   //rangeReverse = this.rangeRemoved.reverse();
 }

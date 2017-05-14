@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, trigger, state, style, transition, animate } from '@angular/core';
 import { RouterModule, Routes, Router, ActivatedRouteSnapshot, NavigationEnd, ActivatedRoute, Params, UrlSegment } from '@angular/router';
 
 
@@ -12,17 +12,19 @@ import { ShelfService } from './shelf.service';
 @Component({
   selector: 'app',
   template: `
-    <div class="background-layer"></div>
+    <div *ngIf="isPopOutImg" [@fadeInOut] class="background-layer"><div class="home-overlay"></div></div>
     <div class="container">
       <div class="row nav-container">
         <div class="col-xs-12">
           <nav>
             <div class="container-fluid no-padding">
               <ul class="nav navbar-nav highlighted">
-                <!--li><img class="logo" src="app/images/logo.png" alt="logo" /></li-->
-                <li><a routerLink="/regale" [routerLinkActive]="'nav-active'">Home</a></li>
-                <li><a routerLink="/gallerie" [routerLinkActive]="'nav-active'">Gallerie</a></li>
-                <li><a routerLink="/kontakt" [routerLinkActive]="'nav-active'">Kontakt</a></li>
+                <li class="hidden-xs"><a class="logo-link" routerLink="/regale" [routerLinkActive]="'nav-active'">
+                  <img class="logo" src="app/images/artd.png" alt="logo" /></a>
+                </li>
+                <li><a routerLink="/regale" [routerLinkActive]="'nav-active'" [@navColor]="isPopOut">Home</a></li>
+                <li><a routerLink="/gallerie" [routerLinkActive]="'nav-active'" [@navColor]="isPopOut">Gallerie</a></li>
+                <li><a routerLink="/kontakt" [routerLinkActive]="'nav-active'" [@navColor]="isPopOut">Kontakt</a></li>
               </ul>
             </div>
           </nav>
@@ -30,7 +32,9 @@ import { ShelfService } from './shelf.service';
       </div>
       <heading [title]="title"></heading>
 
-      <router-outlet></router-outlet>
+      <div [@popOut]="isPopOut">
+        <router-outlet></router-outlet>
+      </div>
 
       <render-footer></render-footer>
     </div>
@@ -38,6 +42,14 @@ import { ShelfService } from './shelf.service';
 
   `,
   styles: [`
+      .logo {
+        max-height: 43px;
+        margin-right: 15px;
+      }
+      .navbar-nav li a.logo-link {
+        margin-top: 0;
+        padding-top: 0;
+      }
       @media (min-width: 1200px) {
         .container{
             width: 1200px;
@@ -58,7 +70,7 @@ import { ShelfService } from './shelf.service';
       }
       nav {
         text-align: left;
-        margin: 20px 0;
+        margin: 20px 0 40px 0;
       }
       @media(min-width: 768px) {
         .nav-container {
@@ -77,6 +89,13 @@ import { ShelfService } from './shelf.service';
         font-size: 18px;
         color: grey;
         display: inline-block;
+        padding-bottom: 0;
+      }
+      .navbar-nav li a::-moz-focus-inner {
+        border: 0;
+      }
+      .navbar-nav li a:focus {
+        outline: none;
       }
       .navbar-nav li a:first-child {
         padding-left: 0;
@@ -99,14 +118,49 @@ import { ShelfService } from './shelf.service';
         color: #E0A100;
         text-decoration: underline;
       }
-      .logo {
-        max-height: 60px;
-      }
     `
-  ]
+  ],
+  host: {
+    '(document:scroll)': 'onScroll()'
+  },
+  animations: [
+    // animation for title
+    trigger('popOut', [
+      state('true', style({
+        marginTop: '0px',
+      })),
+      state('false', style({
+        marginTop: '70vh',
+      })),
+      transition('false => true', animate('300ms')),
+      transition('true => false', animate('300ms'))
+    ]),
+    // animation for component fades
+    trigger('fadeInOut', [
+      transition(':enter', [   // :enter is alias to 'void => *'
+        style({opacity:0}),
+        animate(600, style({opacity:1}))
+      ]),
+      transition(':leave', [   // :leave is alias to '* => void'
+        animate(600, style({opacity:0}))
+      ])
+    ]),
+    // animate navigation text color
+    trigger('navColor', [
+      state('true', style({
+      })),
+      state('false', style({
+        color: 'white',
+      })),
+      transition('true => false', animate('200ms')),
+      transition('false => true', animate('200ms'))
+    ])
+  ],
 })
 
 export class AppComponent implements OnInit {
+  isPopOut: string = 'false';
+  isPopOutImg: boolean =  true;
 
   constructor (private router: Router) {
   }
@@ -126,5 +180,8 @@ export class AppComponent implements OnInit {
       }
     });
   }
-
+  onScroll() {
+    this.isPopOut = 'true';
+    this.isPopOutImg = false;
+  }
 }
