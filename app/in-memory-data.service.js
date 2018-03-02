@@ -122,7 +122,11 @@ var InMemoryDataService = (function () {
                 price: 1200,
                 leoDrawers: 0,
                 slidingDoor: 1,
+<<<<<<< HEAD
                 surface: 'geölt'
+=======
+                surface: 'geölt + gewachst'
+>>>>>>> e791b97d7887d30e949a899d24978ee1d1e302bd
                 // TODO 1 segment = 1m breit
                 // oberregal = 600€
                 // schiebetür unten = 400€

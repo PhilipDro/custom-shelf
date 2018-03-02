@@ -1,4 +1,4 @@
-import { Component, Input, trigger, state, style, transition, animate } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 // to process observable route parameters
@@ -77,6 +77,10 @@ export class ShelfDetailComponent{
   }
 
   ngOnInit() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> e791b97d7887d30e949a899d24978ee1d1e302bd
     this.route.params
       .switchMap((params: Params) => this.service.getShelf(+params['id']))
       .subscribe((shelf: Shelf) => this.shelf = shelf);
@@ -345,6 +349,7 @@ export class ShelfDetailComponent{
       Math.round(mWood * mDeco * mLedge * mColor * mSurface * mObject * base +
       aParts + aParts1 + heightPrice + widthPrice +
       aDrawer + aLeoDrawers + aSlidingDoor);
+
   }
 
 

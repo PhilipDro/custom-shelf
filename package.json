@@ -38,9 +38,13 @@
     "angular-in-memory-web-api": "0.3.1",
     "systemjs": "0.20.12",
     "core-js": "^2.4.1",
+<<<<<<< HEAD
     "reflect-metadata": "^0.1.8",
 
     "jquery-lazyload": "1.9.7"
+=======
+    "reflect-metadata": "^0.1.8"
+>>>>>>> e791b97d7887d30e949a899d24978ee1d1e302bd
   },
   "devDependencies": {
     "ts-loader": "2.0.3",

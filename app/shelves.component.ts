@@ -53,11 +53,19 @@ import { ShelfService } from './shelf.service';
                         </div>
                       </div>
 
+<<<<<<< HEAD
                       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="shelf sretch lango" (click)="onSelect(shelves && shelves[2])">
                           <h3>{{shelves && shelves[2].name}}</h3>
                           <img class="img img-responsive" src="{{shelves && shelves[2].imagePath}}" />
                           <p class="jetzt-ansehen">Ab {{shelves && shelves[2].price}} €</p>
+=======
+                      <div class="col-xs-12 col-md-6 col-lg-6">
+                        <div class="shelf">
+                          <h3>{{shelves && shelves[4].name}}</h3>
+                          <img class="img" src="{{shelves && shelves[4].imagePath}}" (click)="onSelect(shelves && shelves[4])"/>
+                          <p class="jetzt-ansehen">Jetzt ansehen!</p>
+>>>>>>> e791b97d7887d30e949a899d24978ee1d1e302bd
                         </div>
                       </div>
                     </div>

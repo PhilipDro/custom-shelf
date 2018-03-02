@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 // to process observable route parameters
@@ -311,24 +310,24 @@ ShelfDetailComponent = __decorate([
         providers: [shelf_service_1.ShelfService],
         animations: [
             // animation for title
-            core_1.trigger('visiChange', [
-                core_1.state('true', core_1.style({
+            trigger('visiChange', [
+                state('true', style({
                     display: 'block',
                 })),
-                core_1.state('false', core_1.style({
+                state('false', style({
                     display: 'none',
                 })),
-                core_1.transition('true => false', core_1.animate('200ms')),
-                core_1.transition('false => true', core_1.animate('200ms'))
+                transition('true => false', animate('200ms')),
+                transition('false => true', animate('200ms'))
             ]),
             // animation for component fades
-            core_1.trigger('fadeInOut', [
-                core_1.transition(':enter', [
-                    core_1.style({ opacity: 0 }),
-                    core_1.animate(200, core_1.style({ opacity: 1 }))
+            trigger('fadeInOut', [
+                transition(':enter', [
+                    style({ opacity: 0 }),
+                    animate(200, style({ opacity: 1 }))
                 ]),
-                core_1.transition(':leave', [
-                    core_1.animate(200, core_1.style({ opacity: 0 }))
+                transition(':leave', [
+                    animate(200, style({ opacity: 0 }))
                 ])
             ])
         ]
