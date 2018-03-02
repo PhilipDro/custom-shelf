@@ -13,7 +13,7 @@ import { ShelfService } from './shelf.service';
                   <div class="col-xs-12 col-sm-6">
                     <div class="shelf shelf-big top-seller" (click)="onSelect(shelves && shelves[3])">
                       <h3>{{shelves && shelves[3].name}}</h3>
-                      <p class="description hidden-xs">{{shelves && shelves[3].description}}</p>
+                      <p class="description hidden-xs hidden-sm">{{shelves && shelves[3].description}}</p>
                       <img class="img resized" src="{{shelves && shelves[3].imagePath}}" />
                       <p class="jetzt-ansehen">Ab {{shelves && shelves[3].price}} €</p>
                     </div>
@@ -21,7 +21,7 @@ import { ShelfService } from './shelf.service';
 
 
                   <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                    <div class="shelf stretch vegan" (click)="onSelect(shelves && shelves[0])">
+                    <div class="shelf sretch vegan" (click)="onSelect(shelves && shelves[0])">
                       <h3>{{shelves && shelves[0].name}}</h3>
                       <img class="img img-responsive" src="{{shelves && shelves[0].imagePath}}" />
                       <p *ngIf="isReady == true" class="jetzt-ansehen">Ab {{shelves && shelves[0].price}} €</p>
@@ -54,7 +54,7 @@ import { ShelfService } from './shelf.service';
                       </div>
 
                       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <div class="shelf stretch lango" (click)="onSelect(shelves && shelves[2])">
+                        <div class="shelf sretch lango" (click)="onSelect(shelves && shelves[2])">
                           <h3>{{shelves && shelves[2].name}}</h3>
                           <img class="img img-responsive" src="{{shelves && shelves[2].imagePath}}" />
                           <p class="jetzt-ansehen">Ab {{shelves && shelves[2].price}} €</p>

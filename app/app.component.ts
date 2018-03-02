@@ -12,10 +12,10 @@ import { ShelfService } from './shelf.service';
 @Component({
   selector: 'app',
   template: `
-    <div *ngIf="isPopOutImg" [@fadeInOut] class="background-layer"><div class="home-overlay"></div></div>
+    <!--div *ngIf="isPopOutImg" [@fadeInOut] class="background-layer"><div class="home-overlay"></div></div-->
     <div class="container">
       <div class="row nav-container">
-        <div class="col-xs-12">
+        <div class="col-xs-12 col-sm-12">
           <nav>
             <div class="container-fluid no-padding">
               <ul class="nav navbar-nav highlighted">
@@ -62,17 +62,18 @@ import { ShelfService } from './shelf.service';
         display: inline-block;
         width: 100%;
       }
-      @media(max-width: 768px) {
+      @media(max-width: 769px) {
         .nav-container {
           margin: 0 auto;
           text-align: center;
+          width: 100%
         }
       }
       nav {
         text-align: left;
         margin: 20px 0 40px 0;
       }
-      @media(min-width: 768px) {
+      @media(min-width: 769px) {
         .nav-container {
           width: 50%;
         }
@@ -159,7 +160,7 @@ import { ShelfService } from './shelf.service';
 })
 
 export class AppComponent implements OnInit {
-  isPopOut: string = 'false';
+  isPopOut: string = 'true';
   isPopOutImg: boolean =  true;
 
   constructor (private router: Router) {

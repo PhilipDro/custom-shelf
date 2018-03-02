@@ -35247,6 +35247,7 @@ var ShelfDetailComponent = (function () {
         this.calcPrice();
     };
     ShelfDetailComponent.prototype.calcPrice = function () {
+        var aParts1 = 0; // workaround für lango m bei 2 segmenten
         var wood = this.shelf.wood;
         switch (wood) {
             case "erle": {
@@ -35357,7 +35358,8 @@ var ShelfDetailComponent = (function () {
                 break;
             }
             case 3: {
-                var mObject = 1.07;
+                var mObject = 1.16;
+                var aParts1 = this.shelf.parts * 400;
                 break;
             }
             case 4: {
@@ -35391,7 +35393,7 @@ var ShelfDetailComponent = (function () {
         var base = 600;
         this.shelf.price =
             Math.round(mWood * mDeco * mLedge * mColor * mSurface * mObject * base +
-                aParts + heightPrice + widthPrice +
+                aParts + aParts1 + heightPrice + widthPrice +
                 aDrawer + aLeoDrawers + aSlidingDoor);
     };
     // custom functions
@@ -40057,7 +40059,7 @@ var InMemoryDataService = (function () {
                 imagePath4: 'app/images/3/4.jpg',
                 imagePath5: 'app/images/3/5.jpg',
                 state: 1,
-                parts: 2,
+                parts: 1,
                 width: 160,
                 depth: 45,
                 height: 220,
@@ -40065,7 +40067,7 @@ var InMemoryDataService = (function () {
                 stain: 'natur',
                 deco: 'deco a',
                 ledge: 'ledge a',
-                price: 1494,
+                price: 1553,
                 surface: 'geölt'
             },
             {
@@ -40126,7 +40128,7 @@ var InMemoryDataService = (function () {
                 stain: 'natur',
                 deco: 'keine',
                 ledge: 'keine',
-                price: 950,
+                price: 1200,
                 leoDrawers: 0,
                 slidingDoor: 1,
                 surface: 'geölt'

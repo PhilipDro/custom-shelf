@@ -136,6 +136,7 @@ var ShelfDetailComponent = (function () {
         this.calcPrice();
     };
     ShelfDetailComponent.prototype.calcPrice = function () {
+        var aParts1 = 0; // workaround für lango m bei 2 segmenten
         var wood = this.shelf.wood;
         switch (wood) {
             case "erle": {
@@ -246,7 +247,8 @@ var ShelfDetailComponent = (function () {
                 break;
             }
             case 3: {
-                var mObject = 1.07;
+                var mObject = 1.16;
+                var aParts1 = this.shelf.parts * 400;
                 break;
             }
             case 4: {
@@ -280,7 +282,7 @@ var ShelfDetailComponent = (function () {
         var base = 600;
         this.shelf.price =
             Math.round(mWood * mDeco * mLedge * mColor * mSurface * mObject * base +
-                aParts + heightPrice + widthPrice +
+                aParts + aParts1 + heightPrice + widthPrice +
                 aDrawer + aLeoDrawers + aSlidingDoor);
     };
     // custom functions

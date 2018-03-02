@@ -58,6 +58,8 @@ export class ShelfDetailComponent{
   // animation state
   state: string = 'true';
 
+
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -183,6 +185,8 @@ export class ShelfDetailComponent{
   }
 
   calcPrice(): void {
+    var aParts1 = 0; // workaround für lango m bei 2 segmenten
+
     var wood = this.shelf.wood;
     switch (wood) {
        case "erle": {
@@ -299,7 +303,8 @@ export class ShelfDetailComponent{
           break;
        }
        case 3: { // lango m
-          var mObject = 1.07;
+          var mObject = 1.16;
+          var aParts1 = this.shelf.parts * 400;
           break;
        }
        case 4: { //setzregal
@@ -338,7 +343,7 @@ export class ShelfDetailComponent{
 
     this.shelf.price =
       Math.round(mWood * mDeco * mLedge * mColor * mSurface * mObject * base +
-      aParts + heightPrice + widthPrice +
+      aParts + aParts1 + heightPrice + widthPrice +
       aDrawer + aLeoDrawers + aSlidingDoor);
   }
 

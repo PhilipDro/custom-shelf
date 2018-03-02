@@ -50,7 +50,7 @@ var InMemoryDataService = (function () {
                 imagePath4: 'app/images/3/4.jpg',
                 imagePath5: 'app/images/3/5.jpg',
                 state: 1,
-                parts: 2,
+                parts: 1,
                 width: 160,
                 depth: 45,
                 height: 220,
@@ -58,7 +58,7 @@ var InMemoryDataService = (function () {
                 stain: 'natur',
                 deco: 'deco a',
                 ledge: 'ledge a',
-                price: 1494,
+                price: 1553,
                 surface: 'geölt'
             },
             {
@@ -119,7 +119,7 @@ var InMemoryDataService = (function () {
                 stain: 'natur',
                 deco: 'keine',
                 ledge: 'keine',
-                price: 950,
+                price: 1200,
                 leoDrawers: 0,
                 slidingDoor: 1,
                 surface: 'geölt'

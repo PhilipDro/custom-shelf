@@ -76,7 +76,7 @@ if(empty($errors)) {
 
   //message to customer
   $from_name = 'Regale nach Mass';
-  $from_email = 'roch.d@freenet.de'; //TODO
+  $from_email = 'info@moebel-restaurierung.com';
   $message ='<h2>Danke für Ihre Anfrage.</h2><p>Sie interessieren sich für folgendes Regal:</p>' . $properties .
     '<p>Wir werden uns in Kürze mit Ihnen in Verbindung setzen, um Weiteres zu besprechen.</p>' .
     '<p>Mit freundlichen Grüßen, <br />Ihr Massregal-Team'
@@ -86,25 +86,33 @@ if(empty($errors)) {
 
   $subject = 'Regale nach Mass - Ihre Anfrage ist eingegangen';
 
+  //headers to customer
+  $headersCustomer .= "MIME-Version: 1.0\r\n";
+	$headersCustomer .= "Content-Type: text/html; charset=UTF-8\r\n";
+	$headersCustomer .= "From: massregal-artd\n";
+	$headersCustomer .= "Reply-To: $from_email";
+
   //message to base
   $subject_base = 'Regale nach Mass - Neue Anfrage';
-  $to_email_base = 'p.drozd@freenet.de';
+  $to_email_base = 'info@moebel-restaurierung.com';
   $message_base = 'Telefonnummer des Klienten: ' . '<strong>' . $_POST['phone'] . '</strong>' .
-    '<p>Nachricht des Klienten:</p><br>' .
+    '<p>Mail des Kunden:</p><br>' .
+    $_POST['mail'] .
+    '<p>Nachricht des Kunden:</p><br>' .
     $_POST['message'] .
-    '<br><p>Klient hat Interesse an folgendem Regal:</p>'.
+    '<br><p>Kunde hat Interesse an folgendem Regal:</p>'.
     $properties
 
     ;
 
-  //headers
+  //headers to base
   $headers .= "MIME-Version: 1.0\r\n";
 	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-	$headers .= "From: test\n";
-	$headers .= "Reply-To: $from_email";
+	$headers .= "From: massregal-artd\n";
+	$headers .= "Reply-To: $to_email";
 
 
-  mail($to_email,$subject, $message, $headers); //mail to customer
+  mail($to_email,$subject, $message, $headersCustomer); //mail to customer
   mail($to_email_base,$subject_base, $message_base, $headers); //mail to base
 
   $response_array['status'] = 'success';
